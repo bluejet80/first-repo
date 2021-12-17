@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       be794449-c989-43ab-b954-351433c894e4
+:END:
+#+title: Bruces Stuff
+
+This is the top level node for things having to do with bruce
+
+-[[id:f1b645e1-a7f3-4556-9c8e-6a49339549c3][Rentals]]
+-[[id:c17d16d6-e451-46cc-b4c7-65e0f9874de3][Wild Iron Shop]]
+-[[id:3d8f6025-e1fb-4ea3-8068-420faa67fde5][Hot Glass]]
+-[[id:ada15eb1-ba57-4106-aa9d-e5a3d4b1f4bb][Ceramics]]
+-

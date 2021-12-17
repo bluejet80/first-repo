@@ -1,0 +1,39 @@
+:PROPERTIES:
+:ID:       542d4d3e-2d3d-47b8-afaf-f3c2432f207c
+:END:
+#+title: month_database
+#+date: [2021-09-24 Fri 23:18]
+
+Here is information about the database project
+
+* Fields of entry
+** Date
+** Subject
+*** specific things
+*** List the possible main headings
+    Programming
+    Music
+    Writing
+    Wildiron
+    Society
+    MakeICT
+    Work
+    Family
+*** Three words
+    The main heading and two other words that further
+    narrow down the focus
+    Three words are enough to get specific
+    
+*** Three sentances
+    Three sentances are enough to communicate an idea
+   
+* Parts of the program
+
+** database file
+
+** input file
+
+** format file
+
+** Save/load file
+

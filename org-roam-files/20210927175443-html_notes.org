@@ -1,0 +1,194 @@
+:PROPERTIES:
+:ID:       3fb8bfa3-240b-43be-984c-fb92fd6f3dd9
+:END:
+#+title: Html Notes
+#+date: [2021-09-27 Mon 17:54]
+
+
+This is the place for notes on HTML and overall concepts of web design.
+
+* The W3C's Element Categorization Scheme
+
+** HTML Coding Conventions
+
+*** Rules to remember:
+    -For every container element, include both a start tag and and end tag.
+    So even though its legal to omit a p elements end tad, don't do it.
+
+    -Use lowercase for all tag names and attributes
+
+    -Use lowercase for attribute values unless there's a reason for
+    Uppercase. For a meta author element, use title case for the authors
+    name because that is how people's names ar enormally spelled
+
+    -For attribute-value assignments, surround the value with quotes, and
+    omit spaces around the equals sign.
+   
+*** HTML Elements should describe web page content accurately.
+    By describing the web pages content accurately it enables you, the
+    programmer to manipulate the web page more effectively using css and
+    javascript
+
+** Content Model Categories
+   With lots of elements (around 115), there are lots of containership rules,
+   (more than 11,000). Rather than having to remember all those its easier to
+   assign elements to categories and have those categories be the basis of
+   the containership rules.
+   Example: For a given web page, if an element X contains another element Y,
+   all you have to do is look up Y's category and determine whether elemet X
+   is allowed to contain elements from Y's category.
+
+   Webpage: [[https://html.spec.whatwg.org/multipage/][W3C Standards]]
+   HTML Validator: [[https://validator.w3.org/][HTML Validator]]
+
+*** Metadata Category
+    This category includes elements that provide information associated with
+    the web page as a whole. 
+
+*** The Flow Category
+    This category includes plain text and all the elements that are allowed
+    in a web page body container. 
+
+*** The Phrasing Category
+    This category that includes elements tha would be appropriate for describing
+    text/phrases inside a paragraph. 
+
+*** The Embedded Category
+    This category includes elements that refer to a resource that is separate
+    from the current web page. 
+
+*** The Interactive Category
+    This category includes elements that are intended for user interaction.
+
+*** The Heading Category
+    This category includes elements that define a header for a group of
+    related content. 
+
+*** The Sectioning Category
+    This category includes elements that define a group of related content. 
+
+** Block Elements
+   This element category is not part of the HTML5 Standard.
+   This category is for Block Elements
+   A block element expands to fill the width of its container, so for a
+   given container, there will be only one block element for each row in
+   the container.
+
+   The <pre> container, preseves the white space and formatting of the text.
+
+   
+** Code-Related Elements
+   These are elements that allow for displaying code on the page.
+   Some are, code, kbd, samp, and var.
+
+** The Span Element
+   The span element (like the div block element) has no innate characteristics,
+   either with regard to content or with regard to presentation. Its presentation
+   characteristics are given to it explicitly by CSS. If you want to apply
+   formatting to some text, and that text does nto coincide with one of the
+   other container elements, then put the text in a span element and apply
+   CSS to the span element. 
+
+** Character reference
+   A character reference is code tha you use to display a character that would
+   otherwise be dificult to display.
+
+   Webpage: [[https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references][Character Reference]]
+
+
+   
+* Cascading Style Sheets
+  
+** Type Selector / Universal Selector
+   Type Selector
+   hr {width: 50%;}
+   Universal Selector
+   * {text-align: center;}
+** The Style Tags
+   The style tags are used if you do not have a separate style.css file
+   The proper position for the style tags are at the bottom of the web
+   page's head container.
+
+   <style>
+     * {text-align: center;}
+     hr {width: 50%;}
+     h2, p {font-style: italic; color: blue;}
+   </style>
+** Class Selectors
+   Class selectors are designated with a period . at the beginning of
+   the selector.
+
+   .red {background-color: tomato;}
+
+   <q class="red">It is stupid to use quote tags.</q>
+   
+*** Class selectors with Element type prefixes
+    syntax:  element-type.class-value {property1: value; property2: value:}
+    Example: q.blue {background-color: skyblue;}
+
+*** Class selectors with * prefix
+    Instead of prefacing a class selector with an element type, you can
+    preface it with a *. Because the astrix is a universal selector, it
+    matches all elements. This is stupid because its the same as just
+    having the class selector by itself. 
+
+** ID Selectors
+   These are like class selectors except for they must be a unique item
+   on the page. You cannot have multiple ID selectors of the same name.
+   This means that the CSS rule will match only one element on the web page.
+
+   Within the CSS code the ID selector is identified by a #.
+
+** Span and div elements
+   If you want to apply css rules to text that doesn't coincide with any
+   HTML5 elements, then you can put the text inside a span or div element.
+   The span element is specifically for applying rules to text already
+   within another element. If you want the text to span the width of its
+   enclosing container, then use the div element.
+   
+** The Cascading Aspect of Style Sheets
+   Table to show where css rules can be defined, Highest to lowest priority:
+   |--------------------------------------------------------|
+   | 1. In an element's style attribute                     |
+   |--------------------------------------------------------|
+   | 2. In a style element in the web page's head section.  |
+   |--------------------------------------------------------|
+   | 3. In an external file                                 |
+   |--------------------------------------------------------|
+   | 4. In the settings defined by a user's browser install |
+   |--------------------------------------------------------|
+   | 5. In the browser's native default settings            |
+   |--------------------------------------------------------|
+   |                                                        |
+
+   Example of a Style Attribute:
+   <h2 style="text-decoration:underlined;">Welcome!</h2>
+   
+   
+** External CSS Files
+   Syntax:
+   <link rel="stylesheet" href="name-of-file">
+
+** CSS Validation Tool
+
+   [[https://jigsaw.w3.org/css-validator/][CSS Validation tool website]]
+
+   
+** CSS Properties
+
+   CSS Reference Website [[https://developer.mozilla.org/en-US/docs/Web/CSS/Reference][Link to website]]
+
+** Font Properties
+   The font property can be used to specify all these more granular
+   font properties.
+
+   font: [font-style-value] [font-variant-value] [font-weight-value] ...
+
+   Use spaces to separate property values and use commas to separate
+   font-family values. 
+
+** Element Box, padding property, margin property
+   pg114 of the web programming pdf book
+
+   
+   

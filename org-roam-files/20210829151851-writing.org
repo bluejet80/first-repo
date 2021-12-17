@@ -1,0 +1,7 @@
+:PROPERTIES:
+:ID:       68e400fd-c973-4723-8934-f8cfa47bc1ab
+:END:
+#+title: Writing
+
+This is the place for writings
+

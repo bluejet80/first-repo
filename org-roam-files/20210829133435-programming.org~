@@ -1,0 +1,84 @@
+:PROPERTIES:
+:ID:       69b09ca2-b265-4191-b11f-1a1d8ebd79b5
+:END:
+#+title: Programming
+
+This is the top level Node for the Programming Category of the Database.
+All of the nodes listed below will deal with programming in some way.
+
+-[[id:c179a479-ba05-49c1-b709-4827359657ac][Java]]
+-[[id:f2cbb87c-4665-4076-b90c-20806b81f2bf][Object Oriented Programming]]
+-[[id:d7c1d54f-fe0d-4561-a122-1deaa84e32cd][Algorithms]]
+-[[id:9ffbe1d1-d081-43df-93c8-899c46ef50d8][Program Projects]]
+-[[id:c7c0bf05-e15e-49f5-a5df-fd7a77623746][Java Script]]
+-[[id:aa914b1a-10c1-4c4e-9981-042d9ff20da8][Python]]
+-[[id:c633afd6-da96-461c-bd35-f15a9df9baeb][HTML/CSS]]
+-[[id:7e5ac42e-1491-43d3-8d70-a00c036fdd58][Emacs Lisp]]
+-[[id:e3031f0d-5f53-422d-9c5c-d142966c7824][Server]]
+-[[id:d6b9c048-f1d4-4d01-b600-f552099d2bac][Test Driven Design]]
+-[[id:7d3e1213-01ac-4ee8-ba00-eb0fc63bfcf6][Full Stack Development]]
+-[[id:1adc15bd-e6bf-45bb-b440-4ff2d1e93d6a][Linux]]
+-[[id:e016c3ee-1cf1-4f73-b3a2-a3036df4550e][PHP/MySQL Database]]
+-[[id:3d7d920c-6a6f-4f3f-8575-7522b7873f95][Git and GitHub]]
+-[[id:680a8fec-345e-4bad-945f-1a3d5acf2a94][Regular expressions]]
+
+
+
+Each topic will have sub topics within it.
+
+This is a file that I started with that has everything in it
+-[[id:b7e676a2-cbd5-4031-bf4d-ab7d1b073299][Outline Program1]]
+
+
+Free tutorials and resources to learn to code
+[[https://www.freecodecamp.org/news/coding-websites-where-you-can-learn-how-to-code-for-free/amp/][FreeCode Camp]]
+
+Tutorials for Software Developers
+[[http://tutorials.jenkov.com/][website link]]
+
+
+* Books on Programming
+  [[https://www.reddit.com/r/programming/comments/f9ut5f/the_most_recommended_programming_books_of_alltime/][Reddit link]]
+
+
+
+* Programming Websites
+  
+** Original website w list
+   [[https://stackify.com/18-websites-every-developer-should-visit-right-now/][website link]]
+   
+** Hacker News
+   [[https://news.ycombinator.com/][website link]]
+   Tech news website like reddit
+   
+** Program Praxis
+   [[https://programmingpraxis.com/][website link]]
+   
+** Slashdot
+   [[https://slashdot.org/][website link]]
+   Tech News Website
+   
+** Reddit Programming
+   [[https://www.reddit.com/r/programming/][website link]]
+   what are other subreddits that might be helpful?
+   
+** D-zone
+   [[https://dzone.com/][website link]]
+   
+** StackExchange
+   [[https://stackexchange.com/sites#technology][website link]]
+   
+** MIT Courses
+   [[https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/][website link]]
+   
+** Code Academy
+   [[https://www.codecademy.com/][website link]]
+
+** Tuts Plus
+   [[https://code.tutsplus.com/][website link]]
+
+** Scotch.io
+   [[https://scotch.io/][website link]]
+
+** stackOverFlow
+   [[https://stackoverflow.com/][website link]]

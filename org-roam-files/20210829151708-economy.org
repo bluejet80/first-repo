@@ -1,0 +1,7 @@
+:PROPERTIES:
+:ID:       ed826ad5-fa50-44f4-ab29-54dd88f6f19a
+:END:
+#+title: Economy
+
+This is for info on Economics and such
+

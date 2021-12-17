@@ -1,0 +1,325 @@
+:PROPERTIES:
+:ID:       3d0fdbde-fa5f-40ed-8300-3b8385eef791
+:END:
+#+title: MIT CourseWare
+#+date: [2021-09-11 Sat 11:28]
+
+The files associated with this are in the folder
+
+C:\home\.spyder-py3\mit_lecture
+
+
+* Important information
+  
+** Block commenting in Spyder
+   Single line Comment C-1
+   Multi-line comment C-4
+   Unblock Multi-line Comment C-5
+
+  
+** Table of contents
+   
+*** Lecture 5 Tuplets, lists, Aliasing, mutability
+    Link to video
+    [[https://www.youtube.com/watch?v=RvRKT-jXvko&list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA&index=17][Lecture 5 Video]]
+
+*** Lecture 6 Recursion and Dictionaries
+    Link to Video
+    [[https://www.youtube.com/watch?v=WPSeyjX1-4s&list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA&index=22][Lecture 6 Video]]
+
+*** Lecture 7 Testing, Debugging, Exceptions
+    Link to Video
+    [[https://www.youtube.com/watch?v=9H6muyZjms0&list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA&index=23][Lecture 7 Video]]
+
+*** Lecture 8 Object Oriented Programming
+    Link to Video
+    [[https://www.youtube.com/watch?v=-DP1i2ZU9gk][Lecture 8 Video]]
+
+*** Lecture 9 Python Classes and Inheritence
+    Link to Video
+    [[https://www.youtube.com/watch?v=FlGjISF3l78&list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA&index=33][Lecture 9 Video]]
+
+*** Lecture 10 Understanding Program Efficiency
+    Link to Video
+    [[https://www.youtube.com/watch?v=o9nW0uBqvEo&list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA&index=36][Lecture 10 Video]]
+
+*** Lecture 11 Understanding Program Eff. Part2
+    Link to Video
+    [[https://www.youtube.com/watch?v=7lQXYl_L28w&list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA&index=37][Lecture 11 Video]]
+
+*** Lecture 12 Searching and Sorting
+    Link to Video
+    [[https://www.youtube.com/watch?v=6LOwPhPDwVc&list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA&index=38][Lecture 12 Video]]
+** 
+
+* Lecture 1 and 2
+
+#+begin_src python
+  
+  print (3 + 4)
+  print ("Harry was" + (" Here!")*3) #Here! is repeated 3 times
+  
+  x = 24537
+  x_str = str(x) # convert int to string
+  print("my fav num is", x,".", "x =", x) #print int with commas
+  print("my fav num is " + x_str +". "+"x = "+ x_str)# print string w +
+  
+  text = input("Type anything...") # user input string
+  print((text + " ")*5)
+  
+  num = int(input("Type a number...")) # user input int
+  print(5*num)
+  
+  import random             # random number between 20-400
+  random.randint(20, 400)
+  
+  n = 0                 # while and for loops
+  while n < 5:
+      print(n)
+      n = n + 1
+  
+  # same as
+  
+  for n in range(5):  # range(start,stop,step)  
+      print(n)
+  
+ 
+#+end_src
+
+* Lecture 3
+
+** Doin stuff with Strings
+
+#+begin_src python
+  
+  s = "abcdefgh"
+  print(len(s)) 
+  
+  ## String Slices
+  print(s[2])
+  print(s[-2]) #negative indexing
+  print(s[2:6]) #slicing [start:stop:step]  stop-1
+  print(s[::-1]) #prints string in reverse
+  print(s[4:1:-2])
+  
+  
+  ## Strings in Python are immutable
+  
+  r = "hello"
+  print(r)
+  r = 'y' + r[1:len(r)] #prints yello
+  print(r)
+  r = 'j' + r[3:len(r)]
+  print(r)
+  r = "Fabulous"
+  r = r[:3] + 'g' + r[3:len(r)] #changing the characters of the string
+  print(r)
+  
+#+end_src
+
+** basic for loop
+
+#+begin_src python
+  
+  s = "abcedfghi"  # for loops
+  
+  for char in s: 
+      if char == 'i' or char == 'u':
+	  print("There is an i or u")
+  
+#+end_src
+
+** Program: Robot Cheers
+
+#+begin_src python
+  
+      an_letters = "aefhilmnorsxAEFHILMNORSX"
+      word = input("I will cheer for you! Enter a word: ")
+      times = int(input("Enthusiasm level (1-10): "))
+  
+    #  i = 0 
+    #  while i < len(word): #This whole block can be replaced with...
+    #      char = word[i]
+  
+    for char in word:
+  
+	  if char in an_letters:
+	      print("Give me an " + char + "! " + char)
+	  else:
+	      print("Give me a " + char + "! " + char)
+  
+  #	i += 1   # incrementation is now unnecessary
+  
+    print("What does that spell?")
+      for i in range(times):
+	  print(word, "!!!")
+  
+#+end_src
+
+    
+** Algorithms
+   All these algorithms will be used to compute the cube root
+
+*** Guess and Check
+    Will only give answer to perfect cubes
+
+    Process:
+    1. get a number from the user
+    2. Use guesses to see if you can incremently obtain the
+       cube root of the number
+    3. Add support for negative numbers
+    4. If number is not a perfect cube, tell user
+    5. print output with support for negative numbers
+       
+
+#+begin_src python
+  
+cube = int(input("Give me a number: "))
+for guess in range(abs(cube) + 1):
+    if guess**3 >= abs(cube):
+        break
+if guess**3 != abs(cube):
+    print(cube, 'is not a perfect cube')
+else:
+     if cube < 0:
+         guess = -guess
+print('The cube root of', cube ,'is', guess)
+  
+#+end_src
+
+**** Bonus Exercise: Get a list of perfect cubes
+
+#+begin_src python
+for num in range(50):
+    num = num**3
+    print(num)
+#+end_src
+
+This prints the perfect cubes from 0-50
+
+0
+1
+8
+27
+64
+125
+216
+343
+512
+729
+1000
+1331
+1728
+2197
+2744
+3375
+4096
+4913
+5832
+6859
+8000
+9261
+10648
+12167
+13824
+15625
+17576
+19683
+21952
+24389
+27000
+29791
+32768
+35937
+39304
+42875
+46656
+50653
+54872
+59319
+64000
+68921
+74088
+79507
+85184
+91125
+97336
+103823
+110592
+117649
+    
+
+*** Approximation
+    Will give approximate solutions to non perfect cubes.
+
+    Process:
+    1. Start with a guess and then increment that guess by a small value
+
+
+#+begin_src python
+
+cube = int(input("Give me a number: "))
+epsilon = 0.01
+guess = 0.0
+increment = 0.001
+num_guesses = 0
+
+while abs(guess**3 - cube) >= epsilon and guess <= cube:
+    guess += increment
+    num_guesses += 1
+print('Number of guesses =', num_guesses)
+if abs(guess**3 - cube) >= epsilon:
+    print('Failed on cube root of', cube)
+else:
+    print(guess, 'is close to the cube root of', cube)
+
+#+end_src
+
+    
+
+*** BiSection Search
+    The process used to find the cube root here is as follows
+    1. gets a high and low boundary
+       this is determined by 0 on the bottom and the number recieved
+       from the user input as the top value.
+    2. the program finds the average of the two numbers and sets that as
+       the guess and then evaluates if the cube of the guess is higher or
+       lower than the initial value of the user input.
+    3. If it is higher, than that guess is set as the high value
+       and if it is lower, the guess is set to the low value
+    4. the program then again averages the two numbers and also
+       increments the num_guesses variable.
+    5. It keeps doing this until it lands on a guess whose cubed value is
+       equal to the initial value and then it exits.
+       
+Here is the code
+
+#+begin_src python
+  
+cube = int(input("Give me a number: "))
+epsilon = 0.01
+num_guesses = 0
+low = 0 
+high = cube
+guess = (high + low)/2.0
+while abs(guess**3 - cube) >= epsilon:
+    if guess**3 < cube :
+        low = guess
+    else:
+        high = guess
+    guess = (high + low)/2.0
+    num_guesses += 1
+print('num_guesses =', num_guesses)
+print(guess, 'is close to the cube root of', cube)  
+  
+  
+#+end_src
+
+* Lecture 4
+
+  Link to Video
+  [[https://www.youtube.com/watch?v=MjbuarJ7SE0&list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA&index=14][Lecture 4 Video]]
+
+  
+  
+

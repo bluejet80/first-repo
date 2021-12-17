@@ -1,0 +1,55 @@
+:PROPERTIES:
+:ID:       cb677292-53fb-4d56-884b-8e9fff94a311
+:END:
+#+title: Programming TODO Aug 2021
+#+date: [2021-08-30 Mon 08:23]
+
+
+Programming TODO Page for August 2021
+
+
+* Emacs/LISP
+** TODO Organize .emacs config file, link it to a .org file
+** DONE Install ORG-ROAM on the server and on computer
+   CLOSED: [2021-08-30 Mon 08:26]
+*** What does this involve?
+**** On linux you need gcc to compile the database file
+**** on windows you need msys2 to run gcc
+** Learn more about LISP
+** Learn more about creating tables in org-mode
+
+* Java
+** TDD Learning
+*** Write a synopsis of this
+**** Link_to_file                                                    :ATTACH:
+     :PROPERTIES:
+     :ID:       38457da4-754f-49d7-a727-d65d73360bee
+     :END:
+*** Come up with programming ideas
+*** Use TDD to work through some of the example programs
+
+* HTML/CSS
+** Research CSS Properties
+
+
+* JavaScript
+** Node.js Course
+*** TODO Go over the first part of the Course Again
+*** 
+
+
+* Website
+** Organize website ideas 
+*** Practice CSS more
+*** Bird Website
+**** Much of the outline for the Passerformies page can be made in emacs. 
+*** Identify different design styles
+
+* Server
+** TODO Get Emacs running on server
+*** Figure out the process for getting it setup
+**** Get LISP
+**** Get Emacs
+**** Configure path
+**** COnfigure .emacs config file
+**** get /usepackage and other packages that will be necessary

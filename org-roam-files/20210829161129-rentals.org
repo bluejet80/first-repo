@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       f1b645e1-a7f3-4556-9c8e-6a49339549c3
+:END:
+#+title: Rentals
+
+Stuff having to do with the rentals
+
+

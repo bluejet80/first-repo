@@ -1,0 +1,1176 @@
+:PROPERTIES:
+:ID:       8c01e0be-b827-43c7-a0df-471140287354
+:END:
+#+title: Land of lisp notes
+#+date: [2021-09-24 Fri 18:20]
+
+Here are notes from the book
+"The Land of Lisp" by Conrad Barski
+
+More information related to this at [[id:5c67152c-52dc-454a-87a8-b937d82c4e0c][Lisp notes]]
+
+* Chapter 1
+  
+** Variables
+*** Global Variables
+   To define a global variable use the commannd DEFPARAMETER
+
+   (defparameter variable value)
+  
+   Using this function the value of your variable can be overwritten
+
+   To define a global variable that cannot be over-written
+   use the command DEFVAR
+   
+   (defvar variable value)
+
+   Global variables in lips have special abilities
+
+*** Local variables and functions
+   To define a _local variable_ use the command LET
+
+   (let (variable declarations)
+      ..body )
+
+    CL-USER> (let ((a 4)
+	           (b 16))
+	       (+ a b))
+    20
+    CL-USER>
+
+    To define a _local function_ use the command FLET
+
+    (flet ((function_name (arguments)
+              ..... function body...))
+      ...body....)
+
+     Single function declaration 
+     
+     CL-USER> (flet ((f (n)
+		       (+ n 10)))
+	        (f 5))
+     15
+     CL-USER>
+
+     Multiple function declaration
+
+     CL-USER> (flet ((f (n)
+		       (+ n 10))
+		     (g (n)
+		       (- n 3)))
+	         (g (f 5)))
+     12
+     CL-USER>
+      
+
+     To make _function names available_ to other declared functions
+     you must use the LABELS command
+
+     CL-USER> (labels ((a (n)
+		         (+ n 5))
+		       (b (n)
+		         (+ (a n) 6)))  ;;If we had used FLET function b would
+	         (b 10))                ;;not have known what function a was. 
+     21
+     CL-USER>
+
+   
+
+** The Guess my number game
+   To make this game we will be defining three global functions
+   - guess-my-number
+   - smaller
+   - bigger
+
+     
+   
+*** Defining Guess-my-number
+    This function uses the values of *big* and *small* variables
+    to guess the player's number
+
+    ash = arithetic shift function - this function halves the sum of the
+    two limits and then shortens the result
+
+
+* Cons List
+  with cons list there has to be two inputs and when creating a list the last
+  input must be nil
+
+* Chapter 4 Conditionals
+  
+** The Symmetry of nil and ()
+   An empty list returns false
+
+#+begin_src lisp
+  
+  (if '()
+      'i-am-true
+      'i-am-false)
+  
+  ;;Returns I-am-false
+  
+  (if '(1)
+      'i-am-true
+      'i-am-false)
+  
+  ;;Returns i-am-true
+  
+#+end_src
+
+   Because we can easily detect empty lists, we can process lists using recursion.
+   With this technique, we can take items from the front of a list and send the
+   rest of the list back to the same function until the list is empty.
+   Many functions in lisp are list-eaters.
+
+   Here is a function that calculates the length of a list this way:
+
+#+begin_src lisp
+  
+  (defun my-length (list)
+    (if list
+	(1+ (my-length (cdr list)))
+	0))
+  
+#+end_src
+
+   Note: calling yourself recursively can sometimes make for slow code. In chapter 14
+   we rewrite my-length using a faster form of recursion. 
+   
+** The four Disguises of ()
+
+   The empty list is the one and only false value in lisp.
+   But there are a total of four versions of it.
+
+   |------+-----|
+   | '()  | ()  |
+   |------+-----|
+   | 'nil | nil |
+   |------+-----|
+
+   All these values will return false
+
+   The important thing is that lisp views all of these things as empty lists.
+   This allows most of your lisp conditionals to be written with an elegant brevity.
+   For instance, there is a constant named nil that evaluates to itself and allows
+   you to omit the quotation mark in the first case.
+   
+** The Conditionals: if and beyond
+
+#+begin_src lisp
+  
+  (if (= (+ 1 2) 3)
+      'yup
+      'nope)
+  
+  (if (= (+ 1 2) 4)
+      'yup
+      ,nope)
+  
+#+end_src
+
+   These conditionals are pretty straight forward. If the statement is true then
+   the next thing is processed.
+   
+*** Odd number
+
+#+begin_src lisp
+  
+  (if (oddp 5)
+      'odd-number
+      'even-number)
+  
+#+end_src
+
+   This just checks to see if the number is odd or not using the oddp function.
+
+   If statements are considered special forms in lisp. They will only evaluate one
+   thing.
+   If you want to do more than one thing, you can use a special command PROGN to
+   wedge other functions into the if statement.
+
+#+begin_src lisp
+  
+  (defvar *number-was-odd* nil)
+  
+  (if (oddp 5)
+      (progn (setf *number-was-odd* t)
+	     'number-odd)
+      'even-number)
+  
+#+end_src
+
+   this function will not only print number-odd but it sets the value of the
+   variable to t.
+
+   
+** When and unless
+
+   Since it is kindof a pain to use progn everytime you want to do multiple things
+   inside an if statement, lisp has several other commands that include an
+   implicit progn.
+   The most basic of these are WHEN and UNLESS
+
+#+begin_src lisp
+  
+  (defvar *number-is-odd* nil)
+  (when (oddp 5)
+    (setf *number-is-odd* t)
+    'odd-number)
+  
+  ;; ODD-NUMBER
+  
+  ;;CL-USER> *number-is-odd*
+  
+  ;; T
+  
+  (unless (oddp 4)
+    (setf *number-is-odd* nil)
+    'even-number)
+  
+  ;; EVEN_NUMBER
+  
+  ;;CL-USER> *number-is-odd*
+  
+  ;; nil
+  
+#+end_src
+
+   With WHEN, all enclosed expressions are evaluated when the condition is true.
+   With UNLESS, all the enclosed expressions are evaluated when the condition is false.
+   The bad things is that neither command does anything but return nil if the
+   condition is the opposite of what is expected. 
+   
+
+
+
+
+** The COND Command
+   
+   This command does everything that the others dont.
+   The COND form is the classic way to do Branching in lisp.
+   Many lisp programers consider the COND form as the one true lisp conditional.
+
+#+begin_src lisp
+  
+  (defvar *arch-enemy* nil)
+  (defun pudding-eater (person)
+    (cond ((eq person 'henry) (setf *arch-enemy* 'stupid-lisp-alien)
+			      '(curse you lisp alien - you ate my pudding))
+	  ((eq person 'johnny) (setf *arch-enemy* 'useless-old-johnny)
+			      '(i hope you choked on my pudding johnny))
+	  (t                  '(why you eat my pudding stranger ?))))
+  
+#+end_src
+
+   The body of a COND uses a layer of parentheses to separate the different branches
+   of the condition. Then the first expression of each parenthesized part contains
+   the condition for making that branch active. 
+
+*** Branching with case
+
+    One final lisp conditional, the CASE form.
+
+    It's common to use the EQ function for conditionals, and CASE lets you supply
+    a value to compare against. Using CASE we can rewrite the previous example.
+
+#+begin_src lisp
+  
+  (defun pudding-eater (person)
+	 (case person
+	   ((henry) (setf *arch-enemy* 'stupid-lisp-alien)
+		    '(curse you lisp alien - you ate my pudding))
+	   ((johnny) (setf *arch-enemy* 'useless-old-johnny)
+		    '(i hope you choked on my pudding johnny))
+	   (otherwise '(why you eat my pudding stranger ?))))
+  
+#+end_src
+    
+  Here the "otherwise" condition is used for everything else.
+  This code is a lot more nice to look at. 
+
+** Cool tricks with conditionals
+
+   
+*** The Stealth conditionals AND and OR
+
+    Here is how we can see if three numbers are odd:
+
+#+begin_src lisp
+  
+  (and (oddp 5) (oddp 7) (oddp 9))
+  
+  ;;T
+  
+  (or (oddp 4) (oddp 7) (oddp 8))
+  
+  ;;T
+  
+#+end_src
+
+   The AND function is true cause they all are odd, and the OR statement is true
+   because 7 is odd
+
+   
+   There is something more to AND and OR that yo umay not notice. So far these two
+   commands look like completely ordinary mathematical operators; they do not look
+   like conditional commands like IF and COND. However, they can be used as such.
+
+#+begin_src lisp
+  
+  (defparameter *is-it-even* nil)
+  
+  (or (oddp 4) (setf *is-it-even* t))
+  
+  ;;T
+  
+  > *is-it-even*
+  
+  ;;T
+  
+  (or (oddp 5) (setf *is-it-even* t))
+  
+  ;;T
+  
+  > *is-it-even*
+  
+  ;;NIL
+  
+  
+#+end_src
+
+   What is happening here is:
+   With a OR Statement if the first statement is true then it returns true and it
+   exits and does not process the rest
+   With an AND Statement if the first statement is false it stops without evaluating
+   the rest of the statement.
+
+   
+
+   
+** Using Functions that return more than just t or nil
+
+   The Lips command MEMBER can be used to check to see if a value is contained in
+   a list.
+
+#+begin_src lisp
+  
+  (if (member 1 '(3 4 1 5))
+      'one-is-in-the-list
+      'one-is-not-in-the-list)
+  
+  ;;ONE-IS-IN-THE-LIST
+  
+  (member 1 '(3 4 1 5))
+  
+  ;;(1 5)
+  
+#+end_src
+
+   So while the MEMBER command checks to see if a value is present, ran by itself it
+   will return everything in the list after the value which is present is forund.
+   The reason that it does this is related to the idea that list are chains of CONS Cells. 
+
+   Another function that really benefits from rich return values is FIND-IF:
+
+
+#+begin_src lisp
+  
+  (find-if #'oddp '(2 4 5 6))
+  
+  ;;5
+  
+  (if (find-if #'oddp '(2 4 5 6))
+      'there-is-an-odd-number
+      'three-is-no-odd-number)
+  
+  ;;there-is-an-odd-number
+  
+#+end_src
+
+   The FIND-IF function actually takes another function, in this case ODDP, as
+   a parameter. FIND-IF will find the first value in the list for which ODDP
+   returns true.
+
+   The FIND-IF function however will not work if you are searching for NIL in a list.
+   The MEMBER function however will work for this. 
+
+** Comparing Stuff
+
+   Rule of THumb:
+   1. Use eq to compare symbols
+   2. Use equal for everything else.
+
+
+   equalp can be used to compare strings with different capitalizations
+   and integers against floating point numbers.
+
+   
+* Chapter 5: Buliding a Text Game Engine 
+** Wizards Adventure Game
+*** Our Game World
+    The game world will consist of three different areas:
+    1. The Attic
+    2. The Living-Room
+    3. The Garden
+
+
+  The player will use a ladder to get to and from the Attic, and a door to get
+  to and from the garden. 
+*** Basic Requirements
+    Our game code will need to handle a few basic things:
+**** Looking Around
+**** Walking in different directions
+**** Picking up Objects
+**** Performing actions on the objects picked up.
+
+    In the present chapter we will address the first three requirements. To perform
+    more complex actions on objects will take a more advanced lisp programming
+    which will be learned in chapter 17
+
+
+   When Looking around in our game world, you will be able to "see" three kinds of
+   things from any location.
+**** Basic Scenery
+**** One or more paths to other locations
+**** Objects that you can pick up and manipulate
+
+     
+*** First we will Describe the Scenery
+    We will do this with an association list.
+
+    We will first create a top-level variable *nodes*, to contain descriptions
+    of the locations that exist in our game.
+
+#+begin_src lisp
+  
+  (defparameter *nodes* '((living-room (you are in the living-room.
+					a wizard is snoring loudly on the couch.))
+			  (garden (you are in a beautiful garden.
+				   there is a well in front of you.))
+			  (attic (you are in the attic.
+				  there is a giant welding torch in the corner.))))
+  
+#+end_src
+
+   This variable contains a list and description of our three locations. In essence the
+   *nodes* variable gives us a way to find a piece of data associated with a lookup key.
+   In this case the key is the name of the place, and the data is the text description.
+
+   One thing that is unusual about the definition of the *nodes* variable, is eventhough
+   it contains descriptions of the various places, it does not actually contain any text
+   strings. Instead of useing text strings we use more fundamental data-types, symbols
+   and lists, to encode this information.
+
+   By using symbols and lists we are able to display text to the user in complex ways,
+   being able to manipulate the messages displayed to players based on their interactions.
+   In real-world situations the information you will need to generate as output will
+   probably be far more complicated than just simple text.
+
+   By keeping your source data strructures free from assumptions regarding the output
+   format from the start, your coding can take full advantage of your programming language.
+   
+*** Describing the Location
+
+    Now that we have created an alist of our game world, we need to create a command to
+    describe a location. To do this we will use the ASSOC function to find the correct
+    item using the key.
+
+#+begin_src lisp
+  
+  (defun describe-location (location nodes)
+    (cadr (assoc location nodes)))
+  
+#+end_src
+
+*** Describing the Paths
+    Now we will describe the paths to different locations.
+    To do this we will create a second variable *edges* that contains the paths
+    that players take to reach other areas.
+
+#+begin_src lisp
+  
+  (defparameter *edges* '((living-room (garden west door)
+				      (attic upstairs ladder))
+			 (garden (living-room east door))
+			 (attic (living-room downstairs ladder))))
+
+#+end_src
+
+   Using this structure, we create the describe-path function, which builds a
+   textual description of a given edge using our symbol system.
+
+#+begin_src lisp
+  
+  (defun describe-path (edge)
+    `(there is a ,(caddr edge) going ,(cadr edge) from here.))
+  
+#+end_src
+
+   Here we use a feature called Quasiquoting, which allows us to create chuncks of
+   data that have small pieces of lisp code embedded in them.
+
+   To do this we use the backquote[`] not a single quote. With the backquote we can
+   then switch back to code mode by using a comma[,] .
+
+   This shows why it was better to use symbols and lists as opposed to strings of text.
+
+   
+*** Describe multiple paths at once
+
+    Now we will use describe-path function to create a more advanced function. Since
+    a location may have any number of paths exiting form it, we need a function that
+    can generate descriptions for all edges from a given location by looking up the
+    location from our data structure of edges.
+
+#+begin_src lisp
+  
+  (defun describe-paths (location edges)
+    (apply #'append (mapcar #'describe-path (cdr (assoc location edges)))))
+  
+#+end_src
+
+   The describe-paths function takes the following steps:
+
+    1. Find the relevant edges.
+    2. Convert the edges to descriptions.
+    3. Join the descriptions
+
+   Lets look a little closer on how this all is done.
+   
+**** Finding the relevant edges
+     The first, inner part of the describe-paths function is pretty straight-forward
+     to find the relevant paths and edges leading from the living-room, we used
+     ASSOC again to look up the location in our list of edges. 
+
+**** Converting the edges to descriptions
+     The MAPCAR function is used frequently by Lispers. This function takes another
+     function and a list, and then applies this function to every member of the list.
+
+     Here is an example:
+
+#+begin_src lisp
+  
+  (mapcar #'sqrt '(1 2 3 4 5))
+  
+  ;; (1.0 1.4142135 1.7320508 2.0 2.236068)
+
+  (mapcar #'car '((foo bar) (baz qux)))
+
+  ;; (foo baz)
+  
+#+end_src
+
+   Functions that take other functions as parameters, such as MAPCAR, are very
+   useful and a distinguishing feature of lisp.
+   Such functions are called higher-order functions.
+
+   Lisp requires you to use the function operator [#] when refering to a function
+   as a value directly like this, beacuase the name of a function may conflict
+   with other named items in a program, causing unpredictable errors.
+
+   Lisp tracks function names differently from variable names. It has multiple
+   namespaces, including one for variables and one for functions.
+
+  
+**** Joining the Descriptions
+     Once we've used MAPCAR to generate a list of descriptions for all the paths and edges,
+     we need to combine them into a single description. We accomplish this with the
+     APPEND function, which joins several lists into one big list.
+
+     Here is an example
+
+#+begin_src lisp
+  
+  (append '(mary had) '(a) '(little lamb.))
+  
+  ;;(MARY HAD A LITTLE LAMB.)
+
+  (apply #'append '((mary had) (a) (little lamb)))
+
+  ;;(MARY HAD A LITTLE LAMB)
+  
+#+end_src
+
+   As you can see in the second example we used the APPLY function to combine a larger
+   list into one list. This is helpful when we need to nest a bunch of functions and
+   yet want them to display their output in one individual list. 
+
+
+   WARNING: Since the apply function passes each item in a list as an argument to the
+   target function, you can run into problems when calling it on very large lists that
+   have thousands of items or more. You can check the value of the call-arguments-limit
+   variable in the REPL to see the maximum number of arguments allowed to a function.
+
+   (format t "~:d" call-arguments-limit)
+4,611,686,018,427,387,903
+  
+*** Describing an Objects specific location
+    To create the final piece of code to help us visualize our game world, we need
+    to describe the objects on the floor at a given location, which a player can
+    pick up and use. 
+
+**** Listing Visible Objects
+     To do this we must first create another variable that is a list of all the objects.
+
+#+begin_src lisp
+  
+  (defparameter *objects* '(whiskey bucket frog chain))
+  
+  (defparameter *object-locations* '((whiskey living-room)
+				    (bucket living-room)
+				    (chain garden)
+				    (frog garden)))
+  
+#+end_src
+
+  With the second variable we create the object locations.
+
+
+#+begin_src lisp
+  
+  (defun objects-at (loc objs obj-locs)
+    (labels ((at-loc-p (obj)                             ;;defining the function
+	       (eq (cadr (assoc obj obj-locs)) loc)))   ;;defining the function
+      (remove-if-not #'at-loc-p objs)))  ;; call to the function
+  
+#+end_src
+
+   There is a lot to this code.
+   This is a form of encapsulation?
+
+   This objects-at function declares a new function named at-loc-p using
+   the LABELS command. (The LABELS function allows you to define functions
+   locally) Since the at-loc-p function won't be used elsewhere, we can
+   just declare it directly within objects-at, hiding it from the rest of
+   the code in the program.
+
+   The at-loc-p function takes the symbol for an object and returns t or
+   nil, depending on whether that object exists at that location loc.
+   It does this by looking up the object in the obj-locs alist. Then it
+   uses eq to see whether the location it finds matches the location in question.
+
+   Why did we name this function at-loc-p? When a function returns nil or
+   a truth value, it's a convention of lisp to append a p to the of that
+   function name. Like ODDP returns T or Nil if a number is odd. Such true
+   and false functions are called predicates, which is why we use the
+   letter p.
+
+   The remove-if-not function in the last line of the listing, as you
+   might expect, removes all things from a list for which a passed-in
+   function doesn't return true. Essetially it returns a filtered list
+   of objects consisting of those items for which at-loc-p is true.
+
+   Here is what the result looks like:
+
+   (objects-at 'living-room *objects* *object-locations*)
+(WHISKEY BUCKET)
+
+*** Describing Visible objects
+    Now we can write the function to describe the objects visible at a
+    given location.
+
+#+begin_src lisp
+  
+  (defun describe-objects (loc objs obj-loc)
+    (labels ((describe-obj (obj)
+	       `(you see a ,obj on the floor.)))
+      (apply #'append (mapcar #'describe-obj (objects-at loc objs obj-loc)))))
+  
+#+end_src
+
+   the function returns:
+
+   (describe-objects 'living-room *objects* *object-locations*)
+(YOU SEE A WHISKEY ON THE FLOOR. YOU SEE A BUCKET ON THE FLOOR.)
+    
+*** Describing it All
+    
+    Now we tie all of these description functions into one easy command called
+    look. Because this will be the actual command that players enter to look
+    around them in the game, look will need to know the player's current
+    location.
+    So we begin by making a variable for the players current location.
+
+#+begin_src lisp
+  
+  (defparameter *location* 'living-room)
+  
+  (defun look ()
+    (append (describe-location *location* *nodes*)
+	    (describe-paths *location* *edges*)
+	    (describe-objects *location* *objects* *object-locations*)))
+  
+#+end_src
+
+   Because the *location* value is initialized to the living-room symbol,
+   which occurs at the very start of the game, players will find themselves
+   in the living room of the wizard's house.
+
+   Since the look function uses global variable names, the payer doesn't
+   have to pass in any funcky values in order to look out at the world.
+   However, this also means that the look function is not in the functional
+   programming style, because functions in the functional programming
+   style reference only parameters or variables declared in the function
+   itself.
+
+   Since the player's location changes as the game progresses, look will do
+   different things at different times in the game. In contrast a function
+   in the funtional programming style always returns the same result, as
+   long as the same values are given as parameters.
+
+   The earlier functions we created, such as describe-location, etc.. they
+   always return the same thing, no matter when they are called, as long
+   as their parameters are kept the same.
+
+   CL-USER> (look)
+(YOU ARE IN THE LIVING-ROOM. A WIZARD IS SNORING LOUDLY ON THE COUCH. THERE IS
+ A DOOR GOING WEST FROM HERE. THERE IS A LADDER GOING UPSTAIRS FROM HERE. YOU
+ SEE A WHISKEY ON THE FLOOR. YOU SEE A BUCKET ON THE FLOOR.)
+
+   
+*** Walking Around in Our World
+    Now that we can see things in our world, lets write some code so that we
+    can walk around.
+    The walk function (not in the functional style) takes a direction and lets
+    us walk there.
+
+
+#+begin_src lisp
+  
+  (defun walk (direction)
+    (let ((next (find direction
+		      (cdr (assoc *location* *edges*))
+		      :key #'cadr)))
+      (if next
+	  (progn (setf *location* (car next))
+		 (look))
+	  '(you cannot go that way.))))
+  
+#+end_src
+
+
+   First, this function looks up the available walking paths in the *edges* table,
+   using the current location. This is used by the FIND function to locate the path
+   marked with the appropriate direction. (FIND searches a list for an item, then
+   returns the found item.) The direction (such as west, upstairs, and so on..) will
+   be in the cadr of each path, so we need to tell FIND to match the direction against
+   the cadr of all the paths in the list.
+
+   We can do this by passing FIND a keyword parameter. In lisp, many functions(such as
+   find) have built-in features that can be accessed by passing in special parameters
+   at the end of the function call.
+
+   For example: the following code finds the first item in a list that has the symbol
+   y in the cadr location:
+
+#+begin_src lisp
+  
+  (find 'y '((5 x) (3 y) (7 z)) :key #'cadr)
+  
+  ;;(3 Y)
+  
+  (find '7 '((5 x) (3 y) (7 z)) :key #'car)
+  
+  ;;(7 Z)
+  
+#+end_src
+
+   A keyword parameter has two parts:
+   
+**** The first is the name (in this case :key), which begins with a colon.
+     (we discuss the meaning of the [:] colon more in chapter 7)
+
+**** The second in the value, which in this case is #'cadr.
+
+   We use keyword parameters the same way in out walk function to find the
+   proper path based on the given direction.
+
+   Once we have the correct path, we stre the results in the variable next.
+   The if expression then checks whether next has a value (is next nil?).
+   If next has a value, if adjusts the player's position because this is a
+   valid direction. The call to look retrieves the description for the new
+   location and returns it as a value.
+   If the player chooses an invalid direction, look will generate an
+   abonishment instead of a new description.
+
+   (walk 'west)
+(YOU ARE IN A BEAUTIFUL GARDEN. THERE IS A WELL IN FRONT OF YOU. THERE IS A
+ DOOR GOING EAST FROM HERE. YOU SEE A FROG ON THE FLOOR. YOU SEE A CHAIN ON THE
+ FLOOR.)
+
+   There is a quote in front of the direction, since the direction name needs to
+   be written in data mode. It's kind of awkward but the interface we are creating
+   now is intended for easy debugging and development. It's not even really an
+   interface because we are just entering commands directly into the REPL.
+
+   In the next chapter, we will create a much nicer interface using a custom REPL
+   designed for playing text games that will take care of this inconvenience.
+
+   NOTE: You could use lisp macros to create a command in a vanilla lisp REPL
+   that doesn't require the quote in front of the direction, so that you could
+   just write (walk west), for instance. Macros are discussed in Chapter 16.
+
+   
+*** Picking up Objects
+    Next, Let's create a command to pick up objects in our world.
+    To do so, we will modify the variable *object-locations* that we use to
+    track the location of objects.
+
+#+begin_src lisp
+  
+  (defun pickup (object)
+    (cond ((member object
+		   (objects-at *location* *objects* *object-locations*))
+	   (push (list object 'body) *object-locations*)
+	    `(you are now carrying the ,object))
+	  (t '(you cannot get that.))))
+  
+#+end_src
+
+   The pickup function uses the member function to see if the object is
+   indeed on the floor of the current location.
+   (member function checks to see if an item is in a list of items)
+
+   We use the objects-at command to generate the lists of objects at the
+   current location.
+
+   If the object is at the current location, we use the push command to
+   push a new item onto the *object-locations* list, consisting of the
+   item and its new location. The new location will just be BODY, for the
+   players body.
+
+   The push command simply adds a new item to the front of a list variable's
+   list. For Example:
+
+#+begin_src lisp
+  
+  (defparameter *foo* '(1 2 3))
+  ;; *FOO*
+  (push 7 *foo*)
+  ;; (7 1 2 3)
+  
+#+end_src
+
+   This push command is basically a convenience function built on top of
+   setf. For example, we could have replaced the preceding push command
+   with (setf *foo* (cons 7 *foo*)) and obtained the same result.
+
+   Pushing a new location for an object onto our *object-locations* alist
+   does seem a bit odd. Since we are never removing the old locations from
+   the list, just pushing new ones on, it means that this list now has
+   two stored locations for the object in question.
+
+   Fortunately, the ASSOC command, which we use to find objects in a given
+   location (within the objects-at command), always returns the first item
+   it finds in a list. Therefore, using the push command makes the ASSOC
+   command behave as if the value in the list for a given key has been
+   replaced all together.
+
+   
+   
+*** Checking our Inventory
+    Finnally we are going to create a function that lets players see an
+    inventory of objects they are carrying.
+
+#+begin_src lisp
+  
+  (defun inventory ()
+    (cons 'items- (objects-at 'body *objects* *object-locations*)))
+  
+#+end_src
+
+  This inventory function uses the objects-at function to retrive a list
+  of objects at a requested location. We have specified in the function
+  for it to look in the BODY location.
+
+  > (inventory)
+  (ITEMS- WHISKEY)
+
+
+  This concludes Chapter 5
+
+
+  
+* Chapter 6: Interacting with the World
+  Reading and Printing in LISP
+  
+** Creating a User Interface
+   There are many graphical user interface libraries in LISP, as well
+   as libraries for building web interfaces. In fact we will be
+   building a web interface in chapter 13.
+
+   In this chapter we will focus on creating a command-line interface.
+
+*** Printing to the screen
+    The print function simply lets you print stuff to the console:
+
+#+begin_src lisp
+  
+#+end_src
+
+   > (print "foo")
+   "foo"
+   "foo"
+
+   The first item printed is what you wanted to print the second item
+   is there because the REPL always returns the value of any expression
+   that is entered.
+
+   
+*** Saying Hello to the User
+    The following function asks the user for their name and then prints
+    a message with their name.
+
+#+begin_src lisp
+  
+  (defun say-hello ()
+    (print "Please type your name:")
+    (let ((name (read)))
+      (print "Nice to meet you, ")
+      (print name)))
+  
+#+end_src
+
+
+   CL-USER> (say-hello)
+
+   "Please type your name:" Jarett
+
+   "Nice to meet you, " 
+   JARETT 
+   JARETT
+   CL-USER> 
+
+   In the first line of the function we ask the user to input their name.
+   Next, we define a local variable called name which is set to the value
+   returned by the read function. The read function will cause LISP to wait
+   for the user to type in something at the REPL. Only after the user has
+   typed something into the prompt and hit enter, will the variable name
+   be set the the result.
+
+   
+*** Starting with Print and Read
+
+    The print and read functions think about values with the mind of a
+    computer, not a human. Strings are usually surrounded by quotes.
+
+    Almost any conceivable type of data in LISP can be printed and read
+    using these commands, without the slightest bit of loss. This can
+    be really valuable if you want to write some hairy huge piece of
+    data to a file to load in again at a later date.
+
+    As a simple example, the following code has the exactly the same
+    design as the previous function, but amazingly, it can read and print
+    a number instead of a string. 
+
+#+begin_src lisp
+  
+  (defun add-five ()
+    (print "Please enter a number:")
+    (let ((num (read)))
+      (print "When I add five I get")
+      (print (+ num 5))))
+  
+#+end_src
+
+   Notice how the program prints and reads numbers without the use of
+   quotes, since LISP knows when something is a number just by seeing
+   the number in its raw form.
+
+   Some Examples of print results
+
+   (print '3) > 3 - an integer
+   (print '3.4) > 3.4 - a float
+   (print 'foo) > foo - a symbol, should display in all CAPS
+   (print '"foo") > "foo" - a string
+   (print '#\a) > #\a - a character
+
+   The single quote could have been omitted in all except the symbol,
+   because LISP would have read it as a function.
+
+   The last example shows how literal characters are entered in LISP.
+   To create a LISP character, just place the #\ symbol in front of
+   the actual character. LISP also has speacial literals defined for
+   non-visible characters. The most important for everyday use are
+   #\newline, #\tab, #\space.
+
+   It is possible to create case-sensitive symbols with the | pipe
+   symbol. |CaseSensitive| symbol
+
+   |This is a Symbol! |
+
+   
+*** Reading and printing stuff the way humans like it
+    In order to format the output of the print command to where it
+    looks a little better we can use the command PRINC.
+
+ #+begin_src lisp
+   
+   (progn (princ "This sentence will be interrupted")
+	  (princ #\newline)
+	  (princ "by an annoying newline character."))
+   
+ #+end_src
+
+   So the main difference between the two, besides one printing nicer,
+   is that the PRINT command prints objects so that the can be read
+   back into their internal representation. Whereas if you wish to
+   generate nice printed text use PRINC.
+
+   To tell the computer to just let users type whatever they want and
+   always treat the whole thing as a String, you use the READ-LINE
+   command. But this command has none of the sophistication of the
+   read, print, or princ functions since it knows only characters and
+   strings.
+
+   Now we will re-write the first say-hello function to include what
+   we've learned.
+
+#+begin_src lisp
+  
+  (defun say-hello ()
+    (princ "Please type your name:")
+    (let ((name (read-line)))
+      (princ "Nice to meet you, ")
+      (princ name)))
+  
+#+end_src
+
+
+
+*** Symmetry Between Code and Data in Lisp pg91
+    
+    Lisp can treat program code and data interchangably. A programming
+    language that uses the same data structures to store data and
+    program code is called /homoiconic/.
+
+    The differences between code mode and data mode were covered in
+    chapter 3. In the previous chapter we took this concept one step
+    further by using a quasiquote when defining the describe-path function.
+
+    Quoting and quasiquoting faculties in lisp are somewhat limited in
+    their abilites. What if we generate a piece of Lisp code from scratch
+    somehow and wish to execute it is if were a piece of code?
+
+    For example, lets store a raw chunck of code inside a variable.
+
+    (defparameter *foo* '(+ 1 2))
+    *FOO*
+
+    How could we execute the code contained within the *foo* variable?
+    To do this we use the EVAL function
+
+    (eval *foo*)
+    3
+
+    Because the EVAL command is so powerful, yet simple, its extremely
+    enticing to beginner lispers. You want to write a program with
+    self-modifying code? The EVAL will be your best friend.
+
+    Using EVAL can present a security risk as well so the more knowledge
+    you gain about it the better. pg101 for more info.
+
+    
+*** Adding a Custom Interface to Game Engine
+    So far we have been entering commands on the lisp REPL to control
+    our game. It works really well for prototying a game!
+    But now it is time to develop our own custom game interface.
+
+    
+***** Setting up a custom REPL
+
+  #+begin_src lisp
+  
+    (defun game-repl ()
+      (loop (print (eval (read)))))
+  
+  #+end_src
+
+     First this function reads a command, then it evals it, and then
+     prints it. The LOOP command just loops this process forever.
+     In Slime you'll need to hit C-c C-b get out of the
+     infinite loop.
+
+     As you can see, its easy to build your own REPL by simply
+     calling read, eval, print, and loop. 
+
+***** Now to customize our REPL
+      In order to customize our REPL we will be creating our own
+      versions of the read, eval, and print functions.
+
+      Therefore we will redefine game-repl as follows
+
+  #+begin_src lisp
+    
+    (defun game-repl ()
+      (let ((cmd (game-read)))
+	(unless (eq (car cmd) 'quit)
+	  (game-print (game-eval cmd))
+	  (game-repl))))
+    
+  #+end_src
+  
+     In this version, we first assign the input from the user to
+     a local variable cmd. This way we can intercept a call to
+     quit and use it to exit the game-repl. Otherwise, the function
+     evals and prints using our custom made versions of these
+     functions. Finally, the game-repl function calls itself
+     recursively, causing it to loop back as long as no call to
+     quit had been issued earlier.
+
+     
+***** Writing a Custom Read Function
+      The purpose of our game-read function will be to fix the
+      two annoyances that make the original read function not
+      right for playing our game.
+
+      
+****** FIRST
+       The standard lisp read forces us to put parentheses around
+       our commands. To fix this we will just call read-line and
+       stick in our own parentheses. 
+
+****** Second
+       With read, we must put a quote in front of any function
+       commands. we dont want to have to do that either. So
+       we can just put a quote in front of the parameter after
+       the fact.
+
+       Here is the definition of the game-read function
+
+  #+begin_src lisp
+    
+    (defun game-read ()
+      (let ((cmd (read-from-string
+		  (concatenate 'string "(" (read-line) ")"))))
+	(flet ((quote-it (x)
+		 (list 'quote x)))
+	  (cons (car cmd) (mapcar #'quote-it (cdr cmd))))))
+    
+    
+  #+end_src
+
+     The read-from-string command works just like the read command
+     except lets us read a syntax expression (or any other Lisp
+     datatype) from a string instead of directly from the console.
+
+     The string we use for this is a tweaked version of a string we
+     get from read-line. We tweak it by using concatenate to join
+     the strings together and add parentheses around them.
+
+     So we create the string and then read-from-string reads it as
+     if we entered that into the console.
+
+     Next, we define a local function called quote-it, which we
+     can use to quote any arguments the player has in a command.
+     We do this quite easily because there is a handy lisp
+     function called quote that adds a quote to the front of a
+     command.
+
+     Then we just make a list by consing (car cmd) the first
+     thing entered and them using mapcar to add quotes to all
+     the other commands enterd.
+
+     then we can achieve (foo 'bar 'bar 'bar) from "foo bar bar bar"
+
+     

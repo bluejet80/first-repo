@@ -1,0 +1,461 @@
+:PROPERTIES:
+:ID:       c179a479-ba05-49c1-b709-4827359657ac
+:END:
+#+title: Java
+
+[[id:5ecfd482-a98f-4eab-b842-f6b00428090b][Program journal]]
+
+
+This is the node for Java Programming Stuff
+
+* |###########################|  
+
+* Projects
+  
+** First projects
+*** German_tutorial
+**** Info about video
+***** This video focuses on TDD
+***** Everything is in a Maven Package
+**** Dependencies
+**** contains package scene creator
+***** uses hash map to hold the various elements
+***** Path to src
+***** C:\Users\Jarett\eclipse-workspace\German_tutorial\src\com\jaretty\scenecreator
+***** [[C:\Users\Jarett\eclipse-workspace\German_tutorial\src\com\jaretty\scenecreator][src dir]]
+***** 
+**** contains package coverter
+***** [[C:\Users\Jarett\eclipse-workspace\German_tutorial\src\com\jaretty\converter][src dir]]
+**** contains package for the Kid java video
+
+*** GuiTest
+*** GuiWindow
+*** Java_youtube
+*** Program1
+*** Screensaver1
+**** Pulled a file from the internet and I am gonna
+     hash it out and break it down to its bare bones
+     and then rebuild it, taylored to the output
+     I want. 
+**** [[id:3f5ea8d9-5776-485a-abf8-10b65083982b][Link to src]]
+** Second Projects
+*** TTD Book
+   
+* Notes
+
+** Algorithms by Robert Sedgwick
+   
+   [[id:5a6cc880-eafa-4282-97d7-a2f09beb99db][Algorithms Book Notes]]
+
+**** [[https://docs.google.com/spreadsheets/d/1USdnyCIsULrp-K6I2R5g49L72RUm5yCBwdvtMJ3PGGQ/edit#gid=1533720024][Table of Contents - Programming Study]]
+**** Book is a PDF
+**** Currently on Static Methods Pg22
+**** Setup a schedule for study
+** Java Fundamentals
+   [[id:e39a2f8f-8b6a-484c-851a-dd36706526b5][Java Fundamentals]]
+
+* Guides
+  Maven setup, Quick Start, Package management 
+  
+** Package Management
+*** Maven
+
+*** JUnit
+
+** Eclipse
+
+*** Installation Guide Eclipse Windows
+    
+**** Download eclipse
+
+**** 
+
+*** Starting a new project in eclipse
+**** What is the project, domain and all that?
+    
+**** [[id:d6b9c048-f1d4-4d01-b600-f552099d2bac][Test Driven Design]]
+***** Introduction to Testing
+****** [[https://java-programming.mooc.fi/part-6/3-introduction-to-testing][website link]]
+    
+**** Connecting to GitHUb
+     [[id:3d7d920c-6a6f-4f3f-8575-7522b7873f95][Git and GitHub]]
+
+    
+**** Great video that summarizes OOP
+     [[https://www.youtube.com/watch?v=CWYv7xlKydw][Link to video]]
+
+**** Design Patterns in Java
+     [[https://www.decipherzone.com/blog-detail/design-patterns-java][Website]]
+
+** Useful Functions
+      
+*** Inputs
+
+**** string.equals("string")
+     When you are taking input and want to know if the input is equal to something
+     and if it is then you will do this:
+  #+begin_src java
+    package packagename;
+    import java.util.Scanner;
+   
+    public class Main {
+   
+	public static void main(String[] args) {
+	    Scanner input = new Scanner(System.in);
+	    String name = input.nextLine();
+   
+	    if (name.equals("Jarett")) {
+		System.out.println("You typed Jarett");
+		}
+	    system.out.println("You didn't type Jarett"
+	}
+    }
+  #+end_src
+
+**** |###########################|
+    
+**** Parsing an input for an integer
+     All inputs are taken as strings so if you want to work with an integer that is
+     input then you must parse the integer from the input.
+
+ #+begin_src java
+   Scanner input = new Scanner(System.in); // initialize scanner
+   String inputStrg = input.nextLine();
+   int age = Integer.parseInt(inputStrg); //parse string for int
+  
+   if (age >= 13) {
+       System.out.println("You can ride!");
+   } else {
+       System.out.println("You connot ride!");
+   }
+ #+end_src
+
+**** |###########################|
+    
+*** Arrays
+
+**** How to setup arrays
+
+ #+begin_src java
+  
+   package packagename;
+  
+   public class Main {
+  
+       public static void main(String[] args) {
+  
+	   String[] newArr = new String[5]; // initialize array with 5 items
+	   newArr[0] = "hello";
+	   newArr[1] = "hi";
+	   newArr[2] = "Jarett";  /// populating the array
+	   newArr[3] = "Bill";
+	   newArr[4] = "potato";
+  
+	   String x = newArr[4];
+	   System.out.println(x); // prints the 5th item in the "newArr" array
+  
+	   // other types of arrays
+  
+	   int[] nums = {2,3,54,63,7};
+  
+	   double[] nums2 = {3.45, 5.87, 6.73};
+  
+	   int y = nums[3];
+	   System.out.println(y); // prints the 4th item in the "nums" array
+  
+       }
+   }
+  
+ #+end_src
+
+**** |###########################|
+
+*** For Loops / Arrays
+    For loops are used in instances where you wish to loop a specific amount of times
+
+**** Print a list of numbers with a for loop/ print an array
+
+ #+begin_src java
+  
+   package packagename;
+  
+   public class Main {
+  
+       public static void main(String[] args){
+  
+	   for (int i = 0; i <= 10; i++) {
+	       System.out.println(i);       // prints out numbers 0-10
+	   }
+	   for (int i = 0; i <= 10; i+=5) {
+	       System.out.println(i);       // prints out numbers 0,5,10
+	   }
+	   int[] arr = {1,5,7,3,6,12,40}; // initialized array
+  
+	   for (int i = 0; i < arr.length; i++) {
+	       System.out.println(arr[i]);  // prints the values in the array
+  
+	       if (arr[i] == 5) {
+		   System.out.println("Found a 5!");   // prints only when it finds a 5
+	       }
+	   }
+       }
+   }
+ #+end_src
+
+**** |###########################|
+
+**** Easier way to print out elements in an array
+
+ #+begin_src java
+   public static void main(String[] args){
+  
+       int[] arr = {4,5,3,7,21,44};
+       String[] names = new String[5];
+  
+       for (int element:arr) { //assigns each item in the array to "element" variable
+	   System.out.println(element);  // prints the values in the array
+       }
+  
+       int count = 0;
+       for (int element:arr) {
+	   System.out.println(element + " " + count); // print value and index
+	   count++;
+       }
+   }
+  
+ #+end_src
+
+**** |###########################|
+
+**** Build an Array through inputs
+
+ #+begin_src java
+  
+     public static void main(String[] args){
+  
+	 int[] arr = {4,5,3,7,21,44};
+	 String[] names = new String[5];  // Array length of 5
+	 Scanner input = new Scanner(System.in);
+  
+	 for (int i = 0; i > names.length; i++) {
+  
+	     System.out.print("Input: ");  // ask for input, user will type name, 
+	     String strInput = input.nextLine();  // continues to ask for input until end of array is hit.
+	     if (strInput.equals("quit")) {     // if user types "quit" before the end of the array
+		 break;                      //the loop will break and "quit" will not be added to array.
+	     }
+	     names[i] = strInput;  // puts the input into the array
+	 }
+  
+	 for (String n:names) {
+	     System.out.println(n);  // then prints out items in array
+	 }
+   }
+  
+ #+end_src
+
+**** |###########################|
+
+*** While Loops
+    While loops are used when you dont know how many times you will be looping
+   
+**** Keep looping until they type the number 10
+
+  #+begin_src java
+   
+    package packagename;
+    import java.util.Scanner;
+   
+    public class Main {
+   
+	public static void main(String[] args) {
+   
+	    Scanner input = new Scanner(System.in); // creating a scanner object
+	    System.out.print("Type a number: ");
+	    int x = input.nextInt();
+   
+	    int count = 0;
+	    while (x != 10) {    /// keeps looping until user types 10
+	       System.out.print("Type 10... ");
+	       System.out.print("Type a number: ");
+	       x = input.nextInt();
+	       count++;     // increments count each time.
+	    }
+	    System.out.println("You typed 10!");
+	    System.out.println("It took you " + count + " tries.");
+	}
+    }
+   
+  #+end_src
+**** |###########################|
+    
+**** More condensed version with a "Do While Loop"
+ #+begin_src java
+  
+   public static void main(String[] args){
+  
+       Scanner input = new Scanner(System.in);
+       int x;
+  
+       do {
+	  System.out.print("Type a number: ");
+	  x = input.nextInt();
+       } while (x != 10);
+   }
+  
+ #+end_src
+
+**** |###########################|
+
+*** Sets and Lists
+    Sets and lists are pretty complicated so we need to research them more.
+    Here is a quick introduction.
+    With Sets and lists you dont have to specify how big they are before hand.
+    They just take inputs and grow or shrink accordingly.
+
+**** Sets
+     A set is a collection of unordered objects that are UNIQUE.
+     It cannot contain the same element twice and it doesn't know where it exists.
+     If you try to add the same element to the set it doesnt care and skips it.
+     Sets are very fast.
+
+***** HashSet
+
+ #+begin_src java
+  
+   package packagename;
+   import java.util.HashSet;
+   import java.util.Set;
+  
+   public class Main {
+  
+       public static void main(String[] args) {
+  
+	   Set<Integer> t = new HashSet<Integer>(); // creating a HashSet object
+	   t.add(5);
+	   t.add(7);
+	   t.add(13);  /// adding integers to set
+	   t.add(45);
+  
+	   t.contains(13); // will return a boolean
+  
+	   t.remove(7); // removes "7" from set
+  
+	   t.clear(); // clears the entire set
+	   t.isEmpty(); // returns a boolean
+	   t.size(); // gives you the length of the set
+  
+  
+       }
+   }
+  
+ #+end_src
+
+***** TreeSet
+      Similar to HashSet where you can only have unique elements.
+      However Now the elements are ordered in a tree data structure
+
+***** Linked HashSet
+      Linked HashSets are similar to HashSets but faster with certain operations.
+**** |###########################|        
+     
+**** Lists
+     An ArrayList is similar to a regualar array but it is slower, but
+     it will grow and shrink as needed.
+     Items are indexed. Items do not need to be unique. 
+     Similar functions to "Sets" with a few different ones.
+
+***** ArrayList
+    
+ #+begin_src java
+  
+   package packagename;
+   import java.util.ArrayList;
+  
+   public class Main {
+  
+       public static void main(String[] args) {
+  
+	   ArrayList<Integer> t = new ArrayList<Integer>();
+	   t.add(1); // added at index 0
+	   t.add(2); // added at index 1
+	   t.get(0);
+	   t.set(1, 5) // (index, value) Changes value at index
+	       // To be able to set, there already has to be something
+	       // at that index
+	   t.subList(1, 3); // gets values from index 1 to index 3, [not including 3]
+  
+  
+  
+       }
+   }
+  
+ #+end_src
+
+***** LinkedList
+      Similar to ArrayLists but faster. Somthing else to be researched
+
+**** |###########################|
+
+    
+*** Maps and HashMaps
+    Left off video [[https://www.youtube.com/watch?v=GoXwIVyNvX0&t=7613s][here]]
+
+   
+** Trying to get lsp-java installed
+   No luck keep getting errors I wil try again maybe on the linux server
+   All the things I have read people are doing it in linux and not in windows
+  
+**** Setting up Emacs for Java Development
+     [[http://www.goldsborough.me/emacs,/java/2016/02/24/22-54-16-setting_up_emacs_for_java_development/][website link]]
+
+**** What we may need is Lsp-Java
+     [[https://github.com/emacs-lsp/lsp-java][website link]]
+
+**** 
+
+
+** Information on Class Path
+
+   java -classpath  C:\Users\Jarett\eclipse-workspace\Program1\bin Multi3N1
+
+   Article on Stackoverflow
+   [[https://stackoverflow.com/questions/18093928/what-does-could-not-find-or-load-main-class-mean][website link]]
+ 
+
+** Java Static methods
+   In Java, a static method is a method that belongs to a class rather than
+   an instance of a class. A static method is not part of the objects it creates
+   but is part of a class definition. Unlike instance methods, a static method
+   is referenced by the class name and can be invoked without creating an object
+   of the class. 
+  
+
+* Modules
+  Build categories as you get modules
+  
+** Canvas - Windows
+** JavaFX - GUI Applications
+
+** The Various Java Classes
+   [[https://docs.oracle.com/javase/8/docs/api/index.html][website link]]
+
+
+* |###########################|
+
+* Questions
+
+** what are the things that I will need to remember?
+
+** What information will be needed when writing code?
+
+** There needs to be a place where all the projects are listed out
+
+** Especially the work paths of the packages and then the associated dependencies. 
+
+** I need to have quick links to a syntax file that could be then searched.
+
+** 
+
+* |###########################|
+      

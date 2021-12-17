@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       6156990b-af51-46e3-95a6-e0f759a21b61
+:END:
+#+title: Database Study
+#+date: [2021-10-01 Fri 13:10]
+
+This is the source for all the database information
+
+* Learn SQL Databases
+  [[https://www.freecodecamp.org/news/how-to-run-freecodecamps-relational-databases-curriculum-using-docker-vscode-and-coderoad/][Link to website]] - FreeCodeCamp
+
+* 

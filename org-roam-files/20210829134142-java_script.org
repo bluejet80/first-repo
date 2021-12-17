@@ -1,0 +1,106 @@
+:PROPERTIES:
+:ID:       c7c0bf05-e15e-49f5-a5df-fd7a77623746
+:END:
+#+title: Java Script
+
+
+[[id:5ecfd482-a98f-4eab-b842-f6b00428090b][Program journal]]
+
+
+This is the pace for eveything Java Script related.
+
+* Notes
+
+** Oreilly Book Studies
+   [[id:682e905e-f967-473b-a603-62dc75340f20][JS Oreilly book study]]
+
+* Node.JS
+
+** [[id:a52745dc-0f03-46a8-a233-9a51bc5e1ab1][Node.js]]
+   Package management
+
+** Useful Packages
+* Vue
+
+* React
+
+** [[id:101b235e-71a7-4822-ba12-d8e3fa9e48de][Front End Development]]
+
+* Projects
+
+** The Character Frequency Program
+   This is from the Oreilly Book. It is the first program that they have
+   you write.
+
+   This program uses the "super" keyword. It also takes input from STDIN,
+   standard input. It extends the _Map Object_. It also uses a asynchronous
+   function. 
+  
+*** Source
+    [[C:\Users\Jarett\javascript\projects\first_projects1\Oreilly_book\charfreq.js][source]]
+
+** other programs
+
+* Modules  
+** The Map Class
+   
+   [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map][map documentation]]
+
+   The Map object holds key-value pairs and remembers the original insertion
+   order of the keys. Any value (both objects and primitive values) may be
+   used as either a key or a value.
+
+* Process(program)
+  
+** The useful Program "Process"
+
+   Coding the Lorenz Attractor
+   [[https://www.youtube.com/watch?v=f0lkz2gSsIk][video link]]
+
+   Processing Website
+   [[https://processing.org][Processing.org]]
+
+* Guides
+  
+** Video on APIs
+   [[https://www.youtube.com/watch?v=GZvSYJDk-us][video link]]
+
+*** List of Public APIs
+    [[https://github.com/public-apis/public-apis][website link]]  
+
+** Gsap Javascript Libraries
+   Must be online to use
+   [[https://cdnjs.com/libraries][website link]]
+
+* Online Courses
+
+** Java Script Course(vid)
+   [[https://youtu.be/PlbupGCBV6w][video link]]
+
+   Link to playlist
+   [[https://www.youtube.com/watch?v=PlbupGCBV6w&list=PLsyeobzWxl7rrvgG7MLNIMSTzVCDZZcT4][website link]]
+
+** P5.js tutorial
+   [[https://www.youtube.com/watch?v=8j0UDiN7my4][link to video]]
+
+   P5.js reference
+   [[https://p5js.org/reference/][website]]
+
+** GraphQL Tutorial
+   [[https://youtu.be/ZQL7tL2S0oQ][video link]]
+
+   Programmable web and GraphQL
+   [[https://www.programmableweb.com/news/what-graphql-and-how-did-it-evolve-rest-and-other-api-technologies/analysis/2019/07/31][website link]]
+
+** JavaScript Game Engines
+   [[https://code.tutsplus.com/articles/best-free-open-source-javascript-game-engines-and-libraries--cms-38277][Website]]
+
+** Functional JavaScript
+   [[https://javascript.plainenglish.io/functional-javascript-17032a113930][Website]]
+
+* Web
+  Java Script Snippits
+
+** Animating a Website w Java Script(vid)
+   [[https://youtu.be/AKmoccuRiN4][video link]]
+

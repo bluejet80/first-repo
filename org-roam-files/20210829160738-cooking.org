@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       7cd519f6-d803-47e4-8861-661925b3b496
+:END:
+#+title: Cooking
+
+All about cokking stuff
+
+

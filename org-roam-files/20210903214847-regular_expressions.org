@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       680a8fec-345e-4bad-945f-1a3d5acf2a94
+:END:
+#+title: Regular expressions
+#+date: [2021-09-03 Fri 21:48]
+
+
+This is a place for information on regular expressions
+
+[[https://github.com/google/re2/wiki/Syntax][Website 1]]
+
+[[https://youtu.be/rhzKDrUiJVk][Video 1]]

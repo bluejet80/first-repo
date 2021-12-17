@@ -1,0 +1,66 @@
+:PROPERTIES:
+:ID:       16219eff-1c92-4020-a228-21d8f3b6dac5
+:END:
+#+title: Four environments of memory
+#+date: [2021-09-08 Wed 23:27]
+
+There are four environments of memory.
+
+* The Forest
+
+** Description
+   This is a place filled with things. There is stuff everywhere.
+   Every patch of the ground is inhabited by some animal
+   There are trees and shrubs and plants, everywhere
+   You get through it all by making a path as best that you can.
+   There is a risk of getting lost, of losing your direction
+   Falling into a trap.
+   
+
+** The various associations
+   
+*** A fallen tree
+*** A large old tree
+*** Paths
+*** A deer
+*** A snake
+*** A bird
+*** A beatle
+*** An ant
+*** A small pond
+*** Im in the forest Im gonna make wooden objects from the trees
+*** Im gonna take shelter from the storm beneith the canopy
+*** 
+
+* The Mountain
+
+** Description
+   This is a place where the ground is solid granite. The wind blows hard.
+   There are few trees here. There are some birds. There are goats and
+   mountain lions. The ground is steep sometimes. You climb to get around.
+   There is a risk of falling off the side. You have a good sense of
+   direction from the surrounding area. You can see for miles.
+   It's quite lucky to find an unoccupied cave. 
+
+** The various acssociations
+
+* The Ocean
+
+** Description
+   You arrive in this world on a boat. The wind is strong and the sea is choppy.
+   The boat lunges this way at that, travelling over the hills of ocean waves.
+   Everything is damp. Sometimes its foggy. Everything is always in a constant
+   motion. And you must keep adjusting the sails to stay on course. Where
+   you are going is unknown. But you do have everything that is on the ship.
+   The view around you is the same in all directions. Your boat is your lifeline.
+
+** The various associations
+
+* The Desert
+
+** Description
+   Suddenly the ship runs aground and bam, you are in the middle of the desert.
+   You are still standing on the deck of the ship. Looking all around in bewilderment.
+   The wind is still strong. The dry wind blows sand into your eyes. Where is
+   your lifeline here? The suppiles on the ship are useless if you can't take them
+   with you. 

@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       b5bcc4ce-c97e-4947-a3c1-ea28511fc0c5
+:END:
+#+title: Linux Server Course Notes
+#+date: [2021-09-04 Sat 16:50]
+
+this is a subcategory of [[id:1adc15bd-e6bf-45bb-b440-4ff2d1e93d6a][Linux]]
+
+Note from watching the video 

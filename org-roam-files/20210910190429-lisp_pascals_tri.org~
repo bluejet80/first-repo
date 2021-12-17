@@ -1,0 +1,7 @@
+:PROPERTIES:
+:ID:       e2bc5614-330f-4ad9-ad70-f0763d8fa290
+:END:
+#+title: lisp pascals tri
+#+date: [2021-09-10 Fri 19:04]
+
+(defun 

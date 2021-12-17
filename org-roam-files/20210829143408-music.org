@@ -1,0 +1,13 @@
+:PROPERTIES:
+:ID:       48f58ca2-9d4f-4d8a-9f60-76aff8c560d1
+:END:
+#+title: Music
+
+This is the top level node for everything Music related
+
+
+-[[id:9ad72673-d53e-437f-8420-1d94b361f668][Ableton]]
+-[[id:0d2e652e-afee-4a47-b91f-2779b27fdd05][Song Creation]]
+-[[id:4617240e-ea67-4b40-b6bd-14066b2ec228][Piano]]
+-[[id:9b7efc69-bde9-4cd3-a799-d0c8d06b0acb][Viola]]
+-

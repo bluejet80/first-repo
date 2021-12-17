@@ -1,0 +1,29 @@
+:PROPERTIES:
+:ID:       c9ca571d-c652-4a83-bd19-5295e929a1b4
+:END:
+#+title: Overall Tech Study
+#+date: [2021-10-01 Fri 13:13]
+
+This is a catch-all for links to websites that have to do with tech stuff
+
+* Free Tutorials and Resourses
+  [[https://www.freecodecamp.org/news/coding-websites-where-you-can-learn-how-to-code-for-free/amp/][Link to Website]]
+
+* Mobile App Frameworks
+** IOS
+*** Swift
+*** Objective C
+** Android
+*** Java
+*** Kotlin
+
+* Searching For Code to Refactor
+  [[https://dev.to/sourcegraph/sourcegraph-code-search-the-developers-treasure-trove-3ach][Link to Website]]
+
+* How to stay Focused
+  [[https://dev.to/hyggedev/how-to-stay-focused-as-a-self-taught-frontend-web-developer-7gp][Link to website]]
+
+* What is bootstrap
+  [[https://getbootstrap.com/][Website]]
+
+* 

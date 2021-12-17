@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       056cc91d-9165-4019-8634-70dde747b1a8
+:END:
+#+title: Tags
+
+This is the place to specify tags to organize things
+
+

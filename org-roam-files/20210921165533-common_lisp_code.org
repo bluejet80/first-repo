@@ -1,0 +1,432 @@
+:PROPERTIES:
+:ID:       165e131f-d31e-4e6e-b70e-b259c0918b65
+:END:
+#+title: Common lisp code
+#+date: [2021-09-21 Tue 16:55]
+
+Go back to [[id:7e5ac42e-1491-43d3-8d70-a00c036fdd58][Emacs Lisp]]
+
+This is notes taken from the book, Practical Common Lisp by 
+
+
+* Creating a database
+  
+** Create the global variable that will reference the database
+#+begin_src lisp
+  
+  (defvar *db* nil)
+  
+#+end_src
+  
+** Define a function for making the records
+
+#+begin_src lisp
+  
+  (defun make-rec (name address date items return)
+    (list :name name :address address :date date :items items :return return))
+  
+#+end_src 
+
+** Create a function to add the records to the database
+   This uses the builtin PUSH macro
+
+#+begin_src lisp
+  
+  (defun add-rec (rec) (push rec *db*))
+  
+  ;; this needs to be further abstracted because we are still
+  ;; having to run two functions
+  
+  (defun add (a b c d e)
+	   (add-rec (make-rec a b c d e)))
+  
+  ;; Now all we must do is type
+  
+  (add "name" "address" "date" items(number) return[T/F])
+  
+#+end_src
+
+** To show a list of database entries
+
+#+begin_src lisp
+  
+  cl-user> *db*
+  
+  ;; but we want to have our information presented in a
+  ;; nice fasion so we will create a function for that.
+  
+  (defun dump-db ()
+    (dolist (rec *db*)
+      (format t "~{~a:~10t~a~%~}~%" rec)))
+  
+  ;; another way to do this in less space would be
+  
+  (defun dump-db ()
+    (format t "~{~{~a:~10t~a~%~}~%~}" *db*))
+  
+#+end_src  
+
+** Adding user input to the database
+   Now we will make a function to get user input to create
+   the records of the database.
+   
+#+begin_src lisp
+  
+  ;; first we must define the prompt for information
+  
+  (defun prompt-read (prompt)
+    (format *query-io* "~a: " prompt)
+    (force-output *query-io*)
+    (read-line *query-io*))
+  
+  ;; now we will combine the prompt funtion with the make-rec
+  ;;function to make our full function
+  
+  (defun prompt-for-rec ()
+    (make-rec
+     (prompt-read "Name")
+     (prompt-read "Address")
+     (prompt-read "Date")
+     (or (parse-integer (prompt-read "Items") :junk-allowed t) 0)
+     (y-or-n-p "Return Cust [y/n]: ")))
+   
+#+end_src
+
+** Finnally we can add a function that loops for more inputs
+   With this function we will wrap the prompt-for-rec function in
+   a function that loops until the user is done.
+
+#+begin_src lisp
+  
+  (defun add-recs ()
+    (loop (add-rec (prompt-for-rec))
+	  (if (not (y-or-n-p "Another? [y/n]: ")) (return))))
+  
+#+end_src
+
+** Now we need to save the database file
+
+#+begin_src lisp
+  
+  (defun save-db (filename)
+    (with-open-file (out filename
+			 :direction :output
+			 :if-exists :supersede)
+      (with-standard-io-syntax
+	(print *db* out))))
+  
+#+end_src
+
+  You can save the file as anything really.
+  example: Customer.db
+
+  
+   
+** This is the code to then load the Database
+
+** 
+** 
+** end
+
+#+begin_src lisp
+#+end_src
+
+* Creating a Evolving Simulation
+  This is from the land of lisp book pg 202
+  
+** Start
+   We begin by defining some variables that describe the extent of our world
+   
+#+begin_src lisp
+  
+  (defparameter *width* 100)
+  (defparameter *height* 30)
+  (defparameter *jungle* '(45 10 10 10))
+  (defparameter *plant-energy* 80)
+  
+#+end_src
+
+   We are giving the world a width of 100 and a height of 30 units.
+   The *jungle* list defines the rectangle in the world map that contains
+   the jungle. The first two numbers are the x and y coordinates of the jungle,
+   and the last two are the width and height.
+   Finnally we give the amount of energy contained in each plant. This means that
+   if an animal finds a plant it will gain 80 days' worth of food by eating it.
+   
+** Growing plants in the world
+   As animals wander the world they need to be able to check if there is a plant at
+   a given x,y location. The most efficient way to enable this is to store all of the
+   plants in a hash table, indexed based on each plants x and y coordinates.
+
+#+begin_src lisp
+  
+  (defparameter *plants* (make-hash-table :test #'equal))
+  
+#+end_src
+
+   By default CL hash tables use eq to check for equality but we are going to use equal.
+   This will allow us to use cons pairs of x and y coordinates as keys, cons cells must
+   be complared using equal.
+
+   Plants will grow randomly over the world but more will grow in the jungle.
+   Lets write ome code to grow plants.
+
+#+begin_src lisp
+  
+  (defun random-plant (left top width height)
+    (let ((pos (cons (+ left (random width)) (+ top (random height)))))
+      (setf (gethash pos *plants*) t)))
+  
+  (defun add-plants ()
+    (apply #'random-plant *jungle*)
+    (random-plant 0 0 *width* *height*))
+  
+#+end_src
+
+** sadf
+** asdf
+* Creating Macros
+** Prime number macro
+   Here we are going to write a macro called do-primes
+   that provides a looping construct similar to DOTIMES and DOLIST
+   except that instead of iterating over integers or elements of a
+   list, it iterates over succcessive prime numbers.
+*** Three things to create a macro
+    
+***** Write a sample call to the macro and the code it should expand into.
+      The "call" to the macro is what you envision that you will type in when
+      you run the macro. So this will be probly the name of the macro and a
+      few arguments, and maybe other functions.
+      Then the code that it "expands" to would be the original lisp code
+      that you would normally use to get the job done, the stuff that you
+      wish to prevent form having to type over and over again.
+      
+***** Write code that generates the expansion from the arguments in the sample call.
+      This is where you link together the expansion code and the macro call.
+      
+***** Make sure the macro abstraction doesn't "leak."
+      This is the process of making sure that the macro works in all cases
+      and will fuction properly given any set of arguments. 
+
+*** First we code the initial functions
+    First we will need two utility functions,
+    One to test whether a given number is prime and
+    Another that returns the next prime number greater or equal to its argument.
+    
+***** First test whether a number is prime
+
+ #+begin_src lisp
+   (defun primep (number)
+     (when (> number 1)
+       (loop for fac from 2 to (isqrt number) never (zerop (mod number fac))))
+ #+end_src
+
+ Here I am just defining the aspects of this function:
+
+ loop, is a macro
+ for var from num to num, syntax for loop
+ fac, is a local variable declared in the function
+ (isqrt number) = function that takes the square root of number
+ and returns an integer
+
+ never, is a boolean operation that causes the loop to return true only if
+ there is never a zero when the remainder function is ran on number and fac
+
+ The whole function ultimately returns either true or false if the
+ input is a prime or not.
+
+ To find out if a number is prime, this function takes the square root of the
+ input and then makes a list from 2 to that number and then loops through
+ the remainder function to see if any of those numbers produce a zero.
+ If any of them do then, the number is not prime.
+ 
+****** Further examining the function(part1)
+       
+  So I split this up into to pieces so that I could see what was going on:
+
+  The first function is getting the values to run through the remainder function. 
+
+  Here is a way to see what this part of the function returns:
+
+  (loop for fac from 2 to (isqrt number) collect fac)
+
+  Here is a sample function I can run that performs the function and then
+  assigns the answer to a variable that I will use in the next part of the
+  process.
+
+  #+begin_src lisp
+  
+    (defun print-fac (x)
+      (setf num-list 	   
+      (loop for fac from 2 to (isqrt x)
+	    collect fac)))
+  
+  #+end_src
+
+  This prints out a list of the fac values over the course of the loop and
+  then assigns the output to num-list variable.
+
+  Its real easy to assign the output of a function to a variable, you just
+  urround the function with the setf function and name the variable. 
+
+****** Further examining the function(part2)
+
+  Then I wanted to know what the second part was doing when it was checking
+  for zero so I wrote this code. 
+
+  (loop for x in '(output-of-first)
+      collect (list (mod number x)))
+
+  this printed out a list of the remainders when you divide the various
+  inputs by the number.
+
+  Basically if none of these outputs are zero then the number is prime
+  because it was not divisible by any number from 2 to the square root of the
+  number. 
+
+  Here is a sample function where I use the original number and the variable
+  that was created by the first sample funciton and get the list where
+  we would be checking if there were any zeros.
+
+  #+begin_src lisp
+  
+    (defun print-mod (number set1)
+      (loop for x in set1
+	    collect (list (mod number x)))
+  
+  #+end_src
+
+
+****** How to pass certian arguments into the function
+  ----
+  Need to find out how to pass a list as an argument in a function:
+  Inside the function you do the same as you would any other varaiable.
+  Its just when you input the variable, when you run the function make sure
+  to specify that it is an object ex: '(3 4 5)
+
+  -----
+
+
+***** The next function returns the next prime number greater or equal to its argument.
+      This is how we get the list of primes up to the number we specified
+
+ #+begin_src lisp
+   
+   (defun next-prime (number)
+     (loop for n from number when (primep n) return n))
+   
+ #+end_src
+
+ So within this function we have called the first function.
+
+This function will return only the prime number that is equal or greater to
+the number that was input.
+
+*** Now we will create the call to the macro
+    Following the procedure outlined above, we need at least one example of a
+    call to the macro and the code into which it should expand.
+    Lets suppose we begin with the idea that you want to type this to
+    run the macro.
+
+    (do-primes (p 0 19)
+      (format t "~d " p))
+
+    This call should express a loop that executes the body once each for each
+    prime number equal or greater to 0 and less than or equal to 19, with the
+    variable p holding the prime number.
+    
+    It makes sense to model this macro on the form of the standard DOLIST and
+    DOTIMES macros; macros that follow the pattern of existing macros are easier
+    to understand and use than macros that introduce completely new syntax.
+
+    Without the do-primes macro, you could write such a loop with DO(and the
+    initial functions) like this:
+
+#+begin_src lisp
+  
+  (do ((p (next-prime 0) (next-prime (1+ p))))
+      ((> p 19))
+    (format t "~d " p))
+  
+#+end_src
+
+This is the expansion code, the code to which the macro expands into. 
+
+This returns 2 3 5 7 11 13 17 19 , which is the result that we want. 
+
+*** Macro Parameters
+    Since the arguments passed to the a macro are Lisp objects representing the
+    source code of the macro call, the first step that any macro has to do is
+    extract whatever parts of those objects are needed to compute the expansion.
+
+    For macros that simply interpolate their arguments directly into a template,
+    this step is simple and merely defining the right parameters to hold the various
+    arguments is sufficient.
+
+    But in the case of do-primes the task is a little more complex...
+
+    The first argument to the do-primes call is a list. This list contains
+    1) the name of the loop variable, p
+    2) the lower bound, 0
+    3) the upper bound, 19
+
+    But if we look at the expansion code, the list as a whole does not appear. What
+    is there are the three elements split up and put in different places within
+    the code.
+
+    You could define do-primes with Two parameters, one that holds the list and
+    a $rest parameter to hold the body forms, and then take apart the list by hand,
+    something like this:
+
+#+begin_src lisp
+  
+  (defmacro do-primes (var-and-range &rest body)
+    (let ((var (first var-and-range))
+	  (start (second var-and-range))
+	  (end (third var-and-range)))
+      '(do ((,var (next-prime ,start) (next-prime (1+ ,var))))
+	   ((> ,var ,end))
+	,@body)))
+  
+#+end_src
+
+
+    The variables var, start, and end each hold a value, extracted from
+    var-and-range, that is then interpolated into the backquote expression
+    that generates do-primes expansion.
+
+    However, you do not need to take apart var-and-range "by hand" because
+    macro parameter lists are what are called destructuring parameter lists.
+
+    Within a destructuring parameter list, a simple parameter name can be
+    replaced with a nested parameter list. The parameters in the nested
+    parameters list will take their values from the elements of the expression
+    that would have been bound to the parameter the list replaced.
+
+    For example, you can replace var-and-range with a list (var start end), and
+    the three elements of the list will automatically be deconstructed into
+    those three parameters.
+
+    Another special feature of macro parameter lists is that youcan use the &body
+    as a synonym for &rest. Semantically &body and &rest are equivalent, but
+    many development environments will use the presence of a &body parameter
+    to modify how they indent uses of the macro-- typically &body parameters
+    are used to hold a list of forms that make up the body of the macro.
+
+    So you can streamline the definition of do-primes and give a hint to both
+    human readers and your development tools about its intended use by defining
+    it like this:
+
+#+begin_src lisp
+  
+  (defmacro do-primes ((var start end) &body body)
+    '(do ((,var (next-prime ,start) (next-prime (1+ ,var))))
+	 ((> ,var ,end))
+       ,@body))
+  
+#+end_src
+
+
+pg 94
+    
+

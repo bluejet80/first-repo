@@ -1,0 +1,348 @@
+:PROPERTIES:
+:ID:       5c67152c-52dc-454a-87a8-b937d82c4e0c
+:END:
+#+title: Lisp notes
+#+date: [2021-09-18 Sat 17:15]
+
+Commonly needed info on Lisp Programming
+Go back to [[id:7e5ac42e-1491-43d3-8d70-a00c036fdd58][Emacs Lisp]]
+
+* slime buffer
+  to clear slime buffer C-c M-o
+
+* Lisp functions from library book
+  Programming in Common Lisp by Rodney A. Brooks
+ 
+** Chapter 1
+
+   | Function | Args | Description                               |
+   |----------+------+-------------------------------------------|
+   | cons     |    2 | add another element at the head of a list |
+   | car      |    1 | first element of a list                   |
+   | cdr      |    1 | rest of a list after first element        |
+   | +        |  inf | add two or more numbers                   |
+   | *        |  inf | multiply two or more numbers              |
+   | list     |  inf | construct a list from the args            |
+   | set      |    2 | set the first arg to the second           |
+   | eval     |    1 | The Lisp Evaluation procedure             |
+   | length   |    1 | count elements in a list                  |
+   | atom     |    1 | test for an atom                          |
+   | consp    |    1 | test for a cons cell                      |
+   | listp    |    1 | test for a list                           |
+   | numberp  |    1 | test for a number                         |
+   | zerop    |    1 | test whether zero                         |
+   | null     |    1 | test for Nil                              |
+   | not      |    1 | invert logical value                      |
+   | <        |    2 | first arg less than second                |
+   | >        |    2 | first arg greater than second             |
+   |----------+------+-------------------------------------------|
+   |          |      |                                           |
+
+** Chapter 2
+
+   | Function | Args | Description                               |
+   |----------+------+-------------------------------------------|
+   | append   |  inf | append lists                              |
+   | load     |    1 | load file                                 |
+   | reverse  |    1 | reverse top-level list                    |
+   | typep    |    2 | check type of object                      |
+   | symbolp  |    1 | test for symbol                           |
+   | stringp  |    1 | test for string                           |
+   | -        |  inf | subtract args in order placed             |
+   | eq       |    2 | test for same object                      |
+   | eql      |    2 | test for same object or numbers           |
+   | equal    |    2 | test for same looking objects             |
+   | list*    |  inf | make a list with last args as last CDR    |
+   | C...R    |    1 | cddr , cadr and so on, argument is a list |
+   | nth      |    2 | 0-based list element access               |
+   | nthcdr   |    2 | 0-based list CDR access                   |
+   | first    |    1 | access first list element                 |
+   | second   |    1 | access second list element,.. and so on   |
+   | rest     |    1 | all but the first list element            |
+   | last     |    1 | access last top-level cons                |
+   | rplaca   |    2 | replace contents of CAR                   |
+   | rplacd   |    2 | replace contents of CDR                   |
+   | nconc    |  inf | destructively append lists                |
+   | nreverse |    1 | destructively reverse top-level list      |
+   |----------+------+-------------------------------------------|
+   |          |      |                                           |
+
+* How to do surgury on lists
+  How would you change C to SEE in each of the following lists:
+
+** (A B C D E)
+   (rplaca (cdr (cdr a)) 'see)
+
+** ((A B C) (D E F))
+   (rplaca (cddr (car a)) 'see)
+
+** ((A B) (C D) (E F))
+   (rplaca (cadr a) 'see)
+
+** (A (B C D) E F)
+   (rplaca (cdadr a) 'see)
+   
+* Robot1 program
+  [[id:b63027cd-6b34-4b84-93fe-eaebfa26767b][robot1 code]]
+  
+** head
+
+*** Ears
+**** input
+***** hearing
+***** listening
+**** shape
+***** large
+***** small
+*** Face
+**** eyes
+***** Color
+****** black
+****** brown
+****** blue
+****** green
+****** yellow
+****** red
+***** input
+****** read
+****** identify
+****** See
+**** mouth
+***** output
+****** singing
+****** talking
+****** teaching
+***** teeth
+***** tongue
+**** cheeks
+**** nose
+***** input
+****** smell
+****** identify
+**** forehead
+**** chin
+*** Hair
+**** existence
+***** yes
+***** no
+**** color
+***** black
+***** brown
+***** red
+***** blonde
+**** length
+***** long
+***** short
+**** Style
+***** Curly
+***** straight
+***** Buzzed
+*** Shape
+**** Round head
+**** square head
+**** ob-long
+**** triangle
+*** Size
+**** tiny 
+**** large
+** chest
+
+*** Heart
+
+**** Emotion
+
+**** Life
+
+**** Blood
+
+**** Energy
+     
+**** Rhythm
+*** Lungs
+
+**** Breath
+
+**** Energy
+
+**** Oxygen
+
+**** Rhythm
+
+*** Stomach
+
+**** Food
+
+**** Nutrients
+
+**** Fiber
+
+**** Digestion
+
+**** Water
+
+*** Intestine
+
+**** Nutrients
+
+**** Waste
+
+**** Gut
+
+**** Digestion
+
+*** Liver
+
+*** Kidney
+
+** left-arm
+
+*** Bicep
+    
+*** Tricep
+
+*** Left-hand
+
+** right-arm
+
+*** Bicep
+
+*** Tricep
+
+*** Right-hand
+
+** left-leg
+
+*** Thigh
+
+*** Knee
+
+*** Hamstring
+
+*** Ankle
+
+*** Left-foot
+
+** right-leg
+
+*** Thigh
+
+*** Knee
+
+*** Hamstring
+
+*** Ankle
+
+*** Right-foot
+
+* Common lisp book notes  
+** [[id:165e131f-d31e-4e6e-b70e-b259c0918b65][Common lisp code]]
+
+* Money Prog
+** Ask for number of each denomination of bill
+   Actually maybe I just type it into the function
+   ones, twos, fives, tens, twenties, fifties, hundreds
+   It would kinda be better if you asked for each and then
+   if there were none then you can just type nil
+** Print out how much of each denomination and the total
+   How much money...
+   Ones:
+   Twos:
+   Fives:
+   Tens:
+   Twenties:
+   Fifties:
+   Hundreds:
+   
+   Total:
+   
+** Parts of the program
+*** Get input
+*** Calculate input
+*** Print formatted output
+
+    
+* Notes from "Land of Lisp" book
+  [[id:8c01e0be-b827-43c7-a0df-471140287354][Land of lisp notes]]
+
+* Looping
+
+(loop for x from 1 to 100
+	       do (print x)
+		  (format t "~@b" x)
+		  (terpri))
+
+
+This function prints all the numbers 1-100 and also their
+binary equivalent, and then adds an empty line to separate the
+values.
+
+(terpri) - adds a blank line
+
+Sample:
+
+1 +1
+
+2 +10
+
+3 +11
+
+4 +100
+
+5 +101
+
+6 +110
+
+7 +111
+
+8 +1000
+
+9 +1001
+
+10 +1010
+
+80 +1010000
+
+42 +101010
+
+63 +111111
+
+
+* The format function
+  
+** Example 1
+cl-user> (format t "~r ~r East ~:r St. South" 33 31 47)
+cl-user> thirty-three thirty-one East forty-seventh St. South
+
+** Example 2
+   Print the times tables to 20
+
+   (dotimes (x 20)
+	   (dotimes (y 20)
+	     (format t "~3d " (* (1+ x) (1+ y))))
+	   (format t "~%"))
+
+   The "~3d" ensures that each output occupies 3 spaces so that everything
+   lines up all nice. 
+
+* The bihalv function
+  this function shows what the ash function is actually doing.
+#+begin_src lisp
+  
+  (defun bihalv (num inc)
+    (format t "~d ~b~%" num num)  
+    (format t "~d ~b" (ash num inc) (ash num inc)))
+  
+#+end_src
+
+When you run it you input two values one is an integer the other is the increment
+normally the second input it 1 or -1
+
+And then it prints the integer and the binary equavilent and newline
+then it prints the output of the ash function with the corresponding binary equiv.
+So you can see how the ash function is just adding or removing one binary bit
+depending on if you put 1 or -1 respectively.
+
+* 
+
+* 
+

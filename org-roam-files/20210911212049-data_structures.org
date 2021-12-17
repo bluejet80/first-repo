@@ -1,0 +1,43 @@
+:PROPERTIES:
+:ID:       ed2f2faf-c3fd-4f58-8202-e6fde67c6f33
+:END:
+#+title: Data Structures
+#+date: [2021-09-11 Sat 21:20]
+
+Notes from the Video COurse on Data Structures
+
+* Table of Contents
+
+** Efficiency
+
+*** Big O Notation
+
+** Basic Data Structures
+
+*** Arrays
+
+*** Array Lists
+
+** Intermediate Data Structures
+
+*** Stacks
+
+*** The Queue (opposite of a stack)
+
+*** LinkedLists
+
+*** Doubly-LinkedList
+    
+*** Dictionary
+
+*** Hash-Tables
+
+** Tree-Based Data Structures
+   
+*** Tree Data Structure
+
+*** Tries
+
+*** Heaps 
+
+*** Graphs

@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       0d2e652e-afee-4a47-b91f-2779b27fdd05
+:END:
+#+title: Song Creation
+
+This is the place for everything having to do with song creation
+
+

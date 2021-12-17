@@ -1,0 +1,257 @@
+:PROPERTIES:
+:ID:       1adc15bd-e6bf-45bb-b440-4ff2d1e93d6a
+:END:
+#+title: Linux
+
+This is the place for everything Linux related
+
+[[id:d4ab234b-2ed1-49d3-a28f-d529c77f15b7][LUG Notes]]
+
+
+* Getting Answers
+  
+** Questions
+   I need to specifically write down the thing that I want to do but are unable
+   to do. Then through figuring out how to do it, I need to write down what
+   the underlying problems were that I didn't think to solve first.
+   
+*** I need to install Emacs 27 on the server
+    I cannot find the appropriate package to install emacs 27
+
+    Ok, I got emacs 27 installed finally.
+
+    For now to run correctly from the terminal I must start emacs like
+
+    emacs -nw --color=never
+
+     - -Now I need to get emacs all setup with org-roam
+
+     - -And then setup slime and the Lisp environment
+    
+*** Setup all the programming environments on the server
+    
+**** Python
+     Install Pycharm
+
+     already there I think
+     
+**** Java
+     Install Eclipse
+
+     already there i think
+
+     Figure out how to do maven projects and testing
+
+**** JavaScript/Node.js
+
+     Visual Studio Code
+
+     React Development stuff
+
+**** HTML and CSS
+
+     I need content for the webpage to be on the server
+
+     Sublime Text Editor for JavaScript
+
+     Intellij IDEA
+
+
+     
+     
+**** new root PW #56*Fado%5W6LU
+
+     To set a diff passwd for root you type
+     sudo passwd root
+     
+
+*** Setup a firewall on the server
+
+    Configure UFW on the server
+
+    got this done 10/19/21 -
+
+    [[https://linuxhint.com/debian_linux_firewall_best_practices/][Website on UFW]]
+
+    Commands to run
+
+    To enable the Firewall - sudo ufw enable
+    to check status - sudo ufw status
+    to set deny as default - sudo ufw default deny incoming
+    to add rules - sudo ufw allow 80 (80/tcp)
+    to allow only from a specific Ip - sudo ufw allow from <ip add>
+
+   
+    
+*** Add a user to a group
+
+    usermod -a -G examplegroup exampleusername
+
+*** change ownership of a file
+
+    chown -h root:tomcat file
+
+    
+*** What else would I need to install on the server?
+    nginx webserver
+
+    
+*** NextCloud Services
+    This will have to be linked as a sub-domain from the main website
+    on the server.
+
+    
+* Bash Scripting
+  
+** Refresh .profile
+   To refresh your .profile just run..
+   . ~/.profile
+   
+
+* Linux Server Course
+  [[https://www.youtube.com/watch?v=WMy3OzvBWc0][Linux server course]]
+ 
+  Currently at 1:25:22
+
+  9/3/21 Its been long enough now that I should rewatch this one.
+
+  [[id:b5bcc4ce-c97e-4947-a3c1-ea28511fc0c5][Linux Server Course Notes]]
+
+* Other videos about Linux
+  
+** Another Video Link - Why use linux
+   [[https://www.youtube.com/watch?v=ux9bOaInrck][video link]]
+
+** Linux System administration
+   [[https://www.youtube.com/watch?v=wsh64rjnRas][video link]]
+
+** Upgrading to the latest version of emacs
+   [[http://iboyko.com/articles/updating-emacs-from-24-to-26-27-on-ubuntu/][Website]]
+
+* How to use basic authentication on Tomcat Server
+  [[http://www.avajava.com/tutorials/lessons/how-do-i-use-basic-authentication-with-tomcat.html?page=1][website link]]
+  
+
+* Linux Server Goals
+
+** Setup Webserver
+
+** Setup a Webcam
+
+** Setup RAID
+
+** X11 Forwarding
+
+*** Using Xming and Putty
+    [[https://sourceforge.net/projects/xming/][webite link for Xming]]
+    [[https://www.putty.org/][Putty.org]]
+
+** Listen to music from the Server
+
+** Use the server for as a general hub for all my information
+
+** Genereal Functionality Stuff
+
+*** How to install a Tar File
+
+   sudo tar xzvf
+
+   
+*** Network Connectivity Tools
+
+    ping, ip add, ip route
+
+*** Start and stop services
+    use the command
+    systemctl
+
+    >> systemctl status sshd   ## Example
+
+*** List of Installed Modules
+
+    lsmod
+
+*** Learn about Snaps
+
+    [[https://www.freecodecamp.org/news/managing-ubuntu-snaps/][website link]]
+
+    Video Describing Snaps
+
+    [[https://www.youtube.com/watch?v=0ApRUndiXKU][video link]]
+
+*** Disable unwanted services
+
+    sudo snap stop --disable rocketchat-server
+    sudo snap stop --disable microk8s
+    sudo snap stop --disable wekan
+
+*** Pdf Viewer
+
+    qpdfview
+
+   
+*** Install Directory
+
+    /usr/local/bin
+
+*** Useful Linux Commands
+
+    Show what each port is setup for
+    cat /etc/services | less
+
+    to get your public ip address
+    host -4 myip.opendns.com resolver1.opendns.com
+
+    nmap command
+    
+
+    
+
+    [[https://www.youtube.com/watch?v=XK81cfvrElg&list=PLc7fktTRMBozYfi4zlDeH0IdLdGImeOnO][video link]]
+
+    
+*** Kill a process on in terminal
+
+    Locate the process with  -  ps aux | grep <process name>
+    kill the process   -   kill -9 <process id> 
+
+*** Delete Directories
+
+    rm -rfv <dir name>
+
+*** Sed, Awk, and Grep
+
+    Information on these functions
+    [[https://arstechnica.com/gadgets/2021/08/linux-bsd-command-line-101-using-awk-sed-and-grep-in-the-terminal/][website link]]
+
+** Linux Programming
+
+   Video on linux Programming
+   [[https://digital.com/custom-software-development-companies/linux-programming/][video link]]
+
+** XScreensaver Program
+
+   location  /usr/lib/xscreensaver
+
+   A way to place the new window in a specific spot
+
+   ~/winplace(a script that I made) ./<name of xscreensaver prog> 0 0 50 50 <-- where to position on screen
+
+** Setting up a Linux minecraft server
+
+   [[https://www.youtube.com/watch?v=zOjcJzNMW2M][video link]]
+
+** Terminal Audio Player
+
+   [[https://www.tecmint.com/command-line-music-players-for-linux/][website link]]
+
+** 
+
+
+|------------+---+---|
+| *     222  |   |   |
+| *    2   2 |   |   |
+| *       2  |   |   |
+| *      2   |   |   |
+| *    22222 |   |   |
+|------------+---+---|

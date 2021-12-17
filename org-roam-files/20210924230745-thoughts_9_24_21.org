@@ -1,0 +1,46 @@
+:PROPERTIES:
+:ID:       f56ae853-1ef2-410a-8916-cd85aba81f9e
+:END:
+#+title: Thoughts 9/24/21
+#+date: [2021-09-24 Fri 23:07]
+
+
+So I only need three windows, one for the program,
+one for the output, and one for notes. The last one
+being the source of all the information.
+
+the program and the output need to be together.
+
+---
+I was thinking about making a database that I fill
+up over the course of the month and then
+output the whole thing into a file at the end
+of the month and just have a running tally for the month
+[[id:542d4d3e-2d3d-47b8-afaf-f3c2432f207c][month_database]]
+The entries will be dated and categorized
+
+And a months worth of data to go through is enough
+
+You could print off entries depending on their
+subject.
+
+And making it and manipulating it will be a learning
+experience.
+
+---
+
+the portable blake book has three book marks in it
+these places should be analysed, and refactored.
+These are very interesting ideas
+
+
+---
+Dont take yourself too seriously
+
+I feel drawn in a direction right now
+I feel compelled to do this
+And its fun and interesting
+there is no ultimate ending
+Its applicable to anything
+a philosophy of life
+

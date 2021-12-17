@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       a66faf4a-a009-459d-9a25-3e86be408ac7
+:END:
+#+title: Terms
+
+This is a dictionary of terms
+
+

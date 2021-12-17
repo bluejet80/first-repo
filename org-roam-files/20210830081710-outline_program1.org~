@@ -1,0 +1,228 @@
+:PROPERTIES:
+:ID:       b7e676a2-cbd5-4031-bf4d-ab7d1b073299
+:END:
+#+title: Outline Program1
+#+date: [2021-08-30 Mon 08:17]
+
+
+
+* Main Outline For Programming Study 8/24/21
+
+
+* JavaScript
+** IDE Visual Studio Code
+*** this program works good to have all three files open
+**** Index.html
+**** Style.css
+**** app.js
+*** You can switch back and forth easily between the files
+*** The IDE allows you to open up a folder and then there you have all of your files readily available. 
+** Node.js
+*** This is the framework for running Javascript on a stand-alone computer
+*** Currently watching video on this.
+**** [[https://www.youtube.com/watch?v=Oe421EPjeBE][Node.js and Express.js Full Course]]
+** Express
+*** Dont know what this is yet, but the above video is supposed to cover it. 
+** React
+*** This is a Frontend Framework that runs in the browser. 
+*** DOnt know much about thi yet but there are probably a lot of vids on it. 
+*** Compares to Angular and Vue
+*** Structures the "view" layer of your application. 
+** P5.js
+*** javaScript version of 'Process' 
+*** Process is a program to facilitate making programs
+** Bootstrap.js
+*** Not sure what this is yet. 
+*** Guess it is another Frontend Framework
+** JQuery
+*** My understanding is that this has been replaced by applications like React.
+** Angular.js
+*** Another Frontend Framework
+** NPM
+*** This is the Node Package Manager
+*** Package amnagement system for JavaScript
+** GitHub
+*** Not just for JavaScript but used by all programmers in general
+** GSAP Libraries
+*** There are online repositories of libraries that you can use
+*** This one allows you to do stuff with CSS
+*** You just link to it from you html file and then write the syntax and it works.
+* Problem Management / Design Techniques
+** What Resources can be used to find the solutions to problems? 
+*** The "inspect" feature of Chrome.
+**** This is especially good for javascript
+*** IDE Debugging 
+**** Test Driven Design(TDD)
+***** [[https://www.youtube.com/watch?v=fpVDe6Jvch4][Test-Driven Design Java #3]]
+****** You begin creating a program by asking a series of questions.
+****** Formulating a series of tests that the program will have to pass if it is to do what it is meant to do. 
+**** Writing RunTimeExceptions
+**** [[https://youtu.be/grEKMHGYyns=2733][German Java Tutorial]]
+**** Write Code that gives errors and or prints the values of variables at specific times. Functions that post when they have completed. 
+*** Object Oriented Programming
+    In object oriented programming you have full control over the names of the classes and methods.
+    Your goal is to make your code as readable as possible. To organize it in the most simplest fashion. 
+    To not have any thing that is not necessary and understand how everything in the program relates to
+    everything else. 
+**** Methods should only do one thing. 
+**** Make sure to keep things private and only make public what is necessary.
+**** Use methods to hide the underworkings of the code. 
+*** Functional Programming 
+    Functional programming is like creating algorithms and search methods and sort methods. And making them 
+    as efficent as possible. 
+**** Big O notation
+**** If it is a recursive program, turn it into a tree. 
+*** Understanding Functions
+**** The Various statements and loops; methods. The various methods that we create can be seen as equal to the decisions that people make. 
+***** An "if" statement is a decision; should I do this or that?
+***** A "while" loop is a way of testing. As long as this is this, do this. 
+***** A "for" loop is when you repeat a process for so many times. Do this, for this many times. 
+***** "if-then" Statements are making decisions between a set of choices. Gives the perosn other things to consider.   
+***** A "switch" statement is more automatic with predetermined static choices
+**** Examples of decision Loops and Conditionals.
+***** How are decisions made to arrive at solutions or ideas? 
+***** I need to apply 5 coats of paint. 
+***** Make sure that the glass doesnt't fall off the counter. If it does, catch it. 
+**** Understanding the Types of Functions
+***** How does a search function work? 
+***** How do you sort an array?
+***** How do send information and get information from a database?
+***** How do you trace lines on the screen and do collision detection?
+***** Visualized occilation?
+*** 
+* Java
+** IDE Eclipse
+*** maven Projects
+**** How to setup maven in eclipse
+*** TDD
+**** How Test Driven Design is carried out in eclipse
+*** Connecting to GitHUb
+**** How to create a Repository
+**** How to find useful content?
+**** Answers to problems and questions.
+** Algorithms by Robert Sedgwick
+*** Book on PDF
+*** [[https://docs.google.com/spreadsheets/d/1USdnyCIsULrp-K6I2R5g49L72RUm5yCBwdvtMJ3PGGQ/edit#gid=1533720024][Table of Contents - Programming Study]]
+*** Currently on Static Methods Pg22
+*** Setup a schedule for study
+** Java Book
+*** Work through programs on the internet
+**** [[https://math.hws.edu/javanotes/index.html][Java Notes Online]]
+**** Java Library Dependencies
+***** JavaFX - GUI Applications
+**** Java Classes
+***** [[https://docs.oracle.com/javase/8/docs/api/index.html?javax/swing/AbstractAction.html][List of Java Classes]]
+** List of Java Projects
+*** SceneCreator
+* Lisp/Emacs
+** Functional Programming in LISP
+*** Common LISP SYNTAX
+**** Link                                                            :ATTACH:
+     :PROPERTIES:
+     :ID:       2ca0549d-6cd2-4123-9176-f2124e990163
+     :END:
+*** Exercizes 
+**** Link                                                            :ATTACH:
+     :PROPERTIES:
+     :ID:       f4f63e47-8932-4833-8546-07fc881fb1a5
+     :END:
+*** Notes from Chapter 1 of Structure and Interpretation
+**** Link                                                            :ATTACH:
+     :PROPERTIES:
+     :ID:       7b7e40a0-7bca-41a6-9477-1634831897ed
+     :END:
+** Emacs Fundamentals
+*** Setting up Emacs                                                 :ATTACH:
+    :PROPERTIES:
+    :ID:       182657b6-cf78-4648-8c2f-8c692e6db665
+    :END:
+*** the .emacs/init.cl file
+*** buffers/ windows
+*** eshell invoked by runing m-x eshell-toggle
+*** Package management
+
+To refersh package list 
+m-x package-refresh-contents
+
+There are things like 'try' allows you to try packages
+m-x try RET enter the package name
+
+Now when you try packages your not sure how they work you can use 
+m-x describe-package RET enter package name
+This will give you info on the package. 
+
+If you dont find much likely there will be commands you can run
+and you can find them by typing m-x and then start typing the package name
+*** Text manipulation
+to turn a long line into a paragraph type a-q
+
+To move around text the keys that I use the most are
+begining of line c-a
+end of line c-e
+up line c-p
+down line c-n
+move up and down by paragraph a-e a-a
+forward and back by words a-f a-b
+
+And then to select text you just press c-space and then move cursor to include text
+
+
+
+*** tags
+*** Dired (directory function)
+*** Agenda/ToDo functionality
+** Using Emacs to format Documents
+*** Export Function
+** Working Emacs into an integrated Workflow
+*** Project WorkFlow
+** ORG-Mode
+*** Integrating .org pages into website
+*** The Tables of Org-mode
+** ORG-Roam
+*** Windows Install
+**** make sure that you add the path to the msys2 bin file to the windows path
+**** Install Msys2 and then install gcc
+**** It is necessary to restart emacs after you update the path
+*** Org-roam key-bindings
+    C-c n f creates a new node or finds already made node
+    C-c n i links nodes to nodes witin the node
+    C-c C-c save the node after you create it the first time
+    C-c n l brings up org-roam-buffer
+    to delete a node type m-x crux-delete-file-buffer
+    
+    To reload the cache of the roam db just run
+    m-x org-roam-db-build-cache  org-roam-update-org-id-locations
+** Install LISP/Emacs on the server
+** Video Tutorial For Emacs
+*** [[https://cestlaz.github.io/stories/emacs/][Emacs Series webpage]]
+*** [[https://www.youtube.com/watch?v=SzA2YODtgK4][Lecture on Org-Mode]]
+* Python
+** Practical Python Programming
+*** [[https://www.youtube.com/watch?v=j31xawnfvXs][Video link]]
+*** IDE Pycharm
+*** Currently at 1:18:27
+* PHP(Database)
+** Haven't Started learning about this yet.
+* MySQL(Database)
+** Haven't Started learning about this yet. 
+* HTML
+** IFrame
+** Place link to JavaScript file towards the end of the Body
+** Link the CSS file in the Header.
+** I have a PDF of a Book on HTML/CSS
+* CSS
+** Video Tutorial
+** CSS Properties
+*** [[https://developer.mozilla.org/en-US/docs/Web/CSS/Reference][CSS Properties Reference]]
+*** [[https://dev.to/domagojvidovic/all-css-properties-you-need-to-know-to-build-a-website-3dbb][CSS Properties to build a website]]
+** New Book Covers CSS
+** Bootstrap CSS
+* Projects
+** Worksheet for Algorithm Development
+** Web Scrubbing
+*** JavaScript
+*** Python
+** Art Applications
+** Scientific Calculations
+
+

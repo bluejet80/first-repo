@@ -1,0 +1,153 @@
+:PROPERTIES:
+:ID:       ed949b81-475c-4ab6-824f-e3d019564e16
+:END:
+#+title: Org-mode
+
+This is the place for everything Org-Mode related
+
+
+* Org-Roam
+** 8/30/21
+  So I thought I had a problem but it was all just about how I invoked the program.
+  I was using an emacs method to invoke org-roam and for org-roam to work
+  initially *it* must be invoked. So the resolution was to instead of searching
+  for the first file to be edited with emacs I search for the first file to
+  be edited with org-roam and that fixed everything.
+
+  I spent several hours trying to find the solution to my problem on the internet
+  to no avail. I realize now its because it wasn't a problem at all, more of an
+  issue of invoking the program wrong. It was very frustrating because everything
+  else was working fine and once I created a link it would work fine. I kept trying
+  to get the program to initialize itself and I even set-up a key binding that I would
+  run after I restarted emacs to reinvoke it when all I should have done was
+  *correctly invoke the program to begin with.* That means using C-c n f to find the
+  first file to edit instead of C-x C-f (the emacs way).
+
+  Now I know. And I also realize how a simple mistake can cause me great anxiety
+  and stress. And cause me to lose several hours of productivity. It happens to
+  everyone I'm sure.
+
+  
+** 11/5/21
+   I finnally got org-roam to work on the server. I had to get emacs 27 installed
+   first. And then I was having issues with it not recognizing the org-roam files
+   already present in the folder.
+
+   I learned that all the configuration files are in the melpa directory, inside
+   the .emacs.d folder. I went into that folder and removed everything that had to
+   do with org-roam. The sql-lite database files were in there and everything.
+   Removed all that, then I removed the configuration in the init file for org-roam.
+   After that I be;gan the rebuild. I setup a new folder for the org-roam files,
+   I put a more consise version of the org-roam init script into the init file.
+   Then I evaluated the buffer and at first there were some problems because I
+   need to update the package list from melpa. After doing that the sql-lite
+   file was compiled and everything was good there. Now I needed to get it to recognize
+   the files that I had transfered over from my other computer. To do this I
+   first ran _org-roam-update-id-locations_, not sure if that did anything or not
+   cause it wasnt until I ran _org-roam-db-sync_ that it finnally recognized the files.
+
+   I have been trying to get this going for a while now it seems. Feels go to have
+   finnally got it all setup. And its good to know if something happens and I need
+   to reinstall everything. as long as I have the org-roam-files I can get everything
+   back the way it was. Now I am going to try to only alter the org-roam files on
+   the server. This is because I'm not sure how to keep track of the changes I make
+   locally or on the server.
+
+   ----
+   The next thing I would like to get running is the graph display, this will show
+   how each node is connected to other nodes.
+   
+
+** Quick Reference to commands
+
+   Show backlinks buffer C-c n l
+   follow link w/o mouse  C-c C-o
+
+
+** Learning about capture templates now
+
+
+* Org-mode
+
+ Help Information
+ C-h f help on functions
+ C-h k help on keys
+
+ M-x describe-function
+
+
+** Navigating The Emacs Page
+
+ C-s Search
+ C-r Rev Search
+
+ Hitting either one again cycles between results
+
+ C-l Centers the cursor on the page
+
+ C-x o Switch between Buffer Windows
+
+ C-x 1  close all other windows except the one you are on
+ C-x 0 close the buffer you are on
+ C-x 2 Split window horizontal
+ C-x 3 Split window Vertically
+
+** TODO Functionality
+
+  shift-alt-enter Creates another TODO
+  C-c C-t Changes the state of the TODO
+  Shift left or right - modifies the timestamp
+  C-c C-d brings up the calander to choose a deadline
+  C-c a Summons Agenda
+  C-c C-a n Creates a new link to file 
+
+  Editing text
+
+  a-u make a word uppercase
+  *bold*
+  /italic/
+  =verbatim=
+
+** Dired functionality
+  C-x d <directory name>
+  C-x C-f <directory name>
+
+  n next line
+  p previous line
+
+  j jump to file
+
+  Flag for deletion
+  d flag
+  u unflag
+  x delete flagged
+  # flag auto save files
+  ~ flag all backup files
+
+  %& flag files with certain names
+
+  f visit selected file RET e
+  o same but opens in another window
+  v view, prevents changing
+  ^ goes back to parent directory
+  s search
+
+    
+** ORG-Mode
+*** Integrating .org pages into website
+*** The Tables of Org-mode
+** ORG-Roam
+*** Windows Install
+**** make sure that you add the path to the msys2 bin file to the windows path
+**** Install Msys2 and then install gcc
+**** It is necessary to restart emacs after you update the path
+*** Org-roam key-bindings
+    C-c n f creates a new node or finds already made node
+    C-c n i links nodes to nodes witin the node
+    C-c C-c save the node after you create it the first time
+    C-c n l brings up org-roam-buffer
+    to delete a node type m-x crux-delete-file-buffer
+    
+    To reload the cache of the roam db just run
+    m-x org-roam-db-build-cache  org-roam-update-org-id-locations
+    and or m-x org-roam-db-sync

@@ -1,0 +1,68 @@
+:PROPERTIES:
+:ID:       01a3666b-c7d9-447d-8743-880ed7d62f41
+:END:
+#+title: html sample 1
+#+date: [2021-09-01 Wed 06:33]
+
+
+* HTML
+
+  <div id="checkboxes">
+  <label><input type="checkbox" value="population.jpg" /> Population</label>
+  <label><input type="checkbox" value="employment.jpg" /> Employment</label>
+    
+  <input type="submit" id="displaydata" value="Display Data" />
+  </div>
+
+  <div id="images">
+  </div>
+
+* CSS
+
+  #checkboxes, #images {
+  float: left;
+  margin: 10px;
+  }
+
+  #checkboxes label {
+  display: block;
+  font-family: Calibri, Arial;
+  }
+
+  #images img {
+  display: block;
+  }
+
+
+
+* JavaScript
+
+  
+
+  // Remove the submit button, which is only there for graceful degradation:
+var submitButton = document.getElementById('displaydata');
+submitButton.parentNode.removeChild(submitButton);
+
+// Next, add event handlers to all checkboxes:
+var checkboxesContainer = document.getElementById('checkboxes');
+var imagesContainer = document.getElementById('images');
+var inputElements = checkboxesContainer.getElementsByTagName('input');
+var element, i;
+
+for(i = 0; element = inputElements[i]; i++) {
+    if(element.getAttribute('type') === 'checkbox') {
+        (function(el) {
+            el.onchange = function() {
+                if(el.checked) {
+                    var ae = document.createElement('img');
+                    ae.setAttribute('src', el.getAttribute('value'));
+                    imagesContainer.appendChild(ae);
+                    el.associatedElement = ae;
+                } else {
+                    el.associatedElement.parentNode.removeChild(el.associatedElement);
+                    delete el.associatedElement;
+                }
+            };
+        })(element);
+    }
+}

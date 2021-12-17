@@ -1,0 +1,133 @@
+:PROPERTIES:
+:ID:       165e131f-d31e-4e6e-b70e-b259c0918b65
+:END:
+#+title: Common lisp code
+#+date: [2021-09-21 Tue 16:55]
+
+
+* Creating a database
+  
+** Create the global variable that will reference the database
+#+begin_src lisp
+  
+  (defvar *db* nil)
+  
+#+end_src
+  
+** Define a function for making the records
+
+#+begin_src lisp
+  
+  (defun make-rec (name address date items return)
+    (list :name name :address address :date date :items items :return return))
+  
+#+end_src 
+
+** Create a function to add the records to the database
+   This uses the builtin PUSH macro
+
+#+begin_src lisp
+  
+  (defun add-rec (rec) (push rec *db*))
+  
+  ;; this needs to be further abstracted because we are still
+  ;; having to run two functions
+  
+  (defun add (a b c d e)
+	   (add-rec (make-rec a b c d e)))
+  
+  ;; Now all we must do is type
+  
+  (add "name" "address" "date" items(number) return[T/F])
+  
+#+end_src
+
+** To show a list of database entries
+
+#+begin_src lisp
+  
+  cl-user> *db*
+  
+  ;; but we want to have our information presented in a
+  ;; nice fasion so we will create a function for that.
+  
+  (defun dump-db ()
+    (dolist (rec *db*)
+      (format t "~{~a:~10t~a~%~}~%" rec)))
+  
+  ;; another way to do this in less space would be
+  
+  (defun dump-db ()
+    (format t "~{~{~a:~10t~a~%~}~%~}" *db*))
+  
+#+end_src  
+
+** Adding user input to the database
+   Now we will make a function to get user input to create
+   the records of the database.
+   
+#+begin_src lisp
+  
+  ;; first we must define the prompt for information
+  
+  (defun prompt-read (prompt)
+    (format *query-io* "~a: " prompt)
+    (force-output *query-io*)
+    (read-line *query-io*))
+  
+  ;; now we will combine the prompt funtion with the make-rec
+  ;;function to make our full function
+  
+  (defun prompt-for-rec ()
+    (make-rec
+     (prompt-read "Name")
+     (prompt-read "Address")
+     (prompt-read "Date")
+     (or (parse-integer (prompt-read "Items") :junk-allowed t) 0)
+     (y-or-n-p "Return Cust [y/n]: ")))
+   
+#+end_src
+
+** Finnally we can add a function that loops for more inputs
+   With this function we will wrap the prompt-for-rec function in
+   a function that loops until the user is done.
+
+#+begin_src lisp
+  
+  (defun add-recs ()
+    (loop (add-rec (prompt-for-rec))
+	  (if (not (y-or-n-p "Another? [y/n]: ")) (return))))
+  
+#+end_src
+
+** Now we need to save the database file
+
+#+begin_src lisp
+  
+  (defun save-db (filename)
+    (with-open-file (out filename
+			 :direction :output
+			 :if-exists :supersede)
+      (with-standard-io-syntax
+	(print *db* out))))
+  
+#+end_src
+
+  You can save the file as anything really.
+  example: Customer.db
+
+  
+   
+** This is the code to then load the Database
+
+** 
+** 
+** end
+
+#+begin_src lisp
+#+end_src
+
+* Creating a Evolving Simulation
+
+** 
+

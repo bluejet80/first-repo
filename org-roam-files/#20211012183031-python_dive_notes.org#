@@ -1,0 +1,559 @@
+:PROPERTIES:
+:ID:       b01cd72f-d3ce-4276-87e6-1ba294253f78
+:END:
+#+title: Python Dive Notes
+#+date: [2021-10-12 Tue 18:30]
+
+
+Setup a directory:
+  C:\Users\Jarett\dev
+
+  Where I will put all the python programs that I write from this book.
+
+* First Program
+  The book starts off by having you write a pretty advanced program with
+  all the correct annotations and exception handeling as well.
+
+  I will detail the info below:
+
+  I am writing the program in The Spyder Python IDE
+
+  The program is called humansize.py
+
+  This program/script defines a single function, the approximate_size() function.
+  This function takes an exact file size in bytes and calculates a pretty
+  (but approximate) size.
+
+  Towards the bottom of the script you'll see two calls to
+  print(approximate_size(arguments))
+
+  These are function calls that call the approximate_size() function and pass
+  a number of arguments; then take the return value and pass it straight to
+  the print() function.
+
+  First we will look deeper into the approximate_size function
+  
+
+  
+** Approximate_size Function
+   Python has functions like most languages, but it doesn't have separate header
+   files like C++ or interface/implementation sections like Pascal.
+   When you need a function you just declare it.
+
+   def function_name(args)
+
+   The keyword def starts the function declaration, followed by the funciton
+   name, and then followed by the arguments in parentheses. Multiple arguments
+   are separated by commas.
+   Note that the function does not define a return datatype. Python functions
+   do not specify the datatype of their return value; they dont even specify
+   whether they return a value. But, in fact, every Python function returns
+   a value. If it executes a return statement then it returns that value,
+   otherwise, it will return None, the Python null value.
+
+   The approximante_size() function take the two arguments size and
+   a_kilobyte_is_1024_bytes, but neither argument specifies a datatype.
+   In Python, variables are never explicitly typed. Python figures out
+   what type a variable is an keeps track of it internally.
+
+   
+** The if __name__ = "__main__" block
+   Python files are called Modules and they are identified by the .py file
+   extension. A module can define functions, classes, and variables.
+
+   So when the interpretor runs a module, the __name__ variable will be
+   set as __main__ if the module that is being run in the main program.
+
+   But if the code is importing the module from another module, then the
+   __name__ variable will be set to that module's name.
+
+   Basically you use the if __name__ = "__main__" block to allow or
+   prevent parts of code from being run when modules are imported. 
+   
+   
+** Optional and Named Arguments
+   Python allows function arguments to have default values; if the function is
+   called without the argument, the argument gets its default value.
+   Furthermore, arguments can be specified in any order by using named arguments.
+
+   In our function declaration, the second argument specifies a default value
+   a_kilobyte_is_1024_bytes=True
+
+   This means that the argument is optional.
+
+   Now looking back at the bottom of the script, the first function call
+   specifies the second argument as False and the second function call
+   leaves it out entirely so it defaults to True.
+   
+*** Function parameters by name
+
+    If you were to run the approximate_size() function and reverse the order
+    of the arguments passed, it would still run fine, that is if the second
+    argument is named. If the arguments are passed in a different order than
+    specified and not named then the script will return an error. Also, as
+    soon as you name an argument, all the following arguments need to be
+    named aswell.
+
+    
+** Writing Readable Code
+   Code is written once, but read many times. And the most important audience
+   for your code is the future you(six months later after you've forgotten
+   what the hell the function actually does)
+   Python makes it easy to write readable code.
+
+   
+*** Document Strings
+    You can document a Python function by giving it a document string(docstring).
+    In this program, the approximate_size() function has a docstring.
+
+    Tripple quotes signifies a multiline string. Everything between the start
+    and end quotes is part of a single string.
+
+    The functions docstring documents what the function does.
+    A docstring must be the first thing defined in a funciton(on the next line
+    after the function declaration). One added feature of having a docstring
+    is that they are available at runtime as an attribute of the function.
+
+    Many Python IDE's use docstrings to provide context-sensitive documentation.
+    So when you type the function name, the docstring appears as a tooltip.
+
+    
+** The import Search Path
+   Python looks in several places when you try to import a module. Specifically,
+   it looks in all the directories defined in sys.path.
+
+   To view the sys.path listing you will type:
+   >>> import sys
+   >>> sys.path
+
+   ['C:\\Users\\Jarett\\anaconda3\\python38.zip',
+ 'C:\\Users\\Jarett\\anaconda3\\DLLs',
+ 'C:\\Users\\Jarett\\anaconda3\\lib',
+ 'C:\\Users\\Jarett\\anaconda3',
+ '',
+ 'C:\\Users\\Jarett\\anaconda3\\lib\\site-packages',
+ 'C:\\Users\\Jarett\\anaconda3\\lib\\site-packages\\locket-0.2.1-py3.8.egg',
+ 'C:\\Users\\Jarett\\anaconda3\\lib\\site-packages\\win32',
+ 'C:\\Users\\Jarett\\anaconda3\\lib\\site-packages\\win32\\lib',
+ 'C:\\Users\\Jarett\\anaconda3\\lib\\site-packages\\Pythonwin',
+ 'C:\\Users\\Jarett\\anaconda3\\lib\\site-packages\\IPython\\extensions',
+ 'C:\\Users\\Jarett\\.ipython']
+
+   You can add a new directory to Python's search path at runtime by adding
+   the directory name to sys.path.
+   By using sys.path.insert(0, new_path), you inserted a new directory as the
+   first item of the sys.path list (and therefore at the beginning of python's
+   search path) This is almost always what you want. In case of naming conflicts,
+   it ensures that your modules will be found and used instead of the modules
+   that came with python.
+
+   
+** Everything is an Object
+   Python functions have attributes and those attibutes are available at runtime.
+   Like everything else in python, a function is an object.
+
+   To access the approximate_size() function in the console we would type:
+   
+   >>> import humansize
+
+   >>> print(humansize.approximate_size(4096, True))
+   4.0 KiB
+
+   >>> print(humansize.approximate_size.__doc__)
+
+    Convert a file size to human-readable form.
+    
+    Keyword arguments:
+    size -- file size in bytes
+    a_kilobyte_is_1024_bytes -- if True (default), use multiples of 1024
+                                if False, use multiples of 1000
+                                
+    Returns: string
+
+   
+    The first line imports the humansize program as a module, a chunck of code
+    that you can use interactively, or you can now use it in a larger python
+    program. After you import a module, you can reference any of its public
+    functions, classes, or attributes.
+
+    To use functions defined in imported modules, you need to include the module
+    name. Similarly to how you access methods inside java classes. By calling
+    the __doc__ attribute we get the docstring of the function returned. 
+    
+*** What is an Object
+    Everything in Python is an object, and everything can have attributes and
+    methods. All functions have a built-in attribute __doc__ which returns
+    the docstring.
+
+    You may have heard the term first-class object in other programming contexts.
+    In python, functions are first-class objects. You can pass a function as
+    the argument to another function. Modules are also first-class objects.
+    You can pass an entire module as an argument to a function. Classes are
+    first-class objects as well, and individual instances of a class are also
+    first-class objects.
+
+    Everything in python is an object. Strings are objects, Lists are objects.
+    Functions, classes and class instances, and even modules are objects.
+
+    
+** Indenting Code
+    Python fyunctions have no explicit beginning or end, and no curly braces
+    to mark where the function code starts and stops. The only delimiter is
+    a colon(:) and the indentation of the code itself. 
+   
+*** Code Blocks are defined by their indentation.
+    Whitespace is significant in python and must be consistent. The first
+    line that is not indented marks the end of the function.
+    A completely blank line doesn't count however. They can make the code
+    more readable, but they dont count as code block delimiters. The
+    function continues on to the next line.
+    
+** Exceptions
+   Exceptions are everywhere in Python. Python will raise them in various
+   different circumstances. Well what is an exception? Usually, its an
+   error, an indication that something went wrong.
+   Some programming languages encourage the use of error return codes which
+   you check. Python encourages the use of exceptions, which you handle.
+
+   When an error occurs in the Python shell, it prints out some details
+   about the exception and how it happened, and that's it. This is called
+   an unhandled exception. When the exception was raised, there was no
+   code to explicitly notice it and deal with it, so it bubbled its way
+   back to the top level of the Python Shell, which spits out some
+   debugging info and calls it a day. In the shell, its no big deal, but
+   if it happened while your actual program was running, the entire
+   program would come screeching to a halt, if nothing handles the
+   exception.
+
+   Unlike Java, Python functions don't declare which exceptions they
+   might raise. Its up to you to determine what possible exceptions you
+   need to catch.
+
+   Exceptions dont have to result with the program crashing. Exceptions
+   can be handled. Sometimes an exception happens because you have a bug
+   in your code, but sometimes an exception is something you can anticipate.
+   If you are opening a file, it might not exist. If you are importing a
+   module, it might not be installed. If you are connecting to a database,
+   it might be unavailable, or you might not have the correct security
+   credentials to access it.
+
+   If you know that a line of code might raise an exception, you should
+   handle the exception using a try...except block
+
+   Python uses try...except blocks to handle exceptions and the raise
+   statement to generate them. Java and C++ use try...catch blocks to
+   handle exceptions and the throw statement to generate them.
+
+   The approximate_size() function raises exceptions in two different cases:
+   If a given size is larger than the function is designed to handle or if
+   it's less than zero.
+
+   The syntax for raising an exception is simple enough.
+   
+   Use the raise statement, followed by the exception name, and an optional
+   human-readable string for debugging purposes.
+   
+   The syntax is reminiscent of calling a function. (In reality, exceptions
+   are implemented as classes, and this raise statement is actually creating
+   an instance of the ValueError class and passing the string 'number
+   must be non-negative' to its initialization method.)
+
+   You dont have to handle exceptions in the function that raises it. If one
+   function doesn't handle it, the exception is passed to the calling
+   function, then to that function's calling function, and so on, up the
+   stack.
+
+   If the exception is never handled, your program will crash. When your
+   program crashes, python will print a block of debugging info called a
+   traceback, and that's the end of that. Again, maybe that is what you want;
+   it all depends on what your program does.
+
+   
+** Catching Import Errors
+   One of Python's built-in exceptions in ImportError, which is raised when you
+   try to import a module and fail. This can happen for a variety of reasons,
+   but the simplest case is when the module doesn't exist in your import search
+   path.
+
+   This can be used to add optional features into your program. For example:
+   Perhaps your program wants to use the chardet library if it exist, but
+   continue on gracefully if the user hasn't installed it. You could do this
+   with a try....except block.
+
+   try:
+     import chardet
+   except ImportError:
+     chardet = None
+
+   Later, you can check for the presence of the chardet module with a simple
+   if statement.
+
+   if chardet:
+     # do somehting
+   else:
+     # continue anyway
+
+   Another common use of the ImportError exception is when two modules implement
+   a common application programming interface (API), but one is more desirable
+   than the other. (Maybe it's faster or uses less memory) You can try to import
+   one module but fall back to a different module if the first import fails.
+
+   
+** Unbound Variables
+    If we take another look at our approximate_size() function there is a
+    variable that never gets declared.
+
+    multiple = 1024 if a_kilobyte_is_1024_bytes else 1000
+
+    You never declare the variable multiple; you just assign a value to it.
+    And with Python, that's ok, because python lets you do that. Python, however,
+    does not let you reference a variable that has never been assigned a value;
+    trying to do so will raise a NameError exception.
+
+    
+** Running Scripts
+   Python modules are objects and have several useful attributes. One of these
+   attributes makes it easy to test your modules as you write them by including
+   a special block of code that executes when you run the python file on the
+   command line.
+
+   So if we look at the last few lines of our approximate_size() function there
+   is an if statement there. All modules have a built-in attribute __name__.
+   A modules __name__ depends on how you're using the module. If you import
+   the module, __name__ is the module's file name without a directory path or
+   file extension.
+
+   >>> import humansize
+   >>> humansize.__name__
+   'humansize'
+
+   
+   But you can also run the module directly as a standalone program, in which
+   case __name__ will be a special default vaule: __main__. Python will
+   evaluate this if statement, find a true expression, and execute the if code
+   block. As you can see when you run the script the __main__ block prints
+   two values.
+
+
+   
+
+   
+* Chapter 2 Native DataTypes pg 15
+
+  Native Data types are:
+  Booleans
+  Numbers
+  Strings
+  Bytes and byte arrays
+  Lists
+  Tuples
+  Sets
+  Dictionaries
+
+** Booleans
+   Booleans can be treated as numbers.
+   True = 1
+   False = 0
+
+   True + True = 2 (True must begin with a capital letter)
+   15 - True = 14
+   
+
+** Numbers
+
+   type(1) - tells you the type of 1
+
+   isinstance(1, int) - returns true or false if 1 is an integer
+
+   float(2) = 2.0
+   int(2.5) = 2
+
+   When dividing numbers
+
+   11 / 2 = 5.5
+   11 // 2 = 5  - the answer is truncated
+
+   11 % 2 = 1 - this is the remainder operator
+
+   def divr(x,y):
+    print((x//y),"r",(x%y))  #function that prints the divisor and remainder
+
+   Other stuff
+
+   11 ** 2 = 121
+
+   To do square roots you have to import the math module
+   import math
+   math.sqrt(144) = 12
+
+   Use the math module to do trig calculations as well
+
+   Fractions
+
+   To use fractions you need to import the fractrion module
+   import fractions
+   x = fractions.Fraction(1,3) - creates 1/3 fraction
+
+   
+** Lists
+   Lists are Python's workhorse datatype.
+
+   To create a list use square brackets to wrap a comma-separated list
+   of values.
+
+   a_list = ['a','b','apple',7,9,True]
+   
+   As always everything in python is an object. So you can have
+   lists of objects, like functions.
+
+   a_list[3] = item at index 3 - lists begin at index 0
+
+   a-list[-3] = the third item from the end of the list
+
+*** slicing a list
+
+    a_list[1:3] = returns items from index 1 to index 2 (does not include
+    index 3)
+
+    a_list[:3] = returns from the begining to index 2
+
+    a_list[2:] = returns from index 2 to the end of the list
+
+    
+*** adding to a list
+
+    a_list = a_list + ['happy',7] # appends to the end
+    a_list = [4,5] + a_list  # appends to the front
+
+    there's also
+
+    a_list.append('good')  # appends single item to the end
+    if another list is added hre it will be a list inside the list
+
+    to index a list within a list use the nested indexes
+
+    a_list[2][1] = returns index 1 of the third item in the list.
+    
+    a_list.extend([5,6,3]) # appends to the end
+    a_list.insert(5,'yes') # appends single item to list, the first arg
+    is the index and the second is the item
+
+*** searching a list
+
+    a_list.count('new') = returns the number of times 'new' is in the list.
+
+    'new' in a_list = returns True or False if 'new' is in list
+
+    a_list.index('new') = returns the index of 'new'
+
+    
+    
+*** Removing items from a list
+
+    del a_list[1] = deletes what is at index 1
+
+    a_list.remove('new') = removes the first instance of 'new'
+
+    a_list.pop() = removes the last items from the list and returns the item
+    that was removed
+
+    Regular lists are True
+    Empty Lists are False
+
+   
+** Tuples
+   A Tuple is an immutable list. Meaning that it cannot be changed
+
+   All the same things apply to Tuples as Lists except thos things that
+   would change the Tuple
+
+   Indexing and slicing works
+
+   Tuples can be converted in to Lists and vise versa.
+   The tuple() function changes a list to a tuple
+   and the list() function does the opposite
+
+   tuple(a_list) = changes a_list to a tuple   
+
+   
+*** Assigning multiple values with a Tuple
+
+    You can use Tuples to assign values to multiple variables
+    
+    v = ('a', 2, True)  # create a Tuple 
+    
+    (x, y, z) = v  # assign the values of the Tuple to variables
+
+    x = 'a'
+    y = 2
+    z = True
+
+  
+    
+*** Assigning Consecutive Values
+
+    (Mon, Tues, Wed) = range(2)
+
+    This assigns Mon = 0, and Tues = 1, and Wed = 2
+    
+** Sets
+   A set is an unordered "bag" of unique values. A single set can contain
+   values of any datatype.
+
+   Once you have two sets, then you can do standard set operations like,
+   union, intersection, and set difference.
+
+   You have to create a empty set with set().
+
+   You can create a set from a list by typing
+   a_set = set(a_list)
+
+   Adding members to a set  - a_set.add(1)
+
+   Getting the length of a set - len(a_set)
+
+   
+
+** Dictionaries
+   Dictionaries are a lot like sets but they have the key : value duality
+   
+
+   
+* Comprehension
+
+** Working with the file system
+   Python can access the file no matter what kind of slashes you use.
+
+   Python has a way of splitting the pathname and the filename
+
+   pathname = 'Users\Jarett\python3\file.txt'
+
+
+   (dirname, filename) = os.path.split(pathname)
+   dirname = 'Users\Jarett\python3'
+   filename = 'file.txt'
+
+   (shortname, extension) = os.path.splitext(filename)
+   shortname = 'file'
+   extension = '.txt'
+
+   You can build up path names with the os.path.join() function
+
+   
+
+   
+**** Listing Directories
+
+     The glob module is another tool in python standard library. It is an easy
+     way to get the contents of a directory programmatically.
+
+     
+**** Getting file METADATA
+     Every modern filesystem stores metadata about each file: creation date,
+     last modified date, file size, and so on...
+
+     metadata = os.stat('file.txt')
+
+     metadata.st_mtime
+     1247520344.9537716
+

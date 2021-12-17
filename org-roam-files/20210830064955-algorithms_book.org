@@ -1,0 +1,27 @@
+:PROPERTIES:
+:ID:       5a6cc880-eafa-4282-97d7-a2f09beb99db
+:END:
+#+title: Algorithms Book
+
+This is a SubCategory of [[id:c179a479-ba05-49c1-b709-4827359657ac][Java]]
+
+
+* Source
+
+Author: Robert Sedgwick
+Title: Algorithms Book
+Year: 2011
+
+* Summary
+
+This book is about Algorithm Development in Java
+
+
+* 9/2/21
+  Was introduced to StdDraw class. Using it to draw things
+  
+  I am currently just finished page 45 and am ready to be
+  introduced to binary searches
+
+  I am happy with my ability to use for loops and arrays to create
+  interesting drawings with the StdDraw Class. 

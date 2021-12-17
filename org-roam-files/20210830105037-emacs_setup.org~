@@ -1,0 +1,20 @@
+:PROPERTIES:
+:ID:       96949983-d337-4d7a-9c2f-4b9ec4f07b39
+:END:
+#+title: Emacs Setup
+#+date: [2021-08-30 Mon 10:50]
+
+* Setting up Emacs from the ground up
+** In Linux
+*** You can use EXWM 
+    This is a window manager that opens up to emacs running on the screen
+*** Eshell built in terminal emulator
+*** Use org-mode to design emacs config file
+*** Using emacs 27.1
+*** Setup package-archives
+**** "melpa" . "https://melpa.org/packages/"
+**** "org" . "https://orgmode.org/elpa/"
+**** "elpa" . "https://elpa.gnu.org/packages/"
+*** Use ESC to quit out of commands
+*** Setup IVY which is a auto-completion thingy
+*** Stoped at  

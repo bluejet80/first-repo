@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       6f9038b6-9a9a-4bff-8ae2-8b74a4d0d2f2
+:END:
+#+title: Animation
+
+This is the place for everything Animation related
+
+

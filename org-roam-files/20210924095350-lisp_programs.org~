@@ -1,0 +1,41 @@
+:PROPERTIES:
+:ID:       f1f67b33-2217-4c1a-8433-cb835edde348
+:END:
+#+title: Lisp Programs
+#+date: [2021-09-24 Fri 09:53]
+
+
+* The Short Story Creator
+  
+** Figure out a layout of what is to be created
+
+*** I want the scenes to be generated from a range of different aspects
+
+**** Create Sample text
+     Far off on the PLACE of NAME where the THINGS grow and there are frequest sightings
+     of THINGS there lived a THING.
+
+***** So this show that you will have instances of PLACES and THINGS and supposedly PEOPLE
+
+**** Objects are 
+
+***** PLACES
+
+***** THINGS
+
+***** PEOPLE
+
+**** There shoulad also be some actions as well and maybe emotions?
+
+***** ACTIONS
+
+***** EMOTIONS
+
+**** Sample Text
+     PERSON ACTION the THING against the THING. PRONOUN was very EMOTION.
+
+     
+     
+* Calculations
+
+** Conversion Program 

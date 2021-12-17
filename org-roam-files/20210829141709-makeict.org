@@ -1,0 +1,7 @@
+:PROPERTIES:
+:ID:       202abefd-2a95-45b6-976b-84fd1c733e07
+:END:
+#+title: MakeICT
+
+This is the place for everything having to do with MakeICT
+

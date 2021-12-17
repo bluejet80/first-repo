@@ -1,0 +1,21 @@
+:PROPERTIES:
+:ID:       a52745dc-0f03-46a8-a233-9a51bc5e1ab1
+:END:
+#+title: Node.js
+#+date: [2021-09-05 Sun 09:56]
+
+This is for information about Node.js
+
+To install packages
+npm i -g <package name>
+
+to update npm run
+npm i -g npm
+
+to update the other packages run
+npm update -g
+
+to check for vulnerabilities
+npm audit
+
+

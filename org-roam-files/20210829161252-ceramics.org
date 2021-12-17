@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       ada15eb1-ba57-4106-aa9d-e5a3d4b1f4bb
+:END:
+#+title: Ceramics
+
+Stuff with ceramics
+
+

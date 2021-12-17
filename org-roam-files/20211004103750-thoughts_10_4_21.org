@@ -1,0 +1,124 @@
+:PROPERTIES:
+:ID:       e1e95be7-43bd-424a-a6a5-b09d9baa4225
+:END:
+#+title: Thoughts 10/4/21
+#+date: [2021-10-04 Mon 10:37]
+
+
+I want to think of programs that I can write to do one thing or another.
+
+* Program that will have a conversation with you
+
+** Asking questions changes the topic 
+
+** Affirmations or Negations direct conversation
+
+** It could be like a tutor.
+   You ask it a question and it tells you the answer
+   You ask it to tell you about this thing and you get
+   a random thought about it. 
+
+** The program knows what the subject is
+   Stays on subject until you act disinterested
+
+
+   
+* Program that will write a short story
+
+** Similar to the conversation program
+
+** What are the Components that are necessary?
+
+*** Subjects
+
+**** Attitudes/ Personalites
+
+*** Actions
+
+**** Good and Bad
+
+**** positive / negative
+
+**** supportive / destructive of the plot
+
+*** Places
+
+**** My Favorite places
+
+**** Interesting places
+
+*** Plots
+
+**** A finite number of sequences
+
+**** Twists
+
+** How long will each story be?
+
+*** Introduction
+
+*** Plot line
+
+*** Ending
+
+
+
+    
+* Program that will turn my journal entry into a webpage
+
+** Org mode already does this to an extent
+   but I want to customize it more
+
+** What are the different compoenets that will be necessary?
+
+
+
+   
+* Elaborate on the text game program
+
+** Continue to go through the book 
+
+** develop a better user interface
+
+
+
+
+   
+* The program that paints images on the window
+
+** Using characters
+   maybe the brightness of the characters, or the character
+   itself could control the brightness.
+   which character is the brightest, which is the darkest
+   
+** How big is the canvas size
+
+** Can you write animation into it
+
+
+
+   
+* A program to calculate something
+
+** Something that I couldn't possible calculate on my own..
+** The number of times I wish I'd talked to the girl
+** Going to mars would be the same as driving to your house how many times...
+** The pressure exerted on my heart by your sweet smile is...
+** How much light is necessary to eliminate all the shadows?
+   To make sure and reach all the shadows you would have to destroy the surfaces
+   that the light hits first. 
+** Why aren't there more numbers in my life?
+** If math is everywhere why can't I find it?
+** You could associate everything with a number
+   But it would have no significant connection to the thing
+   How does this number represent this chair?
+   Is it its dimension? Its placement in the room? The number of parts that it has?
+   The year it was made? Its relationship to the wall and other things in the room?
+** How many hours can I spend on studying?
+   Progress is not measurede in hours alone. Sure you need time but a lot can
+   be accomplished in a little amount of time and hardly anything can happen
+   over large spans of time. Everything happens in its own time.
+   But you have to atleast be walking in a certain direction if you
+   wish to get to a certain place. You cannot determine when you will arrive
+   but you can point yourself in the right direction. 
+** 

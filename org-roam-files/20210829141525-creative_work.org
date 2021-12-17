@@ -1,0 +1,19 @@
+:PROPERTIES:
+:ID:       e01ea6a6-96af-482e-a52d-f8ba908bec93
+:END:
+#+title: Creative Work
+
+This is the top level Node for everything having to do with my
+creative work and ambitions
+
+-[[id:202abefd-2a95-45b6-976b-84fd1c733e07][MakeICT]]
+-[[id:49164121-9371-455b-9eb1-a5dc8c9c486e][Woodworking]]
+-[[id:d3e7bdf2-563e-4e92-9ea9-d7657ada4e31][Bookbinding]]
+-[[id:e9ac8dd0-2ff5-488c-b32a-85ea262c1148][Blender]]
+-[[id:d5e6452f-ffb7-4956-b002-763680b776ab][Photography]]
+-[[id:6f9038b6-9a9a-4bff-8ae2-8b74a4d0d2f2][Animation]]
+-[[id:f6d91565-6226-4a1b-b471-df75a4c95a2f][Video]]
+-[[id:c82b370b-fc5c-4173-85b7-a825a7819ada][Illustrator]]
+-[[id:55ef118a-9c26-4808-af2c-3764ffd11fcc][Photoshop]]
+-[[id:b8f30462-5708-46de-81b2-e258ec06eb79][InDesign]]
+-

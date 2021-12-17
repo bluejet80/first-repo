@@ -1,0 +1,390 @@
+:PROPERTIES:
+:ID:       e39a2f8f-8b6a-484c-851a-dd36706526b5
+:END:
+#+title: Java Fundamentals
+#+date: [2021-11-03 Wed 15:39]
+
+
+* Java Fundamentals
+  
+|------------+-------------------+----------------------------------------------+---+---|
+| *      1   |                   |                                              |   |   |
+| *    1 1   |                   |                                              |   |   |
+| *      1   |                   |                                              |   |   |
+| *      1   |                   |                                              |   |   |
+| *    11111 | Java Fundamentals | Main Outline                         Section | 1 | 1 |
+|------------+-------------------+----------------------------------------------+---+---|
+
+Information from [[https://beginnersbook.com/java-tutorial-for-beginners-with-examples/][this website]]
+
+  Info about Variables, datatypes, syntax & compilaton and execution
+
+** Compilation and execution
+   When you compile all the source code in the source, the compiler produces
+   one .class file for each .java file. The .class contains the compiled version of the .java file.
+
+   To compile all the classes within your project you will run the code below:
+   
+   "c:\Program Files\Java\jdk1.8.0_25\bin\javac" src/myfirstapp/*.java -d classes
+
+   The first part is the java compiler, the second part is the folder which contains
+   your src directory. The *.java tell the compiler to compile all the files.
+   The -d creates a classes directory.
+
+   Once the compiler is done the classes directory will contain all the compiled .class files.
+   The package structure of the src folder will be preserved in the class directory.
+   Now you can run any of the .class files which contain a main() method.
+   Running the file from the command line will look like this:
+
+    "c:\Program Files\Java\jdk1.8.0_25\bin\java" -cp classes myfirstapp.MyJavaApp
+
+    The -cp classes flag tells the JVM that all your classes are located in the dir
+    classes. This is also called the "class path".
+
+    The name of the class to run is the last argument in the above command [myfirstapp.MyJavaApp]
+    The JVM needs to know the fully qualified class name (all packages plus class name) to determine
+    where the corresponding .class file is located.
+    
+** Variables and Data Types
+
+*** Declaring a variable
+    data_type variable_name = value;
+    
+*** Types of Variables
+
+**** Local variable
+     These variables are declared inside a method of the class. Their scope is limited
+     to the method, which means that You can not change their values and or access them
+     outside of the method
+
+**** Static(or Class) Variable
+     Static variables are also known as class variables because they are associated with the
+     class and common for all the instances of class.
+     For Example: If I create three objects of a class and access this static variable, it
+     would be common for all, the changes made to the variable by one object, would reflect
+     when you access it through other objects.
+     You can also access the static variables without using the objects.
+     No other variable can be accessed like that. 
+
+**** Instance Variable
+     Each Instance(object) of a class has its own copy of instance variables.
+     Unlike static variables, instance variables have their own unique copy of
+     the instance variable. 
+
+*** Java Data Types
+
+**** Data type defines the value that a variable can take
+
+**** Various Data Types
+
+***** Primitive Data Types
+
+***** Other Data Types
+
+** Operators
+*** Types of Operators
+
+**** Basic Arithmetic Operators
+
+**** Assignment Operators
+***** num2 = num1
+***** num2 += num1
+      adds the numbers and assigns the value to num2
+***** num2 /= num1
+      divides the numbers and assigns the value to num2
+***** 
+
+**** Auto-Increment/decrement Operators
+***** num2 ++
+      increments num2 by one 
+
+**** Logical Operators
+***** b1&&b2
+      'And' operator - returns true if both are true
+***** b1||b2
+      'Or' operator - returns true if one or the other are true
+***** !b1
+      'Not' operator - returns true if not b1
+
+**** Comparison (relational) operators
+***** There are six relational operators
+      ==, !=, <, >, >=, >=
+
+**** Bitwise Operators
+***** There are six bitwise operators
+      &, |, ^, ~, <<, >>
+***** Bitwise operator performs bit by bit processing 
+***** num1 | num2
+      compares corresponding bits of num1 and num2 and generates 1 if either
+      bit is 1, else returns 0
+***** num1 ^ num2
+      This compares corresponding bits of num1 and num2 and generates 1
+      if they are not equal, else it returns 0 
+***** ~num1
+      This is a complement operator that just changes the bit from 1 to 0 
+***** num1 << 1
+      This is a left shift operator that moves the bits to the left,
+      discards the far left bit, and assigns the rightmost bit to 0
+      The number of bits is determined by the number on the right side of
+      the operaotor
+***** num1 >> 1
+      Same as above except moves the bit to the right
+
+**** Ternary Operators
+***** This operator evaluates a boolean expression and assigns the value based on the result
+      Syntax: variable num1 = (expression) ? value if true: value otherwise
+
+*** Operator Precedence in Java
+    This determines which operator needs to be evaluated first if an
+    expression has more than one operator. 
+
+** Statements
+   When we need to execute a set of statements based on a condition
+   then we need to use control flow statements
+
+*** If-else Statement
+
+**** The If Statement
+     The "If" statement gets executed only when the given condition is true.
+     If the condition is false then it skips the statement and continues to the
+     code after it. 
+**** Nested if statement
+     An if statement inside an if statement is called a nested if statement.
+     The first statement would execute if condition_1 is true.
+     The second Statement would only execute if both the conditionals are true.
+**** If else Statement
+     Here the statement inside the "if" statement would execute if the condition is true, and
+     the statements inside the "else" statement would execute if the condition is false. 
+**** if-else-if statement
+     This is kindof like a switch statement.
+     If-else-if statement is used when we need to check multiple conditions.
+     This statement always begins with an "if" statement and ends with an "else"
+     statement with "if-else" statements in between.
+
+     Sample Code:
+     
+ #+begin_src java
+   
+   if(condition_1 ) {
+       statement(s);
+   }
+   else if(condition_2){
+       statement(s);
+   }
+   else{
+       statement(s);
+   }
+   
+ #+end_src     
+
+     
+*** Switch-case Statement
+    Switch statements are used when we have a number of options(or choices)
+    and we may need to perform a different task for each choice.
+
+    Make sure that you include a break statement or the switch will
+    just continue on after the first choice is made.
+
+    1. Case doesnt always have to have an order, you can specify them in
+    any order based on the requirement.
+    2. Characters can also be used in a switch statement
+    3. The expression given inside switch should result in a constant value
+       otherwise it will not be valid.
+    4. Nesting of switch statements are allowed, which means you can have switch
+       inside another switch statement. However this should be avoided because
+       it make the program more complex and less readable.
+
+       Example Code:
+
+  #+begin_src java
+    
+    public class Switch1 {
+	public static void main(String args[]){
+	    int i = 2
+	    switch(i) {
+	      case 1:
+		System.out.println("Case1");
+		break;
+	      case 2:
+		System.out.println("Case2");
+		break;
+	      case 3:
+	        System.out.println("Case3");
+		break;
+	      default:
+		System.out.println("Default");
+	    }	
+	}
+    
+    }
+    
+ #+end_src
+    
+*** Java Loops
+    Loops are used to execute a set of statements repeatedly until a
+    particular condition is satisfied. 
+
+**** For Loop
+
+     Example Syntax:
+ #+begin_src java
+   for(initialization; condition; increment/decrement) {
+       statement(s);
+   }
+   
+ #+end_src
+
+     First Step: In the loop, initialization happens first and only
+     one time.
+
+     Second Step: Condition in for loop is evaluated on each itereation,
+     if the condition is true then the statements inside the for loop
+     body get executed. Once the condition returns false, the loop is exited.
+
+     Third Step: After every execution the counter that was initialized is
+     incremented or decremented
+
+     Fourth Step: The Condition is checked and if true the body statements
+     executed again. 
+
+**** While Loop
+
+**** Do-While Loop
+
+*** Java Continue Statement
+
+*** Java Break Statement
+
+  
+** Classes + Objects
+   
+   The first letter of a java class is usually capitalized.
+   
+   Classes group variables and operations together in coherent modules. A class can have fields,
+   constructors, and methods and more.
+
+   Objects are instances of classes. When you create an object that object-type is of a certain class.
+   The Class can be seen as a template(or Blueprint) telling how objects of a class will look.
+
+   Example Class
+
+#+begin_src java
+  
+  public class Car {
+  
+  }
+  
+#+end_src
+
+*** Fields
+
+    A field is a variable that belongs to a class or an object. It is a piece of data.
+    For example: a Car class could define the field brand which all Car objects would have.
+    Each car object could have a different value for the brand field.
+
+    [[http://tutorials.jenkov.com/java/fields.html][more info]]
+
+ #+begin_src java
+  
+   public class Car {
+       private string brand; //field
+  
+   }
+  
+ #+end_src
+
+   
+
+*** Constructors
+
+    Constructors are a special kind of method that is executed when an object of that class is created.
+    Constructors typically initialize the objects internal fields.
+
+    [[http://tutorials.jenkov.com/java/constructors.html][More info]]
+
+ #+begin_src java
+  
+   public class Car {
+  
+       private String brand;
+  
+       public Car(String theBrand) { //this is the constructor
+	   this.brand = theBrand;
+      }
+   }
+  
+ #+end_src 
+
+*** Methods
+   
+    Methods are groups of operations tha carry out a certain function together. They are used
+    to group operations together, that you need to be able to execute from several different places.
+
+ #+begin_src java
+  
+   public class Car {
+  
+       private String brand;
+  
+       public Car(String theBrand) {
+	   this.brand = theBrand;
+      }
+   }
+  
+ #+end_src 
+
+*** Interfaces
+
+    Interfaces are a central concept in Java.
+    An Interface describes what methods a cretain object should have available to it.
+    A class can implement an interface.
+    When a class implements an interface, the class has to implement all the methods described in the interface.
+
+    [[http://tutorials.jenkov.com/java/interfaces.html][more info]]
+
+    
+*** Packages
+
+    A package is a directory containing Java Classes and interfaces. Packages make it possible to
+    group related classes and interfaces, thus making modularization of your java code easier.
+
+    [[http://tutorials.jenkov.com/java/packages.html][more info]]
+
+    
+**** Package Naming Conventions
+
+     Java packages are always written in lower case letters.
+
+     To avoid creating packages with the same names as other public Java Packages it
+     is recommended that you start your package hierarchy with the reverse domain name
+     of your company. Imagine that your company is jarett.com. The hierarchy would run:
+     com - jarett - package name
+
+**** Importing Classes from other Java Packages
+     If a class A needs to use class B, you will need to reference class B inside class A.
+     If both the classes are inside the same package then it will look as follows:
+-----------------------
+ #+begin_src java
+     
+   public class B {
+   
+       public void doIt() {
+	   // do something...
+       }
+   }
+#+end_src
+---------------------
+#+begin_src java
+       
+  public class A {
+  
+      public static void main(String[] args){
+	  B theBObj = new B();
+  
+	  theBObj.doIt();
+      }
+  }
+ #+end_src
+--------------------- 
+
+

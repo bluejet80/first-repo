@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       38dada0e-60e0-4931-a1c8-05ab5e3eb200
+:END:
+#+title: Dressup Prog
+#+date: [2021-09-01 Wed 06:31]
+
+Sample code 1 checkbox
+-[[id:01a3666b-c7d9-447d-8743-880ed7d62f41][html sample 1]]

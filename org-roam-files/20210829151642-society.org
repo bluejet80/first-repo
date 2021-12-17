@@ -1,0 +1,7 @@
+:PROPERTIES:
+:ID:       a3371bb5-bd7a-4b6c-949f-f30b4e2f1453
+:END:
+#+title: Society
+
+This is the place for society stuff
+

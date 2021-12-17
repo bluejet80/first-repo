@@ -1,0 +1,34 @@
+:PROPERTIES:
+:ID:       212a0f42-ea7c-4101-b0f6-d667d91b59fc
+:END:
+#+title: Thoughts 9/23/21
+#+date: [2021-09-23 Thu 10:05]
+
+
+I want to make a text based program that ranodmly generates
+environments and characters. And you can influence the randomness
+by entering some numbers at the start.
+Basically it will just be writing a short story each time.
+Maybe three paragraphs or so.
+
+This is something that lisp can be very useful for and that is
+the generating of code.
+Imagine generating javascript, html and css....
+I originally wanted to generate html so I could write a
+journal entry or something and then it would automatically
+generate a webpage and post it to the internet.
+
+Back to the text based program...
+The thing that will be needed over and beyond the code
+is the various segment of the plot and character
+development. All those things that the random selectors
+choose from will have to be created.
+
+So lets think about the various charater types that we could have
+the various environemnts that you want
+the various props and
+the various plot lines that could happen
+As far a the plots, I think I would want them to be randomly
+generated as well from various beginnings, middles, and ends.
+
+

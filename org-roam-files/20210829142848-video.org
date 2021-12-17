@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       f6d91565-6226-4a1b-b471-df75a4c95a2f
+:END:
+#+title: Video
+
+This is the pace for everything Video related
+
+

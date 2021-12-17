@@ -1,0 +1,9 @@
+:PROPERTIES:
+:ID:       e3031f0d-5f53-422d-9c5c-d142966c7824
+:END:
+#+title: Server
+
+This is the place for everything related to the server function
+and creation
+
+

@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       7d3e1213-01ac-4ee8-ba00-eb0fc63bfcf6
+:END:
+#+title: Full Stack Development
+
+This is the pace for everything related to full stack development
+
+

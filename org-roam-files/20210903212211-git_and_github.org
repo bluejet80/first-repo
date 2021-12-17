@@ -1,0 +1,235 @@
+:PROPERTIES:
+:ID:       3d7d920c-6a6f-4f3f-8575-7522b7873f95
+:END:
+#+title: Git and GitHub
+#+date: [2021-09-03 Fri 21:22]
+
+Information on Git and GitHub
+
+* Git and GitHub for Beginners(vid)
+  [[https://www.youtube.com/watch?v=RGOj5yH7evk&t=4s][video link]]
+  
+* Working with Git in Emacs
+  [[http://alexott.net/en/writings/emacs-vcs/EmacsGit.html][github in emacs]]
+
+  
+* GitHub User info
+** jarett account on github
+   Email:know_jarett
+   User:bluejet80
+   Pword:Afterlife1980
+
+*** Setting up your SSH Key
+   SSH KEY
+   To generate a key type
+   ssh-keygen -t ed25519 -C "your_email@example.com"
+
+   The passphrase is afterlife1980
+   the location of the key will be in the \home dir.
+   c\home\.ssh
+
+   Then you have to start the ssh-agent in the background
+   run:
+   $ eval "$(ssh-agent -s)"
+   Agent pid 1625
+
+   then add your ssh key to the ssh-agent
+
+   $ ssh-add ~/.ssh/id_ed25519
+
+   Now you have to add the public key to GitHub
+   to copy the public key to the clipboard type
+   
+   $ clip < ~/.ssh/id_ed25519.pub
+
+   then go to Git hub and add the SSH key to your profile.
+
+   After you have copyied the key and added it to your
+   profile then test the connection by typing
+
+   $ ssh -T git@github.com
+
+   The authenticity of host 'github.com (140.82.114.4)' can't be established.
+  RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+  This key is not known by any other names
+  Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+  Warning: Permanently added 'github.com' (RSA) to the list of known hosts.
+  Hi bluejet80! You've successfully authenticated, but GitHub does not provide shell access.
+
+  Success!!
+
+  Now we can do a git Push
+
+  make sure you are in the directory of the repository on your computer
+  then type 
+  git push origin main
+
+
+   
+   
+*** Need to setup two factor authentication to get ssh links to work
+
+
+    
+*** I Setup a personal access token which is set to expire in 90 days
+    To use it I just use it in place of 
+*** Repositories
+**** Java
+**** Lisp
+**** Python
+**** JavaScript
+**** Html/CSS/JavaScript
+** Git Commands
+   clone - Bring a repository that is hosted on GitHub into a folder
+           on your local machine
+
+	   $ git clone https://github.com/bluejet80/first-repo.git
+
+	   This was the http method
+	   I got the link from the repository on github where I created it.
+
+	   The ssh method will look a little different
+
+   add - Track you files and changes in Git
+
+   commit - Save your files in Git
+
+   push - Upload Git commits to a remote repo, like GitHub
+
+   pull - Download changes from a remote repo to your local machine
+
+   status - shows the changes made
+
+*** Check Status
+   once you make changes to your files then you can run the git status
+   command and see the status of the files
+
+   $ git status
+  On branch main
+  Your branch is up to date with 'origin/main'.
+
+  Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+  Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Index.html
+
+  no changes added to commit (use "git add" and/or "git commit -a")
+
+  Here we can clearly see what files are tracked and which ones are not.
+
+*** Add files   
+  If we are done making changes then we want to add all the files in the
+  directory to the git tracking system
+
+  we do this by typing git add .
+  the preiod adds all files in the directory
+
+  Now if we run the status again we see
+
+  $ git status
+  On branch main
+  Your branch is up to date with 'origin/main'.
+
+  Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   Index.html
+        modified:   README.md
+
+*** Commit files
+  Now we will commit these changes with the commit command
+
+  The first time you run the commit command you may have to identify yourself.
+
+  $ git commit -m "Made Some Changes" -m "Added Index.html and added a new heading in README.md"
+   Author identity unknown
+
+    Please tell me who you are.
+
+   Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+   to set your account's default identity.
+   Omit --global to set the identity only in this repository.
+
+   fatal: unable to auto-detect email address (got 'Jarett@Lenova-Yoga.(none)')
+
+   Once you do those things then you can run it again and should get these results.
+
+   $ git commit -m "Made Some Changes" -m "Added Index.html and added a new heading in README.md"
+   [main ceb10df] Made Some Changes
+   2 files changed, 8 insertions(+), 4 deletions(-)
+   create mode 100644 Index.html
+
+*** Push the files up to GitHub
+   Now you are ready to push the changes up to GitHub with the command
+
+   git push origin main
+   
+
+   
+*** To pull down changes and apply them
+    If you are still in the directory of the repository
+    Just run
+
+    git pull origin main
+
+    
+*** To create a git repository from a local folder
+    You just have to cd into that folder in the terminal
+    and then type
+    $ git init -b <branch_name>
+
+    This establishes this folder as a git repository
+    then you just have to add the files, commit them.
+
+    Then before you can push it up to github you must first
+    create a new empty repository on github and then copy the ssh
+    link that they give you for it.
+    Then you have to run
+
+    $ git remote add origin <link>
+
+    to check to see if its available just run
+
+    $ git remote -v
+
+    And it will list the repository
+
+    Now you will be able to push the repository up to github like normal
+
+    There is another part where you setup an uptream...
+    
+    
+* Emacs and GitHub Functionality
+
+
+
+
+
+  
+* Searching GitHub Repositories
+  [[https://dzone.com/articles/7-tips-of-searching-github-repositories-you-should][website link]]
+
+* How to create a Repository
+* How to find useful content?
+* Answers to problems and questions.
+  
+* Learn Git and GitHub w help from a Bot
+  [[https://profy.dev/project/github-minesweeper][Git-Hub Minesweeper]]
+  
+* Searching for Code to Refactor
+  [[https://dev.to/sourcegraph/sourcegraph-code-search-the-developers-treasure-trove-3ach][Searching GitHub]]
+
+* Git HUb Repositories For Developers
+  [[https://dev.to/olanetsoft/10-github-repositories-you-should-know-as-a-developer-4l0p][Website link]]
+* 
+
+
+
+  git commit -m "Added some Files" 

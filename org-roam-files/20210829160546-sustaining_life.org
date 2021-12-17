@@ -1,0 +1,13 @@
+:PROPERTIES:
+:ID:       368e4d52-7b8e-4eaf-a8fc-b1efac958adf
+:END:
+#+title: Sustaining Life
+
+This is the top node in this category
+
+-[[id:9ecd47a5-3784-4c89-ab12-3d894dcf43ac][Family]]
+-[[id:7cd519f6-d803-47e4-8861-661925b3b496][Cooking]]
+-[[id:18c4f246-e68d-4a30-8447-2f2b3ffc8ec7][Davis Liquor]]
+-[[id:35ac13a1-ab72-48fe-83a7-4bd65c3a5cf4][Need]]
+-[[id:7c319015-cbf6-4785-a0cc-e3ca8b6b3de0][Want]]
+-[[id:2f8141a2-a3e8-4a36-b04e-37b6776767e1][Saving Money]]

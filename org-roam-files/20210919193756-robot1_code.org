@@ -1,0 +1,56 @@
+:PROPERTIES:
+:ID:       b63027cd-6b34-4b84-93fe-eaebfa26767b
+:END:
+#+title: robot1 code
+#+date: [2021-09-19 Sun 19:37]
+
+#+begin_src lisp
+  
+  (setq robot1 '(Head chest left-arm right-arm left-leg right-leg))
+  
+  ;; Robot 1
+  
+  (setq head '(ears face hair shape size))
+  (setq chest '(heart lungs stomach intestinen liver kidney))
+  (setq left-arm '(bicep trisep left-hand))
+  (setq right-arm '(bicep trisep right-hand))
+  (setq left-leg '(thigh knee hamstring ankle left-foot))
+  (setq right-leg '(thigh knee hamstring ankle right-foot))
+  
+  ;; Head
+  (setq ears '(hearing listening input))
+  (setq face '(eyes mouth cheeks nose forehead chin))
+  
+  
+  ;; Chest
+  (setq heart '(emotion life blood energy rhythm))
+  (setq lungs '(breath energy oxygen rhythm))
+  (setq Stomach '(food nutrients fiber digestion water))
+  (setq intestine '(nutrients waste gut digestion))
+  (setq liver '(blood filter alcohol))
+  (setq kidney '(blood filter drugs))
+  
+  ;; connecting the parts of the robot
+  
+  (setq robot1 (cons head 
+		(cons chest 
+		(cons left-arm 
+		(cons right-arm
+		(cons left-leg
+		(cons right-leg nil)))))))
+  
+  
+  ;; conneting the parts of the head
+  
+  (setq head (cons ears
+	      (cons face
+	      (cons hair
+	      (cons shape)))))
+  
+  ;; connecting the parts of the face
+  
+  (setq face (
+  
+#+end_src
+
+

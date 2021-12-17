@@ -1,0 +1,197 @@
+:PROPERTIES:
+:ID:       89d0239a-d20b-40bb-93f8-7e087f605c62
+:END:
+#+title: CL Exercises
+#+date: [2021-08-30 Mon 10:59]
+
+
+Exercises from Structure and Interpretation of Computer Programs
+
+[[id:e2bc5614-330f-4ad9-ad70-f0763d8fa290][lisp pascals tri]]
+
+* Logarithms in lisp
+  (log x y)
+  x = number
+  y = base
+
+  if the base is left empty then it uses eulers number as the base
+  and makes the function a Ln (natural log) function. 
+
+* |###########################|    
+* Exercise 1.3
+
+   Define a procedure that takes three numbers as arguments and returns the sum
+   of the square of the two larger numbers. 
+
+** Create the square funmction 
+  (defun square (x) (* x x))
+
+** Create the Sum of square function
+  (defun sqsum (a b c)
+	   (cond
+	     ((and (> c a) (< a b)) (+ (square b) (square c)))
+	     ((and (> a c) (< c b)) (+ (square a) (square b)))
+	     (+ (square a) (square c))))
+
+* |###########################|    
+* Exercise 1.5 Create a function to find the square root of a number
+
+      How does one compute square roots?
+      
+   The most common way is to use Newton's method of successive approximations, 
+which says that when ever we have a guess y for the value of the square root of a 
+number x, we can perform a simple manipulation to get a better guess(one closer
+to the actual square root) by averaging y with x/y. 
+
+*** Begin with the value for the radicand 
+  (the number whose square root we are trying to compute)
+*** And then we have the value for the guess
+
+*** If the guess is good enough for our purpose then we are done; 
+    if not, we must repeat the process with an imporved guess.
+
+  (defun sqrt-iter (guess x)
+    (if (good-enough? guess x)
+	guess
+	(sqrt-iter ((improve guess x) x))))
+
+  Define improve guess:
+
+  (defun improve_guess (guess x)
+     (average guess (/ x guess)))
+
+  where:
+
+  (defun average (x y)
+     (/ (+ x y) 2))
+
+  We also must define what is meant by good enough:
+
+  (defun good-enough (guess x)
+     (< (abs (- (square guess) x)) 0.001)))
+
+  Finally, we need a way to get started:
+
+  (defun sqrt (x)
+    (sqrt-iter 1.0 x))
+
+*** The Program 
+
+2.1 -(defun sqr (x)
+   (* x x))
+
+2 -(defun good_enu (guess x)
+   (< (abs (- (sqr guess) x)) 0.001))
+
+3.1 -(defun average (x y)
+   (/ (+ x y) 2))
+
+3 -(defun guess_imp (guess x)
+   (average guess (/ x guess)))
+
+4 -(defun sqrt-iter (guess x)
+   (if (good_enu guess x)
+      guess
+     (sqrt-iter (guess_imp guess x) x)))
+
+1 -(defun sqroot (x)
+   (sqrt-iter 1.0 x))
+
+*** The Program Revised into one procedure
+
+(defun sqroot (x)
+   (defun good_enu (guess)
+      (< (abs (- (* guess guess) x)) 0.001))
+   (defun guess_imp (guess)
+      (/ (+ guess (/ x guess)) 2))
+   (defun sqrt-iter (guess)
+      (if (good_enu guess)
+           guess
+          (sqrt-iter (guess_imp guess))))
+   (sqrt-iter 1.0))
+
+* |###########################|    
+* Program Counting Change
+
+** part 1
+   Inputs "amount" into function 
+
+* Lambda
+  Lambda is used to define a custom procedure within a function.
+  This is so that you dont have to define that function first.
+  And then write your function.
+  For example I could have used it to combine all the steps of the
+  square root example into one function.
+
+#+begin_src lisp
+  
+  ((lambda (x y z) (+ x y (square z))) 1 2 3)
+  
+#+end_src
+
+In this example you can see that the variables are assigned to the
+corresponding arguments at the end of the function.
+That is why this works:
+
+#+begin_src lisp
+  
+  (defun f (x y)
+    ((lambda (a b)
+       (+ (* x (square a))
+	  (* y b)
+	  (* a b)))
+     (+ 1 (* x y))
+     (- 1 y)))
+  
+#+end_src
+
+the last two lines become the arguments for a and b
+
+the original function looking like this
+
+a = 1 + xy
+b = 1 - y
+
+f(x,y) = xa^2 + yb + ab
+
+or
+
+f(x,y)= x(1+xy)^2 + y(1-y) + (1+xy)(1-y)
+
+
+* The "let" command
+
+#+begin_src lisp
+  
+  (defun f (x y)
+    (let ((a (+ 1 (* x y)))
+	  (b (- 1 y)))
+      (+ (* x (square a))
+	 (* y b)
+	 (* a b))))
+  
+#+end_src
+
+Now with "let" we defined the variables at the beginning of
+the fuction and then the body of the function was later.
+This is a little easier to understand and read as well. 
+
+* Fuction to recurively search lists and pull out numbers and add them
+
+  [[https://www.youtube.com/watch?v=UhniokP-tHM][Link to video]]
+
+#+begin_src lisp
+  
+  (defun sum-numbers (list)
+	   (cond
+	     ((null list) ;;If list is null return 0
+	      0)
+	     ((numberp (car list)) ;; if element is number add it to the continued recursion
+	      (+ (car list) (sum-numbers (cdr list))))
+	     ((symbolp (car list)) ;; if its a symbol continue with recursion
+	      (sum-numbers (cdr list)))
+	     (t
+	      (+ (sum-numbers (car list)) (sum-numbers (cdr list)))))) ;; if another list begin again
+  
+#+end_src
+

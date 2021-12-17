@@ -1,0 +1,83 @@
+:PROPERTIES:
+:ID:       3f5ea8d9-5776-485a-abf8-10b65083982b
+:END:
+#+title: Link to src
+#+date: [2021-09-20 Mon 23:09]
+
+
+Link to original article
+[[https://www.dreamincode.net/forums/topic/23967-simple-java-screen-saver/][Link to webpage]]
+
+
+
+#+begin_src java
+  
+  import java.awt.Color;
+  import java.awt.Graphics;
+  import java.util.Random;
+  import javax.swing.JPanel;
+  import javax.swing.Timer;
+  
+  public class Saver1JPanel extends JPanel
+  {
+     private Random generator = new Random();  //new object called generator
+     
+     // This method draws the lines
+      // gets an argument of type Graphics
+     public void paintComponent( Graphics g )
+     {
+	    
+	    
+	    super.paintComponent( g ); // call superclass's paintComponent
+	    
+	    int x1, y1, x2, y2;
+	    
+	    // draw 100 random lines
+	    for ( int i = 0; i < 100; i++ ) 
+	    {
+		   x1 = generator.nextInt( 700 );
+		   y1 = generator.nextInt( 700 );
+		   x2 = generator.nextInt( 700 );
+		   y2 = generator.nextInt( 700 );
+  
+		   g.setColor( new Color( generator.nextInt( 256 ),
+			  generator.nextInt( 256 ), generator.nextInt( 256 ) ) );
+		   g.drawLine( x1, y1, x2, y2 );
+		   
+		  
+    
+	    } // end outer for
+  
+	    repaint(); // repaint component
+     } // end method paintComponent
+  } // end class Saver1JPanel
+  
+  
+#+end_src
+
+
+#+begin_src java    
+  
+  /// Main class
+  
+    import javax.swing.JFrame;
+  
+  public class Saver
+  {
+     // execute application
+     public static void main( String args[] )
+     {
+	    // create frame for Saver1JPanel
+	    JFrame frame = new JFrame( " Line ScreenSaver " );
+	    frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+  
+	    // create Saver1JPanel
+	    Saver1JPanel saver1JPanel = new Saver1JPanel();
+	    frame.add( saver1JPanel ); // add saver1JPanel to frame
+	    frame.setSize( 700, 700 ); // set frame size
+	    frame.setVisible( true ); // display frame
+     } // end main
+  } // end class Saver
+  
+  
+#+end_src

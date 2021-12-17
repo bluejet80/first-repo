@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       0e86741a-5164-4cb3-8ea4-93986ca7aa1c
+:END:
+#+title: Tech Websites
+#+date: [2021-10-01 Fri 13:27]
+
+List of tech Websites
+
+* Tech News
+** [[https://slashdot.org/][Slashdot.org]]
+** 

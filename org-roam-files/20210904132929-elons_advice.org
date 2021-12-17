@@ -1,0 +1,19 @@
+:PROPERTIES:
+:ID:       4e0b8219-6664-4ec6-a48b-2c46e896fa05
+:END:
+#+title: Elons Advice
+#+date: [2021-09-04 Sat 13:29]
+
+Parts of the Process
+
+1. Make your requirements less dumb
+2. Delete the part or process that is unnecessary
+   If you are not adding things back in 10% of the time
+   You are clearly not deleting enough
+3. Simplify and Optimize
+   The most common mistake of a smart engineer is to optimize somthing
+   that should not exist.
+4. Accelerate Cycle time
+5. Automate      
+   
+ 

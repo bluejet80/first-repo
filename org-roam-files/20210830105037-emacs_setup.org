@@ -1,0 +1,107 @@
+:PROPERTIES:
+:ID:       96949983-d337-4d7a-9c2f-4b9ec4f07b39
+:END:
+#+title: Emacs Setup
+#+date: [2021-08-30 Mon 10:50]
+
+* Setting up Emacs from the ground up
+** In Linux
+*** You can use EXWM 
+    This is a window manager that opens up to emacs running on the screen
+*** Eshell built in terminal emulator
+*** Use org-mode to design emacs config file
+*** Using emacs 27.1
+*** Setup package-archives
+**** "melpa" . "https://melpa.org/packages/"
+**** "org" . "https://orgmode.org/elpa/"
+**** "elpa" . "https://elpa.gnu.org/packages/"
+*** Use ESC to quit out of commands
+*** Setup IVY which is a auto-completion thingy
+*** Stoped at  
+
+
+** Setting up emacs
+
+*** init file
+    When emacs starts it is going to create a .emacs.d folder in your home directory.
+
+    Inside that folder you need to create two files
+    init.el
+    settings.org
+
+    emacs will firt look to the init.el file and it will be linked to the org-mode
+    file settings.org which is where all of your settings will go.
+
+    inside the settings.org file you can create headings and then inside those headings
+    put the config code.
+
+    the code must be encapsulated by the beginning and ending source tags
+
+    #+begin_src emacs-lisp
+    #+end_src
+
+*** removing the unwanted things on the window.
+    I like a minimal setup so I removed the scroll bars and the tool bar.
+    I kept the menu bar because it can be useful for some modes.
+    here is the init code to do this:
+
+    (tool-bar-mode -1)
+    (scroll-bar-mode -1)
+    (toggle-frame-maximized)  // maximizes the window
+    (setq inhibit-splash-screen t) 
+    (global-linum-mode 1)  // enables line numbers 
+
+*** Setting up Package manager
+
+    Melpa is where you will get all your packages from for now.
+
+    the init code for setting this up:
+
+    (require 'package)
+    (setq package-enable-at-startup nil)
+    (add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+
+    (package-initialize)
+
+    Now to show all the available packages in emacs type
+    A-x list-packages
+
+    
+*** Org-mode
+    
+**** Bullets
+     I want to make org-mode look better so i installed org-mode-bullets
+
+     (use-package org-bullets
+        :ensure t
+	:config
+	(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
+*** Which-key
+    This gives you hints about what you can do when you hit a key-stroke
+    like C-c, or C-x, or A-x
+    
+     (use-package which-key
+        :ensure t
+        :config (which-key-mode))
+
+*** I buffer
+    THis is a way to kill multiple buffers at once
+
+    (defalias 'list-buffers 'ibuffer)
+
+    first you hit C-x C-b
+    then it gives you a list of buffers
+    now you can mark the buffers with D and the hit X to kill them
+    Q quits out of the buffer
+    
+*** Winner mode
+
+    (winner-mode 1)
+
+*** Autocomplete
+
+    To do autocomplete you just type the first few characters and
+    then hit alt-/ and it will cycle through possible completions
+    

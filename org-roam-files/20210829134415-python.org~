@@ -1,0 +1,109 @@
+:PROPERTIES:
+:ID:       aa914b1a-10c1-4c4e-9981-042d9ff20da8
+:END:
+#+title: Python
+
+Here is the place for eveything python related
+
+* MIT CourseWare Lectures
+
+  Link to video [[https://www.youtube.com/watch?v=SE4P7IVCunE&list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA&index=12][here]]
+
+  Link to notes [[id:3d0fdbde-fa5f-40ed-8300-3b8385eef791][MIT CourseWare]]
+
+* What is Anaconda?
+  Anaconda is a Python framework especially designed for use in
+  the realm of data science.
+
+  
+** Package Management
+
+*** Conda
+    This is another package manager for python
+    For help on commands to use with conda just type
+    conda --help [enter] into the console
+
+*** PIP
+    This is a package manager for python
+
+    To show a list of packages available or installed just type
+    pip list [enter] into the console
+
+    To show which python you are using type
+    which python [enter]
+
+
+    
+** Spyder
+   Python IDE
+
+   
+** Jupyter Notebooks
+   These look like they would work really good for taking notes in.
+
+   An amazing tool 10/12/21
+    
+*** markdown basics
+    [[https://daringfireball.net/projects/markdown/basics][Markdown basics Website]]
+
+    
+** Data Science
+
+   
+* Python Exercises
+  
+** Link to GitHub Website
+   [[https://github.com/zhiwehu/Python-programming-exercises/blob/master/100+%20Python%20challenging%20programming%20exercises%20for%20Python%203.md][Python Exercises 100]]
+
+   
+** Download Youtube Videos
+   First you need to install the library
+   pip install pytube
+
+   then restart the kernal
+
+   and then write the script
+
+#+begin_src
+
+
+
+#+end_src
+
+
+   
+* Practical Python Programming(video)
+  [[https://www.youtube.com/watch?v=j31xawnfvXs][Practical Python video]]
+
+  Currently at 1:18:27
+  Using IDE Pycharm
+
+  9/3/21 At this point I should rewatch this again
+  
+* Web Scraping basics w Python
+  [[https://towardsdatascience.com/web-scraping-basics-82f8b5acd45c][website link]]
+
+  To Show if scraping is allowed, just add
+  /robots.txt/ to the web address
+
+
+  Another Scrubbing Video
+  [[https://www.youtube.com/watch?v=XVv6mJpFOb0][link to video]]
+
+
+  
+* Learn Python Website
+
+  [[https://learnpythonthehardway.org/][Learn Python the hard way]]
+
+  
+*** Learn [[id:a5491ff0-8077-4a70-815a-805e75bdb595][Python the hard way]]
+    This book is useless cause it deals only with python 2.7
+  
+* Dive into Python 3 book
+  Setup a directory:
+  C:\Users\Jarett\dev
+
+  Where I will put all the python programs that I write from this book.
+
+  [[id:b01cd72f-d3ce-4276-87e6-1ba294253f78][Python Dive Notes]]

@@ -1,0 +1,20 @@
+:PROPERTIES:
+:ID:       101b235e-71a7-4822-ba12-d8e3fa9e48de
+:END:
+#+title: Front End Development
+#+date: [2021-09-03 Fri 21:12]
+
+This is a subcategory of [[id:c7c0bf05-e15e-49f5-a5df-fd7a77623746][Java Script]]
+
+Information about REACT
+
+* Learn React(JavaScript)
+  [[https://youtu.be/w7ejDZ8SWv8][video link]]
+
+* React native
+  [[https://reactnative.dev/][Website]]
+
+** react native tutorial
+   [[https://youtu.be/0-S5a0eXPoc][Video Link]]
+
+** 

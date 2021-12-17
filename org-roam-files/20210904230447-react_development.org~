@@ -1,0 +1,96 @@
+:PROPERTIES:
+:ID:       d3146f27-bac4-4a06-913f-1838c5d7c511
+:END:
+#+title: React Development
+#+date: [2021-09-04 Sat 23:04]
+
+This is where information on React will go.
+
+The tutorial that I am currently watching is
+[[https://www.youtube.com/watch?v=Ke90Tje7VS0][video link]]
+
+It teaches and shows you how to make a mobile application
+
+when you build a user interface with React you are
+building a bunch of independent, isolated and reuseable components.
+
+The component is a central idea in react.js development.
+
+Each application has at least one component. This is the root componenet.
+This root componenet also contains all the other child components.
+
+Every react applicaiton is built in this tree hierarchy.
+
+Example code of a component:
+
+#+begin_src java script
+  
+  class Tweet {
+      state = {};
+  
+      render() {
+      }
+  }
+  
+#+end_src
+
+
+* Setup
+
+  The Tutorial is using create-react-app version 1.5.2, current version is 4.0.3
+
+** To run react we need to have Node.js installed
+   Then run this command in the terminal
+
+   npm i -g create-react-app@1.5.2
+
+   they also want you to have visual studio code
+
+   And they have you install extensions in VS code.
+
+   1. Simple React Snippets by Burke Holland
+
+   2. Prettier code formatter
+
+   Enable formatting on save within VS Code
+
+* Begin Creating your first app
+
+** create a file filename.jsx
+   the extension jsx is used to give you more code completion options
+  This file is created within the Compoenets directory inside the
+  src folder.
+
+** the first thing you must do is import React
+
+#+begin_src java script
+  
+  import React, { Component } from 'react';
+  
+  class | Counter extends Component {
+      state = {}
+	render() {
+  
+  
+      }
+  }
+  
+  export default Counter;
+  
+#+end_src
+   
+   That is the first iteration:
+   Some things can be simplified to get this result:
+
+   
+#+begin_src java script
+  
+  import React, { Component } from 'react';
+  
+  export default class | Counter extends Component {
+	  render() {
+	  return <h1>Hello World</h1>;
+      }
+  }
+  
+#+end_src

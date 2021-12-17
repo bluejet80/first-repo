@@ -1,0 +1,521 @@
+:PROPERTIES:
+:ID:       9daaa999-15db-4dcc-9316-bda00598827b
+:END:
+#+title: Notes from Structure and Interpret
+#+date: [2021-08-30 Mon 10:55]
+
+* [[https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/][Online video Lectures]]
+
+* Notes from the Video Lectures
+** Notes from Video1 part 1
+*** Black Box Abstraction
+   To build a box around something
+   to supress detail so you dont have to worry about what is inside
+
+    -Primitive Objects
+       primitive procedures
+       primitive data
+
+    -Means of Combination
+       procedure composition
+       construction of compound data
+
+    -Means of Abstraction
+       procedure definition
+       simple data abstraction
+
+    -Capturing Common Patterns
+       high-order procedures
+       data as procedures
+  
+*** Method for finding a fixed point of a function
+    A function F (that is, a value Y such that F(y) = y
+    -Start with a guess for Y
+    -Keep applying over and over until the result doesnt change much
+
+    An example is the square root function where you make a guess and
+    then narrow the possibilities of the guess in the future through
+    some process. And eventually you arrive at your solution.
+
+   
+*** Establishing Convetional Interfaces
+    Ageed upon way of putting things together
+    create something that can take many different forms of things and
+    perform functions on them, without having to change the system
+
+    -Generic Operations
+      Things like plus that has to work with diffrent data types
+    -Large-Scale Structure and Modularity
+    -Object-Oriented Programming
+       System is society
+    -Operations on Aggregates
+       system of streams
+
+*** Metalinguistic Abstraction
+    Creating new languages
+    Looking at the process of interpretation
+    The Apply/Eval Loop
+    express in LISP the act of interpreting LISP itself
+    Logic Languages
+    Register Machines
+
+** Notes from Video1 Part2
+   If someone is going to show you a computer language the things you
+   should ask are
+   - what are the primitive elements, what does the language come with?
+   - what are the ways you put those together, means of combination
+   - what are the means of abstraction, how do we take those complicated
+     processes and put boxes around them, make them objects to be then used
+     as primitive objects
+ 
+** Notes from Video2
+   Formal or semi-formal model of how the processes work.
+  
+*** Substitution Model
+**** Write down the kinds of expressions
+    1. numbers
+    2. symbols   
+    3. combinations
+          Special functions
+    4. lambda expressions
+    5. definitions
+    6. conditionals
+**** Substitution Rule
+     To evaluate an application
+	Evaluate the operator to get procedure
+	Evaluate the operands to get arguments
+	Apply the procedureto the arguments
+          Copy the body of the procedure,
+	   substituting the arguments supplied
+	   for the formal parameters of the procedure
+	  Evaluate the new body.
+**** Eample: Evaluating Sum of Squares function using the Substitution method
+     (SOS 3 4)
+     (+ (SQ 3) (SQ 4))
+     (+ (SQ 3) (* 4 4))
+     (+ (SQ 3) 16)
+     (+ (* 3 3) 16)
+     (+ 9 16)
+     = 25
+
+     This is a good way of thinking about how the computer works
+
+**** The Rule for Conditionals
+     To evaluate an IF expression
+       Evaluate the predicate expression
+         if it yields TRUE
+	   evaluate the consequent expression
+	 otherwise
+	   evaluate the alternative expression
+	   
+**** The sum of x and x using [[https://en.wikipedia.org/wiki/Peano_axioms][Peano Arithmetic]]
+     (defun (+ x y)
+       (if (= x 0)
+          y
+	  (+ (1- x) (1+ y))))
+   ---
+     (add 3 4)
+     (if (= 3 0) 4 (+ (1- 3) (1+ 4))) // 3 is not equal to 0, so we do the second one.
+     (+ (1- 3) (1+ 4) // decrement 3, increment 4
+     (+ (1- 3) 5)
+     (+ 2 5)
+  --- rerun conditional
+     (if (= 2 0) 5 (+ (1- 3) (1+ 4))) // 2 is not equal to 0, so we do the second one.
+     (+ (1- 2) (1+ 5) // decrement 2, increment 5
+     (+ (1- 2) 6)
+     (+ 1 6)     
+  --- rerun conditional
+     (if (= 1 0) 6 (+ (1- 3) (1+ 4))) // 1 is not equal to 0, so we do the second one.
+     (+ (1- 1) (1+ 6) // decrement 2, increment 5
+     (+ (1- 1) 7)
+     (+ 0 7)
+  --- rerun conditional
+     (if (= 0 0) 7 (+ (1- 3) (1+ 4))) // 0 is equal to 0, so output 7 as the answer. 
+
+**** Looking at another version of getting the sum of two numbers
+     (defun (+ x y)
+        (if (= x 0)
+	  y
+	  (1+ (+ (1- x) y))))
+
+   ---
+   The process that happens in this program is as follows
+
+   (+ 3 4)
+   (1+ (+ 2 4))
+   (1+ (1+ (+ 1 4)))
+   (1+ (1+ (1+ (+ 0 4))))
+   (1+ (1+ (1+ 4)
+   (1+ (1+ 5)
+   (1+ 6)
+   = 7
+
+   
+**** Comparing the two functions
+     
+    The first process looked like this.
+
+    It has a time  O(x) (porportional to x)
+    It has a space O(1) (constant)
+
+    (+ 3 4)
+    (+ 2 5)
+    (+ 1 6)
+    (+ 0 7)
+    = 7
+
+    ------------
+
+    The second process looks like this.
+
+    It has a time   O(x) (porportional to x)
+    It has a space  O(x) (porportional to x)
+
+       (+ 3 4)
+   (1+ (+ 2 4))
+   (1+ (1+ (+ 1 4)))
+   (1+ (1+ (1+ (+ 0 4))))
+   (1+ (1+ (1+ 4)
+   (1+ (1+ 5)
+   (1+ 6)
+   = 7
+
+   -------------
+
+   The first process is what is called an iteration.
+
+  O o     O o     O o      O o
+   |   ->  |  ->   |  ->    |
+  /-\     /-\     /-\      /-\ 
+ (+ 3 4) (+ 2 5) (+ 1 6)  (+ 0 7) -
+  ^                                |
+  ^| - - - - - - - -  - - - - - - 7|
+       Returns to the first
+
+
+       
+  The Second process is a linear recusion.
+       
+  -------> ---------> --------> --------->     
+  O o        O o        O o        O o
+   | (+ 3 4)  | (+ 2 4)  | (+ 1 4)  | (+ 0 4)
+  /-\        /-\        /-\        /-\ 
+            remember  remember   remember
+	    to add    to add     to add
+   7	    1         1          1
+  <------- <------- <------ <------ <-----
+
+	    
+ 
+*** Next examples
+
+**** Fibonacci Sequence
+
+ 0 1 2 3 4 5 6  7  8  9 10    
+ 0 1 1 2 3 5 8 13 21 34 55
+ 
+     Here is the first example program
+
+     (defun fib (n)
+       (if (< n 2))
+         n
+	 (+ fib(- n 1)
+	    fib(- n 2))))
+
+	    
+
+
+**** Explanation of this first process
+     This process is made up of two rules:
+     1. if n is less than 2 then return n
+     2. If n is greater than 2 the function divides itself in half
+	and doubles itself. It doubles itself for each increment of n.
+
+     this is a very inefficient process. when you add another iteration you are
+     practially doubling the amount of work that is necessary.
+
+     
+***** This is what makes Computer Science difficult
+      It is because you are tasked with writing a general rule that will define
+      what happens in specific instances and it is difficult to know or
+      prepare for every possible instance that could arrive, or happen.
+
+      
+**** Towers of hannoy example
+
+     The way that you develop a recursive process is through wishful thinking.
+     You have to believe that it is possible.
+
+     In this problem we want to move a N high tower from spike called "from" to spike
+     called "to" using another spike called "spare"
+
+     1 (defun (move n from to spare) 
+     2   (cond ((= n 0)  "done")
+     3 	    (else
+     4	      (move (-H n) from spare to)
+     5        (print-move from to)
+     6        (move (-H n) spare to from)
+
+     --
+
+     line 1: Move n high tower from the "from" spike to the "to" spike using the "spare"
+     spike as a spare.
+     line 2: If n = 0 then we are done.
+     line 3: If n != 0 then
+     line 4: move a tower that is n-1 in height from the "from" spike, to the "spare"
+     spike, using the "to" spike as a spare.
+     line 5: move bottom disc from "from" spike to "to" spike.
+     line 6: move a tower that is n-1 in height from the "spare" spilke, to the "to"
+     spike, using the "from" spike as a spare.
+
+     This is a expential recursive problem, there's no way to make it not probly.
+     But can we instead write a funtion that works on a more local level and
+     uses the same process over and over instead of breaking the process into two
+     processes each time?
+
+     
+
+
+     
+** Notes form Video 3
+
+   Here we will be writing some abstractions:
+
+   
+*** Exercise 1
+    Write a program that adds up a bunch of integers
+    The sum from i=a to b of i
+    so adding the numbers from a to b where i equals the first number and then
+    iterates through the list of numbers
+
+    (defun sum-int (a b)
+        (if (> a b)
+	    0
+            (+ a
+	      (sum-int (1+ a) b))))
+
+     note: if you have an easy case that you know the answer to just write it down.
+     In this case we are going to reduce this problem down to a simpler problem and
+     then reduce the simpler problem into a sub-problem and then do something to the result
+     
+*** Exercise 2
+    The sum of the squares from i=a to b
+
+   (defun sum-sqr (a b)
+       (if (> a b)
+           0
+	   (+ (* a a)
+	      (sum-sqr (1+ a) b))))
+	      
+*** Review what we see.
+    If we compare these two programs they have alot in common. There is only
+    one or two things that change from one program to the next.
+    When ever you find yourself writing the same thing over and over,
+    there is a problem. Because we should be creating an abstraction for that
+    thing and using that simplified verson in all the cases instead of
+    writing things over and over.
+
+    Here is a generalized pattern of these two programs:
+
+    (defun <name> (a b)
+       (if (> a b)
+          0
+	  (+ (<term> a)
+	     (<name> (<next> a) b))))
+
+     
+	     
+**** Procedural Arguments
+
+***** We will now define our sum function
+
+      (defun sum (term a next b)
+	(if (> a b)
+            0
+	    (+ (term a)
+	       (sum term
+	            (next a)
+		    next
+		    b ))))
+
+		   
+***** With this we can define our first function again
+
+      (defun sum-int (a b)
+         (defun ID (x) x)
+	 (sum ID a 1+ b))
+
+#+begin_src lisp
+
+(defun sum-int (a b)
+	(defun term (a))
+	   (sum 'ID a '1+ b))
+
+#+end_src
+
+#+begin_src lisp
+    
+  (defun sum (term a next b)
+	     (let 'next 'next)
+	     (if (> a b)
+		 0
+		 (+ (term a)
+		    (sum term
+			 '(next a)
+			 'next
+			 b ))))  
+    
+#+end_src
+
+* Notes from reading the book
+
+Pg 22
+ 
+   The contrast between function and procedure is a reflection of the general distinction
+between describing properties of things and describing how to do things, or, as it 
+is sometimes referred to, the distinction between declarative knowledge and imperative
+knowledge. 
+
+   In Mathematics we are usually concerned with declariative *(what is)* descriptions, 
+whereas in computer science we are usually concerned with imperative *(how to)* 
+descriptions.
+
+
+** [[id:89d0239a-d20b-40bb-93f8-7e087f605c62][CL Exercises]]
+
+** Big O Notation
+   The Number of steps required by a tree-recursive process will be proportional
+   to the number of nodes on the tree, while the space required will be
+   proportional to the maximum depth of the tree.
+  
+*** Pg 38
+    The value of Fib(n) grows exponentially with n.
+   
+** Creating Recursive Functions
+   
+*** Step1 - What is the simplest input?
+    This is most liekly when the input is zero
+
+    It is from answering this question that you will get your _base case_
+    which is what will tell your algorithm that it has hit a limit.
+
+*** Step2 - Play around with examples and visualize what the program is doing
+   
+*** Step3 - Relate the more complex cases to the simpler ones
+    Here we are specifically looking for instances where the process repeats itself
+
+*** Step4 - Generalize the Pattern
+    Here we will take these specific instances where the patter repeats itself
+    and define them ina way that will include all instances
+
+*** Step5 - Write the code
+    This is done by combining the generalized pattern with the base cases
+
+** Linear Recursive Process
+
+*** Process builds up a chain of deferred operations.
+*** Cannot be stopped in the middle of execution
+    because the "process" is negotiating a chain of deferred operations.
+*** Amount of information needed to be stored is proportional to n
+
+** Linear Iterative Process
+
+*** State is defined by a fixed number of state variables
+*** Together with a fixed rule that describes how the state variables should be updated
+    as the process moves from state to state
+*** And an (optional) end test
+    That specifies conditions under which the process should terminate
+*** The number of steps is proportional to n
+*** If stopped in the middle of execution
+    All that must be done is supply the interpreter with the values of the three variables
+    and the process can continue. 
+
+** Recursive Process is not the same as Recursive procedure
+
+*** A Recursive process evolves over time
+
+*** A Recursive Procedure refers to a Syntactic fact
+    That the procedure definition refers to itself, calls itself, during
+    the execution of iteself. 
+
+** How LiSP Handles an iterative process
+
+*** Lisp executes an iterative process in a constant space
+    The process is rerun over and over and the same amount of memory
+    is occupied the whole time. This happens even if the iterative
+    process is described by a recursive procedure.
+    This is called a _tail-recusive_ implementation
+
+    Here is the wikipedia [[https://en.wikipedia.org/wiki/Tail_call][article]]
+
+*** Tail-Recursive Implementation
+    With a tail-recursive implementation, iteration can be expressed using the
+    ordinary procedure call mechanism, so that special iteration constructs are
+    useful only as syntactic sugar.
+
+    Tail-recursion has long been known as a compiler optimization
+    technique. A coherent semantic basis for tail recursion was provided
+    by _Carl Hewitt(1977)_ who explained it in terms of the "message Passing"
+    model of computation that we shall discuss in chap 3. 
+
+** 1.2.2 Tree Recusion
+   Using tree recusion to compute the Fibonacci Seq. is a good illustration
+   of a tree recursion, but it is a horribly inefficient way of computing
+   the Fibonacci numbers because it does so much redundant computation.
+  
+** Fibonacci Iteration
+   A much more efficient way of computing the Fibonacci numbers is through
+   an iterative process.
+
+   The idea is to use a pair of integers a and b.
+   They will be initialized to Fib(1) = 1 and Fib(0) = 0
+   Then we repeatedly apply the simultaneous transformations
+   a = a + b
+   b = a
+
+   After applying this transformation n times, a and b will be equal,
+   respectively to Fib(n + 1) and Fib(n)
+
+   To formulate the iterative algorithm we first needed to notice, by
+   observing what happened in the tree recursion, that the computation
+   could be recast as an iteration with three state variables.
+   Using the tree recursion we could clearly see the aspects of the
+   computation that were repeated over and over causing the inefficency
+
+  
+*** Another way to do the Fib Iteration
+
+#+begin_src lisp
+  
+  (defun fib-dup (x)
+	   (defparameter *a* 1)
+	   (defparameter *b* 0)
+	   (defparameter *c* nil)
+	   (loop repeat x
+		do  (setf *c* (+ *a* *b*))
+		    (setf *b* *a*)
+		    (setf *a* *c*) 
+		    (format t "A is ~d, B is ~d~%" *a* *b*)))
+  
+#+end_src
+
+* Useful functions
+  
+** Print the squares of numbers up to a certain number
+#+begin_src lisp
+  
+  (dotimes(n 50)
+     (format t "  ~d  ~d  ~%" n(* n n)))
+  
+#+end_src
+
+** Flatten List
+   
+#+begin_src lisp
+  
+  (defun flatten (li)
+	   (cond ((null li) nil)
+		 ((atom li) (list li))
+		 (t (loop for a in li appending (flatten a)))))
+  
+#+end_src

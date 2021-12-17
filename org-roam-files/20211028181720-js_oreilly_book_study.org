@@ -1,0 +1,246 @@
+:PROPERTIES:
+:ID:       682e905e-f967-473b-a603-62dc75340f20
+:END:
+#+title: JS Oreilly book study
+#+date: [2021-10-28 Thu 18:17]
+
+Here is where Notes from The Java Script Oreilly Book goes.
+
+* Chapter 1
+  
+** Character frequency Program
+
+**** The Super Function
+   I am working on copying this program and one of the first
+   things that I ran into was the use of the super() function.
+
+   The super keyword is used to access and call functions on an
+   Object's Parent.
+
+   When used in a constructor(which it is in this program), the
+   'super' keyword appears alone and must be used before the 'this'
+   keyword is used. The super keyword can also be used to call
+   functions on a parent object.
+
+#+begin_src javascript
+  
+    class DefaultMap extends Map {
+     constructor(defaultValue) {
+	 super();                    // invokes the Superclass constructor
+	 this.defaultValue = defaultValue; // Remember the default value
+     }
+  
+     get(key) {
+     if (this.has(key)) {            // if the key is already in the map
+	 return super.get(key);     // retuens its value from superclass. 
+     }
+	 else {
+	     return this.defaultValue; //Otherwise return the default value. 
+	 }
+  
+     }
+  }
+  
+#+end_src
+
+   So this class is fixing the problem of what to do when the key is
+   not in the map.
+
+   This is familiar because of how the keyword 'this' is used in Java.
+   It refers to objects in the same class. Instead of having to type
+   classname.object you just say this.object. And I think that is similar
+   to how it works in JavaScript. But in order to take advantage of this
+   functionality, you must use the 'super' keyword.
+
+   Often this method is used to avoid duplicating the constructor parts
+   that are common between elements.
+
+
+   From the Documentation**
+
+   You are also able to call 'super' on static methods
+
+
+   Continue with the book matter**
+
+   In this program regular expresions are used to remove the whitespace
+   from a file or string. Going back and looking at the various things
+   that are possible with regular expressions, and then thinking about
+   how they can be used in programing. Several things that are more
+   easily done with regular expressions as opposed to programming
+   string modification. But the key is knowing what you can do with
+   regex.
+
+
+   
+
+
+   
+
+* Chapter 3 Types, Values and Variables
+
+** Strings pg35
+*** Various String Functions
+**** Length of a string
+  To determine the length of a string--the number of 16-bit values it contains
+  we use the length property
+
+  s.length
+
+  In addition to this property, JavaScript provides a rich API for working with
+  strings:
+  
+ let s = "Hello, World"; // Start with some text
+  
+**** Obtaining portions of a string
+ s.substring(1,4)    result: "ell" : the 2nd - 4th characters
+ s.slice(1,4)        Does the same as substring
+ s.slice(-3)         result: "rld" : last three characters
+ s.split(", ")       result: ["Hello", "World"]: split string into array at delimiter
+  
+**** Searching a String
+ s.indexOf("l")      result: 2 : position of the first letter l
+ s.indexOf("l",3)    result: 3 : position of first letter l after 3
+ s.indexOf("zz")     result: -1 : s does not include substring "zz"
+ s.lastIndexOf("l")  result: 10 : position of the last letter l
+  
+**** Boolean searching functions
+ s.startsWith("Hell") result: true : the string starts with this
+ s.endsWith("!")      result: false : does not end with that
+ s.includes("or")     result: true : includes substring "or"
+  
+**** Creating modified versions of strings
+ s.replace("llo", "ya")  result: "Heya, World"
+ s.toLowerCase()   / s.toUpperCase()
+ s.normalize()           result: Unicode NCF normalization: ES6
+  
+**** Inspecting individual (16-bit) characters of a string
+ s.charAt(0)        result: "H" : the first character
+ s.charAt(s.length - 1)    result: "d" : the last character
+ s.charCodeAt(0)        result: 72 : 16-bit num at the location
+ s.codePointAt(0)       result: 72 : ES6, works for codepoints ??
+  
+**** String padding functions
+ "x".padStart(3)   result: "  x" : add 2 spaces to the front, length of 3
+ "x".padEnd(3)     result: "x  " : add 2 spaces to the end, length of 3
+ "x".padStart(3, "*")  result: "**x" : add stars to length of 3
+ "x".padEnd(3, "-")    result: "x--" : added dashes to end, length of 3
+  
+**** Space trimming functions
+ " test ".trim()   result: "test" : removes spaces before and after
+ " test ".trimStart()   result: "test " : removes from beginning, also trimLeft
+ .trimEnd + .trimRight = trim off end of string
+  
+**** Misc String functions
+ s.concat("!")   result: "Hello, World!" : just use + operator instead
+ "<>".repeat(5)  result: "<><><><><>"  
+
+**** Notes
+  NOTE: Remember Strings in JavaScript are Immutable! So functions like
+  .replace and .toUpperCase just create new strings and do not change the
+  original string.
+
+  Stings can also be treated like read-only arrays, and you can access
+  individual characters from a string using [] sqr brackets instead of
+  the .charAt() method.
+
+   
+
+*** Template Literals
+
+    String literals can be delimited with backtics `
+
+    let s = `hello world`;
+
+    However, this is more than just another string literal, because these
+    template literals can include arbitrary JavaScript expressions.
+
+    The final value of a string literal in backticks is computed by evaluating
+    any included expressions, converting the values of those expressions to
+    strings and combining those computed strings with the literal characters
+    within the backticks:
+
+    let name = "Bill";
+    let greeting = `Hello ${ name }.`;   // greeting == "Hello Bill."
+
+    Everything between the ${ and the matching } is interpreted as a JavaScript
+    expression. Everything outside the curly braces is normal string literal text.
+
+    A template literal may include any number of expressions. It can use any of the
+    escape characters that normal strings can, and it can span any number of lines,
+    with no special escaping required. The following template literal includes four
+    JavaScript expressions, a Unicode escape sequence, and at least four newlines
+    (the expression values may include newlines as well.
+
+    let errorMessage = `\
+    \u2718 Test failure ar ${filename};${linenumber}:
+    ${exception.message}
+    Stack trace:
+    ${exception.stack}
+    `;
+
+    The backslash at the end of the first line here escapes the initial newline
+    so that the resulting string begins with the Unicode character(\u2718) rather
+    than a newline
+    
+    
+*** Tagged template literals
+
+    A powerful but less commonly used freature of the template literals is that,
+    if a function name (or "tag") comes right before the opening backtick, then
+    the text and the values of the expressions within the template literal are
+    passed to the function.
+    This could be used, for example: to apply HTML or SQL escaping to the values
+    before substituting them into the text.
+
+    See how these strings are processed
+    
+    `\n`.length             result: 1 : just a newline character
+    String.raw`\n`.length   result: 2 : backslash and the character n
+
+    Note that even though the tag portion of a tagged template literal is a function,
+    there are no parentheses used in its invocation. In this very specific case,
+    the backtick characters replace the open and close parenteses.
+
+    The ability to define your own template tag functions is a powerful feature of
+    JavaScript. These functions do not need to return strings, and they can be used
+    like constructors, as if defining a new literal syntax for the language.
+
+    
+*** Pattern Matching
+
+    JavaScript defines a datatype known as a /regular expression/(or RegExp) for
+    describing and matching patterns in strings of text. RegExps are not one of
+    the fundamental datatypes in JavaScript, but they hava a literal syntax like
+    numbers and strings do, so they sometimes seem like they are fundamental.
+    The grammar of regular expression literals is complex and the API they define is
+    nontrivial.
+
+    Text between a pair of slashes constitutes a regular expression literal. The
+    second slash in the pair can also be followed by one or more letters, which
+    modify the meaning of the pattern.
+
+#+begin_src javascript
+  
+  /^HTML/;         // match the letters H T M L at the start of a string
+  /[1-9][0-9]*/;   // match a nonzero digit, followed by any # of digits
+  /\bjavascript\b/i;  // match 'javascript' as a word, case-insensitive
+  
+#+end_src
+
+
+   RegExp objects define a number of useful methods, and strings also have methods
+   that accept RegExp arguments.
+
+#+begin_src javascript
+  
+  let text = "testing: 1, 2, 3";    // Sample text
+  let pattern = /\d+/g;             // Matches all instances of one or more digits
+  pattern.test(text)                // => True : a match exists
+  text.search(pattern)              // => 9 : position of the first match
+  text.match(pattern)               // => ["1", "2", "3"]: array of all matches
+  text.replace(pattern, "#")        // => "testing: #, #, #"
+  text.split(/\D+/)                 // => 
+  
+#+end_src
+

@@ -1,0 +1,164 @@
+:PROPERTIES:
+:ID:       7e5ac42e-1491-43d3-8d70-a00c036fdd58
+:END:
+#+title: Emacs Lisp
+
+Here is the place for everything Emacs and Lisp Related
+
+Learning Schedule:
+
+1. [[id:ed949b81-475c-4ab6-824f-e3d019564e16][Org-mode]]   
+2. [[id:9daaa999-15db-4dcc-9316-bda00598827b][Notes from Structure and Interpret]]
+3. [[id:89d0239a-d20b-40bb-93f8-7e087f605c62][CL Exercises]]
+4. [[id:e455a4bb-43b6-4389-ae8d-15570c2062d8][Common Lisp Hints]]
+5. [[id:96949983-d337-4d7a-9c2f-4b9ec4f07b39][Emacs Setup]]
+6. [[id:0beda373-11dc-4c2d-b30f-7e08a77baa70][Emacs tables]]
+7. [[id:5c67152c-52dc-454a-87a8-b937d82c4e0c][Lisp notes]]
+8. [[id:165e131f-d31e-4e6e-b70e-b259c0918b65][Common lisp code]]
+9. [[id:8c01e0be-b827-43c7-a0df-471140287354][Land of lisp notes]]
+10. [[id:f1f67b33-2217-4c1a-8433-cb835edde348][Lisp Programs]]
+
+* Emacs Tutorials
+  
+  jekor - emacs tutorials
+  [[https://www.youtube.com/watch?v=mMcc0IF1hV0][video link]]
+
+  Another video tutorial session on emacs
+  [[https://cestlaz.github.io/stories/emacs/][Emacs Series webpage]]
+
+  Lecture on Org-mode
+  [[https://www.youtube.com/watch?v=SzA2YODtgK4][Lecture on Org-Mode]]
+
+* Package management
+    
+To refersh package list 
+m-x package-refresh-contents
+
+There are things like 'try' allows you to try packages
+m-x try RET enter the package name
+
+Now when you try packages your not sure how they work you can use 
+m-x describe-package RET enter package name
+This will give you info on the package. 
+
+If you dont find much likely there will be commands you can run
+and you can find them by typing m-x and then start typing the package name
+
+
+
+* Text manipulation
+to turn a long line into a paragraph type A-q
+
+To move around text the keys that I use the most are
+
+begining of line c-a
+end of line c-e
+up line c-p
+down line c-n
+move up and down by paragraph a-e a-a
+forward and back by words a-f a-b
+To make text bigger C-x C-+
+To make text smaller C-x C--
+
+And then to select text you just press c-space and then move cursor to include text
+
+* Buffers and Windows
+
+Winner-mode to undo a change in the buffer config just press C-c left
+
+Select all the text in a buffer C-x h
+
+* Helpful information
+
+  C-h f will look for help for specific fuctions
+  you can search for whole-buffer to find mark-whole-buffer
+
+  C-h m to show available commands for current modes
+
+  C-h v for help realted to variables
+
+  C-h k to find which functions keys are bound to.
+
+  C-h w to see which key bindings are defined for a given function
+
+  C-h ? to see which other options are available
+
+* Slime
+
+  How do i exit the slime terminal? Or stop it?
+  
+   To do this you will run a slime command.
+   This is done by pressing the "," comma button
+   and then in the mini buffer type _sayoonara_
+
+   To close any unmatched parentheses and execute code
+   C-ret
+
+   To begin a new line and indent
+   C-j
+
+   Interrupt the lisp process
+   C-c C-b
+
+   To clear the entire buffer
+   C-c M-o
+
+   Recompile definition at point
+   C-c C-c
+
+   Recompile all of buffer
+   C-c C-k
+
+   
+
+   
+    
+** Loading a file / Processing a buffer
+
+
+   Compile and load current buffer source file
+
+   C-c C-k
+   
+** Describe a function
+
+   (describe #'Function)
+
+   
+* Using Emacs to format Documents
+
+* Lisp Info
+** Functional Programming 
+  Functional programming is like creating algorithms and search methods and sort methods. And making them 
+  as efficent as possible. 
+**** Big O notation
+**** If it is a recursive program, turn it into a tree. 
+
+
+
+
+create 	ctypecase
+dancing 	debug
+decf 	decimal-with-grouped-digits-width
+declaim 	declaration
+declare 	decode-float
+decode-universal-time 	defcas
+defclass 	defconstant
+defconstant-uneql 	defconstant-uneql-name
+defconstant-uneql-new-value 	defconstant-uneql-old-value
+defgeneric 	defglobal
+define-alien-routine 	define-alien-type
+define-alien-variable 	define-cas-expander
+define-compiler-macro 	define-condition
+define-hash-table-test 	define-load-time-global
+define-method-combination 	define-modify-macro
+define-setf-expander 	define-source-context
+define-symbol-macro 	defined-type-name-p
+defmacro 	defmethod
+defpackage 	defparameter
+defsetf 	defstruct
+deftype 	defun
+defvar 	delete
+delete-directory 	delete-duplicates
+delete-file 	delete-file-error
+delete-if 	delete-if-not

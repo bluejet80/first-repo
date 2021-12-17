@@ -1,0 +1,15 @@
+:PROPERTIES:
+:ID:       6ba1f98b-9e1e-4a22-9899-bf144eb0b015
+:END:
+#+title: Schedule Index
+#+date: [2021-08-31 Tue 17:54]
+
+Here is the outline of everything that you will be studying.
+
+1. [[id:7e5ac42e-1491-43d3-8d70-a00c036fdd58][Emacs Lisp]]
+2. [[id:c179a479-ba05-49c1-b709-4827359657ac][Java]]
+3. [[id:c633afd6-da96-461c-bd35-f15a9df9baeb][HTML/CSS]]
+4. [[id:c7c0bf05-e15e-49f5-a5df-fd7a77623746][Java Script]]
+5. [[id:aa914b1a-10c1-4c4e-9981-042d9ff20da8][Python]]
+6. [[id:9387f23c-ed56-4ea8-9473-c8f0b3969519][Problem Resolution]]
+   

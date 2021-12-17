@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       e9ac8dd0-2ff5-488c-b32a-85ea262c1148
+:END:
+#+title: Blender
+
+This is the place for all things Blender Related
+
+

@@ -1,0 +1,17 @@
+:PROPERTIES:
+:ID:       8f4c5670-4e62-4dc0-b6e5-4a5b90e2d9a9
+:END:
+#+title: Website Stuff
+#+date: [2021-09-03 Fri 10:39]
+
+This is for info on Website Creation
+
+* List of Websites currently working on
+** Bird Website
+** 
+
+
+* Organize resources for websites
+  what resources need to be made and where can I get resources from:
+
+  

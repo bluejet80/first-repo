@@ -1,0 +1,360 @@
+:PROPERTIES:
+:ID:       eb328297-95d3-4eed-b293-d4cb20d9eb09
+:END:
+#+title: Central Index Oct 2021
+#+date: [2021-10-07 Thu 19:11]
+
+This will be the start point and I can branch out from here:
+
+There will be one of these per month.
+
+Previous Month Index
+[[id:dd55333d-ef7c-4abb-a8ea-73e187046d74][Central Index Sept 2021]]
+
+Next month Index
+
+
+
+* |###########################|
+* OverVeiw Of Programming Tools
+** The fundamentals of Study
+*** Retaining more information
+    Write down and grasp key points in the lecture. Then
+    immediately after, skim over your notes and maybe build
+    something of your own that includes the ideas and concepts
+    that you just learned. Make sure to spend at least 15-20
+    minutes reviewing what you learned in the lecture. 
+*** Understand the code that was used
+    Refactor it, Change the UI and the colors, make it your own
+    so that you really understand how all the elements relate to
+    each other.
+    Create a clone of the projects that you just did, but do it
+    from scratch. 
+*** Creating good Sudo Code
+    make sure there is one line for each action 
+*** Understanding a Programming Problem
+    The best first step in solving a programming problem is to
+    describe the problem to yourself. You cannot expect an adequate
+    solution unless you understand the problem in your own terms. 
+**** Ask yourself some basic questions:
+***** What needs to be done?
+      Describe the general goals that the program must achieve
+***** What are the big pieces of the problem?
+      Consider the steps required to reach the overall solution of
+      the task. How do the pieces fit together?
+***** What is the Scope of the problem?
+      Try to identify issues that concern you as well as those you
+      can ignore.
+***** What resources are available to you as the Programmer?
+      Common operations are often captured in library routines. Often
+      you can find examples of programs that perform similar tasks or
+      that provide a certain part of your solution. Avoid doing work
+      that has already been done. However, you must be aware that
+      someone else's model for a solution may not be compatible with
+      yours. 
+***** What kind of input is supplied and who supplies it?
+      Certain programs require uyser interaction, while others
+      recieve input from other programs. 
+***** How does the program demonstrate that the desired task is complete?
+      The program might succeed quietly by calling other programs or by
+      properly initializing a device. It could also return formatted
+      results, including sophisticated charts and tables. 
+***** Who will use the program?
+      A novice user might require a simple and friendly interface
+      while a sophisticated user might expect more features and some
+      access to the program itself. 
+***** What constraints limit the approach to the problem?
+      Often programming projects must conform to strict deadlines,
+      or the resulting application must be compatible with existing
+      programs or must run within a limited amount of physical memory.
+      The environment of the target system might also lack certain resources. 
+      
+** The OpenWare MIT Lectures With Python
+   
+*** I Downloaded and installed Python 3.9.7
+*** I downloaded and installed The Spyder IDE
+    This is good to use to write programs in python
+*** Anaconda is another version of Python
+    it comes with all the packages already installed
+    I downloaded it. 
+*** Some of the other Tutorials for Python use Pycharm
+    So I downloaded and installed it aswell
+*** link to the courseware Lecutures [[https://www.youtube.com/watch?v=SE4P7IVCunE&list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA&index=11][Lecture 3]]
+    This link begins at the #3 String manipulation
+    There are 12 lectures and going through all of them
+    will give ya a pretty good understanding of python and
+    programming
+*** Currently on courseware [[https://www.youtube.com/watch?v=MjbuarJ7SE0&list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA&index=14][Lecture 4]]
+    this lecture is about Decompositions, Abstractions, and
+    Functions.
+*** link to [[id:aa914b1a-10c1-4c4e-9981-042d9ff20da8][Python]]
+
+** The harvard CS50 2017 Lectures with C
+
+*** These are great lectures on theory and algorithms
+   
+*** They are presented in C Language
+
+*** [[https://www.youtube.com/playlist?list=PLhQjrBD2T3828ZVcVzEIhsHVgjANGZveu][link to video lectures]]
+
+*** [[id:517f22e7-1522-4ec1-889d-e621d1ace968][Harvard CS50]]
+
+** Learning Common Lisp
+
+*** I use Slime within Emacs to run common lisp programs 
+*** I can create a buffer with the extension .lisp
+    and this file can then be compiled I guess and ran
+*** Link to [[id:9daaa999-15db-4dcc-9316-bda00598827b][Notes from Structure and Interpret]]
+*** [[id:5c67152c-52dc-454a-87a8-b937d82c4e0c][Lisp notes]]
+*** I just got a bunch of LISP books 9/23/21
+*** Work Program
+    I was able to get the program for counting monies working 9/23/21
+    money1.lisp in the home dir.
+*** [[id:f1f67b33-2217-4c1a-8433-cb835edde348][Lisp Programs]]
+*** [[id:7e5ac42e-1491-43d3-8d70-a00c036fdd58][Emacs Lisp]]
+
+** The Test Driven Design Tutorials and other use Java
+
+*** I installed the latest version of java
+*** I installed Eclipse IDE to create Java Progams
+    and to do testing in 
+*** [[id:c179a479-ba05-49c1-b709-4827359657ac][Java]]
+*** [[id:d6b9c048-f1d4-4d01-b600-f552099d2bac][Test Driven Design]]
+*** All this revolves around working in a Maven Project
+
+** The Node.js and other Tutuorials use JavaScript
+
+*** I installed node.js
+*** I am using VS Code to progam JavaScript
+*** It works well with HTML and CSS as well
+    [[id:c7c0bf05-e15e-49f5-a5df-fd7a77623746][Java Script]]
+
+** I need to also work on Webdesign with just HTML/CSS and Javascript
+
+*** HTML Coding conventions
+    [[id:3fb8bfa3-240b-43be-984c-fb92fd6f3dd9][Html Notes]]
+
+*** List of CSS Resources
+    [[id:c633afd6-da96-461c-bd35-f15a9df9baeb][HTML/CSS]]
+
+*** Clone various websites
+
+*** Integrate Javascript
+
+** General Tech Learning Info
+
+*** Learn about Databases  [[id:6156990b-af51-46e3-95a6-e0f759a21b61][Database Study]]
+
+*** Overall Tech Study [[id:c9ca571d-c652-4a83-bd19-5295e929a1b4][Overall Tech Study]]
+
+*** Links to Tech websites [[id:0e86741a-5164-4cb3-8ea4-93986ca7aa1c][Tech Websites]]
+
+** Data Structures Video Course(less important right now)
+   
+*** link to [[https://www.youtube.com/watch?v=zg9ih6SVACc][Video Course]]
+
+*** link to notes [[id:ed2f2faf-c3fd-4f58-8202-e6fde67c6f33][Data Structures]]
+
+*** Just got a book on DataStructures and Algorithms 9/23/21
+
+** Linux Server Stuff
+
+*** [[id:1adc15bd-e6bf-45bb-b440-4ff2d1e93d6a][Linux]]
+    
+* |###########################|
+
+* Weekly Focus
+
+** One Week focus on *Java Script*
+*** Link to [[id:c7c0bf05-e15e-49f5-a5df-fd7a77623746][Java Script]]
+
+*** Description of Current Position:
+    
+** One Week focus on *Python*
+   Wathcing the MIT Course ware uses Pyhton and so I will be learning
+   that as I go through the lectures
+*** Link to [[id:aa914b1a-10c1-4c4e-9981-042d9ff20da8][Python]]
+** One Week focus on *Java*
+*** Link to [[id:c179a479-ba05-49c1-b709-4827359657ac][Java]]
+
+*** Description of Current Position:
+
+** One Week focus on *HTML/CSS*
+*** Link to [[id:c633afd6-da96-461c-bd35-f15a9df9baeb][HTML/CSS]]
+
+*** Description of Current Position:
+    
+** One Week focus on *Programming Theory*
+*** Reading book "Structure and Interpretation of Computer Programs"
+    Link to [[id:9daaa999-15db-4dcc-9316-bda00598827b][Notes from Structure and Interpret]]
+    
+** One Week focus on *GitHub* 
+*** Link to [[id:3d7d920c-6a6f-4f3f-8575-7522b7873f95][Git and GitHub]]
+
+    
+* What to focus on later
+
+** Focus on *React/Full Stack Development*
+  
+*** Link to [[id:d3146f27-bac4-4a06-913f-1838c5d7c511][React Development]]
+
+*** Description of Current Position:
+     
+** Java Server Pages and XML files
+* |###########################|
+
+** Week of 10/05/21
+
+*** Working on Lisp Studies
+
+**** Land of Lisp Book
+
+**** Structure and Interpretation of Computer Programs
+
+** Week of 10/10/21
+   
+*** Focusing on python 3
+    
+**** Anaconda
+
+***** Spyder
+      IDE for Python 
+
+***** Jupyter Notebooks
+
+****** Integrated web notebook
+       This is where you can run
+       
+       python
+       html
+       javascript
+       markdown
+
+       All in one notebook and see the results of what you are doing
+       right there. 
+
+***** Data Science
+      10/12/21
+      Checked out some books from the WSU library
+      1. Dive into Python 3 by Mark Pilgrim
+	 this has been a good book with some cool projects to make. 
+      2. Oreilly - Python for Data Analysis
+
+***** I really need to get into GITHUB and other Repositories
+
+****** Accounts
+
+** Week of 10/25/21
+   
+*** Catalog how to update Everything
+    
+**** Python
+
+***** Anaconda/Spyder
+      Make sure you are in the Anaconda Prompt terminal:
+      conda update anaconda
+
+      And then to update Spyder type:
+      conda install spyder=5.1.5
+
+      always remember to restart the kernal after each update.
+      
+***** Pycharm
+      
+**** Java
+
+***** Eclipse
+      You should be able to update this within eclipse
+      
+***** Maven
+
+***** Java Runtime/packages
+      
+**** JavaScript
+
+***** Node.js
+
+***** VS Code
+
+***** React/Vue
+
+**** Linux
+     To update apt in linux run
+     apt update
+     and then run:
+     apt upgrade
+     
+**** Emacs/Slime/SBCL
+     Review how to add packages and update SBCL 
+
+*** Topic notes website
+    Need to take all the info from the notes and get it put
+    on the website.
+    
+*** Webserver
+    Need to make a central webpage that links to the other domains(websites)
+    -one website is Topic Notes Website
+
+    Installed the Nginx Webserver
+    
+**** Design
+     large buttons that link to each site
+     Dont need to have any back links just go back to original ip to
+     get back to the main page
+
+*** Things to do: 10/28/21
+    
+**** Figure out the way to begin Java projects in Eclipse
+     The way you name the projects and organize them.
+     I want to develop repositories of classes and methods that can be reused
+     I want to be able to find things easily
+
+***** TESTING
+      Find out how maven project differ from normal projects
+     Become more familiar with the use of JUnit. 
+     
+**** Fix the web server so I can access it from outside networks
+     Find out where the configuation files are.
+     Ask questions of the other people that you know.
+
+     
+**** Make Linux notes by asking questions and then answering them.
+     How do I run a network map? What files are needed?
+
+     Again, What does each part of the Linux file system do or represent?
+    
+**** Develop the organization for present and future websites
+     develop the main page which connects all the domains
+     cloud services and local websites and java app sites
+     
+**** Figure out an organization for Javascript projects
+
+**** develop more knowledge on Python
+     Setting up virtual environments
+     Dependencies and Repositories
+     Develop an organization for the various projects
+
+     
+**** Organize notes
+     Keep rewriting them keeping what is needed and getting
+     rid of what is not. Rephrase the content and make it more
+     adaptible.
+     
+**** Continue working through the Land Of Lisp Book
+     
+**** Develop your CSS skills
+     Dont do something that makes you have to do something else
+     Before you alter an object see if there are other thigs that
+     are causing it to be placed where it is. 
+
+* |###########################|
+
+* |###########################|
+  
+* Organize Each of the Main Categories
+
+** [[id:c179a479-ba05-49c1-b709-4827359657ac][Java]]
+** [[id:c7c0bf05-e15e-49f5-a5df-fd7a77623746][Java Script]]
+** [[id:c633afd6-da96-461c-bd35-f15a9df9baeb][HTML/CSS]]
+** [[id:3d7d920c-6a6f-4f3f-8575-7522b7873f95][Git and GitHub]]
+** [[id:69b09ca2-b265-4191-b11f-1a1d8ebd79b5][Programming]]

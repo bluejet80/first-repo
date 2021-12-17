@@ -1,0 +1,26 @@
+:PROPERTIES:
+:ID:       d7c1d54f-fe0d-4561-a122-1deaa84e32cd
+:END:
+#+title: Algorithms
+
+This is the place for everything related to Algorithms
+
+* Recursive Problems
+  
+** Five steps to solving any recursive problem
+
+*** 1. What is the simplest possible input
+
+**** What if one or all inputs are zero?
+
+**** It is from this that we will develop our base cases. 
+
+*** 2. Play around with examples and visualize
+
+**** Dont be afraid to write out a ton of examples
+     This is so you can be able to see a pattern develop
+
+*** 3. Relate complex examples to more simple ones
+
+*** 4. Generalize the pattern
+

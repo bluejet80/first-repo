@@ -1,0 +1,266 @@
+:PROPERTIES:
+:ID:       5ecfd482-a98f-4eab-b842-f6b00428090b
+:END:
+#+title: Program journal
+#+date: [2021-10-08 Fri 21:34]
+
+
+* I want to create a self-modifying program
+
+pass it numbers
+the higher the number the more it does this
+the lower the number the more it did this.
+
+With low numbers maybe the word blue is used more
+
+Ya, we will be describing things, scenes.
+
+and the lower the number the more blue and green things will be
+and the higher the number the more orange and red things are
+yellow is in the middle and purple on both very extreme.
+
+Or you could mae it to where at a high number the wizard is polite
+and at a low number the wizard is very rude.
+
+so you have a function called talk
+
+and that runs a function that chooses a different set each time
+
+each list in the set has functions that cause it to choose
+certain words from the list as opposed to others.
+
+** Examples
+
+ Q: See that lamp?
+
+ what a nice lamp
+ vs
+ what a fucked up lamp
+
+ ,
+
+ Q: Where is the living room? 
+
+ The living room is right this way.
+ vs
+ Fuck off, find it yourself
+
+
+ ,
+
+ Q: How are you feeling?
+
+ I'm really happy
+ vs
+ I'm really drunk
+
+ ,
+
+
+ Q:
+
+
+** Object Examples
+
+   A blue lamp sets over in the corner
+   vs
+   A blinking red lamp is smashed against the wall.
+
+   ,
+
+   A plush cumfy couch becons to you near the center of the room
+   vs
+   A group of stumps set in the moddle of the room
+   or
+   A torn up stained maroon couch is askew in the middle of the room.
+
+   ,
+
+   A comfy chair sits in the corner by the window
+   vs
+   
+
+
+
+** Scene Examples
+
+   To your left is a pristine lavatory smelling of lavandar and cherries
+   vs
+   Over there is the bathroom, I'd stay away if I were you.
+
+   ,
+
+** Notes
+
+   The living room is a large room with a couch in the middle, many
+   windows, a large table against one wall with chairs around it.
+   On the table is two monitors connected to a computer. There is a
+   door that leads to the kitchen, stairs to go upstairs
+
+* Sentence Structure
+
+** most common sentence structures
+
+*** Question
+    How does this work?
+    Which way to salisburg?
+    Who are you?
+    What is this?
+    Do you agree?
+    How do you feel?
+    How do I feel?
+    Which one is best?
+
+    --
+    how do, how does, Which way, Who are, What is, What was, Do you,
+    Pronoun or it
+    
+
+*** Teach
+    The definition of this is this
+    There are 12 eggs in a dozen
+    These are the rules
+    My name is Jarett
+    You are looking at the living room
+    It is 5:30
+    
+
+*** Affirm
+    Yes, you are right
+    That is correct
+    I agree
+    You have a clear understanding
+    Pretty sure that's it
+
+*** Detest
+    Nope
+    I think maybe you are mistaken
+    That is flat wrong
+    Not really
+    Of course not
+    Are you retarded?
+    Yo mama would be so ashamed
+
+*** Indifferent
+   That's nice
+   Wow...
+   Hmm...
+   I'm not really into it.
+   Whatever
+   Doesnt bother me
+   Sounds great
+   You know i wonder if my shoes would work as gloves?
+
+* Self-modifying code
+  So, another way of looking at it is that you use the text formatting to
+  have the program write its own functions and then execute them.
+
+  How could this be done?
+
+  like maybe if everytime you ran this program there would be
+  another instance of somehting printed, like the program goes in
+  and rewrites itself each time a certain command is passed and
+  then, you can pass a command to have it return to what it was.
+
+  (foo add-more)
+  My name is jarett
+  My name is jarett
+  nil
+
+  (foo add-more)
+  My name is jarett
+  My name is jarett
+  My name is jarett
+  nil
+
+  (foo add-more)
+  My name is jarett
+  My name is jarett
+  My name is jarett
+  My name is jarett
+
+  (foo no-more)
+  My name is jarett
+
+
+ The code is
+
+ (princ "My name is Jarett"
+
+
+** First Try
+
+ So you set some code as th data of a variable.
+ maybe you push numbers of to an addition function
+
+ Ok so I made a variable *foo* which contained a string (+ 1 2)
+ Then I made the function run1 to run an eval of the
+ variable *foo*. And then I made a function to push
+ other numbers on to *foo* and keep the + function at
+ the beginning.
+ And using that same method you could add things at any location
+ in the list.
+ then when you run run1 again you get a different answer.
+
+ The functions are
+ var *foo*
+ (add-one a)
+ (multi-add a b c)
+ (two-away)
+ (show)
+ (run1)
+
+#+begin_src lisp
+    
+    (setf *foo* '(+ 1 2))
+    
+    (defun add-one (num)
+      (push num (cdr *foo*))
+	       
+    
+    
+    (defun two-away ()
+	     (progn 
+		 (setf *foo* (cddr *foo*))
+		 (setf *foo* (cons '+ *foo*))))
+    ;;;
+    (loop for x from 1 to 10
+		 do (add-one (* 7 x)))
+    ;;;
+    (defun multi-add (num1 num2 num3)
+	     (loop for x from num1 to num2
+		 do (add-one (* num3 x))))
+    
+    
+    (defun show() *foo*)
+    
+    (defun run1 ()
+	     (eval *foo*))
+    
+    
+    ;;Add number from the fibbonacci sequence
+    
+    (defun fib-dup (x)
+	     (defparameter *a* 1)
+	     (defparameter *b* 0)
+	     (defparameter *c* nil)
+	     (loop repeat x
+		  do  (setf *c* (+ *a* *b*))
+		      (setf *b* *a*)
+		      (setf *a* *c*) 
+		      (push *a* (cdr *foo*))))
+    
+#+end_src
+
+Lets think about how when you increase the input to multi-add, it
+increases the sum quite quickly and then when you run two-away
+that sum drops just as fast.
+
+But if you add a lot of numbers then two-away ofcourse will have
+less effect
+
+What would happen if you worked the length of *foo* into the equation to
+effect the growth rate or something (length *foo*)
+
+
+

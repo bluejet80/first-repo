@@ -1,0 +1,50 @@
+:PROPERTIES:
+:ID:       517f22e7-1522-4ec1-889d-e621d1ace968
+:END:
+#+title: Harvard CS50
+#+date: [2021-09-11 Sat 19:31]
+
+This is where notes from the Harvard CS50 Video Tutorials will go
+
+* Lecture 0
+
+** Phone book algorithm
+
+ 0  _Pick up_ phone book
+
+ 1  _open to_ middle of phone book
+
+ 2  _look at_ names
+
+ 3  /if/ *Smith is among names*
+
+ 4      _call_ Mike
+
+ 5  /else if/ *Smith is earlier in book*
+
+ 6      _open_ to middle of left half of book
+
+ 7      =go back to step 2=
+
+ 8  /else if/ *Smith is later in book*
+
+ 9      _open_ to middle of right half of book
+
+ 10     =go back to step 2=
+
+ 11  /else/
+
+ 12     _quit_
+
+
+
+
+ The _underlined_ words are Functions, they are the verbs or actions of the algorithm
+ the /italic/ words are conditional statements
+ The *bold* words are boolean operations
+ The =verbose= words are loops
+
+
+ 
+
+

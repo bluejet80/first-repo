@@ -1,0 +1,7 @@
+:PROPERTIES:
+:ID:       9ecd47a5-3784-4c89-ab12-3d894dcf43ac
+:END:
+#+title: Family
+
+This is about family stuff
+

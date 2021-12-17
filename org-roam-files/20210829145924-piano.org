@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       4617240e-ea67-4b40-b6bd-14066b2ec228
+:END:
+#+title: Piano
+
+This is the place for everything related to the Piano
+
+

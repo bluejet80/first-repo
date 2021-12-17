@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       a5491ff0-8077-4a70-815a-805e75bdb595
+:END:
+#+title: Python the hard way
+#+date: [2021-09-17 Fri 16:54]
+
+This is for notes form the Book
+"Learn Python the Hard Way" by Zed Shaw
+
+

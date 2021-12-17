@@ -1,0 +1,62 @@
+:PROPERTIES:
+:ID:       c633afd6-da96-461c-bd35-f15a9df9baeb
+:END:
+#+title: HTML/CSS
+
+This is the place for everything HTML CSS related
+* Fonts on the website
+  To get fonts you first download the font
+  You can get several fonts for free from:
+  Google fonts [[https://fonts.google.com/][google fonts]]
+  Font Squirrel [[https://www.fontsquirrel.com/tools/webfont-generator][webfont kit generator]]
+
+  
+** Steps to getting fonts to work
+
+*** choose your font
+*** Download the font
+*** Then use the webkit generator
+*** put the font files into a font folder for the site
+*** add the reference to the css file 
+*** call the font-family in a selector
+*** 
+
+* CSS Tutorial(vid)
+  [[https://www.youtube.com/watch?v=1Rs2ND1ryYc][video link]]
+
+* HTML/CSS Tutorial
+  Free Code Camp
+  [[https://www.freecodecamp.org/news/html-and-css-inline-style-external-stylesheet-css-code-examples/][website link]]
+
+* How to create a Working Blogging Website
+  [[https://dev.to/kunaal438/fullstack-how-to-create-a-working-blogging-website-with-pure-html-css-and-js-in-2021-9di][website link]]
+
+* CSS Properties
+  [[https://www.tutorialrepublic.com/css-reference/css3-properties.php][website link]]
+
+* Multi-Page website(vid)
+  [[https://www.youtube.com/watch?v=MwxAwQdpft4][video link]]
+  Most likely this uses:
+  JQuery, javascript
+  Bootstrap CSS
+  Bootstrap js
+
+* More Videos on CSS
+  [[https://www.youtube.com/watch?v=iRPPq9vYig4][Video 1]]
+  
+* Step by step HTML CSS
+  [[https://courses.robobunnyattack.com/p/step-by-step-html-and-css-for-absolute-beginners][website link]]
+
+* Hex Colors
+  [[https://www.google.com/search?q=hex+color&rlz=1C1RXQR_enUS929US929&oq=hex+co&aqs=chrome.0.0i433i512l3j69i57j0i433i512j0i512j0i433i512l3j0i512.1952j0j7&sourceid=chrome&ie=UTF-8][website link]]
+
+* Napkin.io
+  [[https://css-tricks.com/napkin/][Website Link]]
+
+* The Importance of Color
+  [[https://amp.reddit.com/r/graphic_design/comments/pshvwd/i_always_look_through_this_table_before_creating/#amp_tf=From%20%251%24s&aoh=16323255772072&csi=0&referrer=https%3A%2F%2Fwww.google.com][Website Link]]
+
+* Front end Design Thru Cloning Websites
+  [[https://dev.to/hyggedev/master-frontend-development-by-cloning-these-websites-1m08][website]]
+
+* 

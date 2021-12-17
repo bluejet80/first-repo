@@ -1,0 +1,16 @@
+:PROPERTIES:
+:ID:       f2cbb87c-4665-4076-b90c-20806b81f2bf
+:END:
+#+title: Object Oriented Programming
+
+This is a place for everything Object Oriented Programming related.
+
+* Object Oriented Programming
+  In object oriented programming you have full control over the names of the classes and methods.
+  Your goal is to make your code as readable as possible. To organize it in the most simplest fashion. 
+  To not have any thing that is not necessary and understand how everything in the program relates to
+  everything else. 
+** Methods should only do one thing. 
+** Make sure to keep things private and only make public what is necessary.
+** Use methods to hide the underworkings of the code. 
+

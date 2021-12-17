@@ -1,0 +1,33 @@
+:PROPERTIES:
+:ID:       d6b9c048-f1d4-4d01-b600-f552099d2bac
+:END:
+#+title: Test Driven Design
+
+This is the place for everything Test Driven Design related.
+
+
+Although its titles Test Driven Design, this section will contain everything
+to do with error handling and debugging
+* |###########################|
+* Problem Management / Design Techniques
+
+** What Resources can be used to find the solutions to problems? 
+**** The "inspect" feature of Chrome.
+***** This is especially good for javascript
+**** IDE Debugging 
+***** Writing RunTimeExceptions
+
+
+* [[https://youtu.be/grEKMHGYyns=2733][German Java Tutorial]]
+*** Write Code
+    that gives errors and or prints the values of variables at specific times.
+    Functions that post when they have completed.
+
+
+* |###########################|
+
+* Test Driven Design(TDD)
+** [[https://www.youtube.com/watch?v=fpVDe6Jvch4][Test-Driven Design Java #3]]
+*** You begin creating a program by asking a series of questions.
+*** Formulating a series of tests
+    that the program will have to pass if it is to do what it is meant to do.

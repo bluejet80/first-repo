@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       b8f30462-5708-46de-81b2-e258ec06eb79
+:END:
+#+title: InDesign
+
+This is the place for everything InDesign related
+
+

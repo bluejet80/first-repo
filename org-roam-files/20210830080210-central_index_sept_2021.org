@@ -1,0 +1,417 @@
+:PROPERTIES:
+:ID:       dd55333d-ef7c-4abb-a8ea-73e187046d74
+:END:
+#+title: Central Index Sept 2021
+#+date: [2021-08-30 Mon 08:02]
+
+This will be the start point and I can branch out from here:
+
+There will be one of these per month.
+
+Link to next Month
+[[id:eb328297-95d3-4eed-b293-d4cb20d9eb09][Central Index Oct 2021]]
+
+
+* |###########################|
+
+* OverVeiw Of Programming Tools
+** The fundamentals of Study
+*** Retaining more information
+    Write down and grasp key points in the lecture. Then
+    immediately after, skim over your notes and maybe build
+    something of your own that includes the ideas and concepts
+    that you just learned. Make sure to spend at least 15-20
+    minutes reviewing what you learned in the lecture. 
+*** Understand the code that was used
+    Refactor it, Change the UI and the colors, make it your own
+    so that you really understand how all the elements relate to
+    each other.
+    Create a clone of the projects that you just did, but do it
+    from scratch. 
+*** Creating good Sudo Code
+    make sure there is one line for each action 
+*** Understanding a Programming Problem
+    The best first step in solving a programming problem is to
+    describe the problem to yourself. You cannot expect an adequate
+    solution unless you understand the problem in your own terms. 
+**** Ask yourself some basic questions:
+***** What needs to be done?
+      Describe the general goals that the program must achieve
+***** What are the big pieces of the problem?
+      Consider the steps required to reach the overall solution of
+      the task. How do the pieces fit together?
+***** What is the Scope of the problem?
+      Try to identify issues that concern you as well as those you
+      can ignore.
+***** What resources are available to you as the Programmer?
+      Common operations are often captured in library routines. Often
+      you can find examples of programs that perform similar tasks or
+      that provide a certain part of your solution. Avoid doing work
+      that has already been done. However, you must be aware that
+      someone else's model for a solution may not be compatible with
+      yours. 
+***** What kind of input is supplied and who supplies it?
+      Certain programs require uyser interaction, while others
+      recieve input from other programs. 
+***** How does the program demonstrate that the desired task is complete?
+      The program might succeed quietly by calling other programs or by
+      properly initializing a device. It could also return formatted
+      results, including sophisticated charts and tables. 
+***** Who will use the program?
+      A novice user might require a simple and friendly interface
+      while a sophisticated user might expect more features and some
+      access to the program itself. 
+***** What constraints limit the approach to the problem?
+      Often programming projects must conform to strict deadlines,
+      or the resulting application must be compatible with existing
+      programs or must run within a limited amount of physical memory.
+      The environment of the target system might also lack certain resources. 
+
+** The OpenWare MIT Lectures With Python
+   
+*** I Downloaded and installed Python 3.9.7
+*** I downloaded and installed The Spyder IDE
+    This is good to use to write programs in python
+*** Anaconda is another version of Python
+    it comes with all the packages already installed
+    I downloaded it. 
+*** Some of the other Tutorials for Python use Pycharm
+    So I downloaded and installed it aswell
+*** link to the courseware Lecutures [[https://www.youtube.com/watch?v=SE4P7IVCunE&list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA&index=11][Lecture 3]]
+    This link begins at the #3 String manipulation
+    There are 12 lectures and going through all of them
+    will give ya a pretty good understanding of python and
+    programming
+*** Currently on courseware [[https://www.youtube.com/watch?v=MjbuarJ7SE0&list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA&index=14][Lecture 4]]
+    this lecture is about Decompositions, Abstractions, and
+    Functions.
+*** link to [[id:aa914b1a-10c1-4c4e-9981-042d9ff20da8][Python]]
+
+** The harvard CS50 2017 Lectures with C
+
+*** These are great lectures on theory and algorithms
+   
+*** They are presented in C Language
+
+*** [[https://www.youtube.com/playlist?list=PLhQjrBD2T3828ZVcVzEIhsHVgjANGZveu][link to video lectures]]
+
+*** [[id:517f22e7-1522-4ec1-889d-e621d1ace968][Harvard CS50]]
+
+** Learning Common Lisp
+
+*** I use Slime within Emacs to run common lisp programs 
+*** I can create a buffer with the extension .lisp
+    and this file can then be compiled I guess and ran
+*** Link to [[id:9daaa999-15db-4dcc-9316-bda00598827b][Notes from Structure and Interpret]]
+*** [[id:5c67152c-52dc-454a-87a8-b937d82c4e0c][Lisp notes]]
+*** I just got a bunch of LISP books 9/23/21
+*** Work Program
+    I was able to get the program for counting monies working 9/23/21
+    money1.lisp in the home dir.
+*** [[id:f1f67b33-2217-4c1a-8433-cb835edde348][Lisp Programs]]
+*** [[id:7e5ac42e-1491-43d3-8d70-a00c036fdd58][Emacs Lisp]]
+
+** The Test Driven Design Tutorials and other use Java
+
+*** I installed the latest version of java
+*** I installed Eclipse IDE to create Java Progams
+    and to do testing in 
+*** [[id:c179a479-ba05-49c1-b709-4827359657ac][Java]]
+*** [[id:d6b9c048-f1d4-4d01-b600-f552099d2bac][Test Driven Design]]
+*** All this revolves around working in a Maven Project
+
+** The Node.js and other Tutuorials use JavaScript
+
+*** I installed node.js
+*** I am using VS Code to progam JavaScript
+*** It works well with HTML and CSS as well
+    [[id:c7c0bf05-e15e-49f5-a5df-fd7a77623746][Java Script]]
+
+** I need to also work on Webdesign with just HTML/CSS and Javascript
+
+*** HTML Coding conventions
+    [[id:3fb8bfa3-240b-43be-984c-fb92fd6f3dd9][Html Notes]]
+
+*** List of CSS Resources
+    [[id:c633afd6-da96-461c-bd35-f15a9df9baeb][HTML/CSS]]
+
+*** Clone various websites
+
+*** Integrate Javascript
+
+** General Tech Learning Info
+
+*** Learn about Databases  [[id:6156990b-af51-46e3-95a6-e0f759a21b61][Database Study]]
+
+*** Overall Tech Study [[id:c9ca571d-c652-4a83-bd19-5295e929a1b4][Overall Tech Study]]
+
+*** Links to Tech websites [[id:0e86741a-5164-4cb3-8ea4-93986ca7aa1c][Tech Websites]]
+
+** Data Structures Video Course(less important right now)
+   
+*** link to [[https://www.youtube.com/watch?v=zg9ih6SVACc][Video Course]]
+
+*** link to notes [[id:ed2f2faf-c3fd-4f58-8202-e6fde67c6f33][Data Structures]]
+
+*** Just got a book on DataStructures and Algorithms 9/23/21
+
+** Linux Server Stuff
+
+*** [[id:1adc15bd-e6bf-45bb-b440-4ff2d1e93d6a][Linux]]
+
+* |###########################|
+
+* Weekly Focus
+
+** One Week focus on *Java Script*
+
+*** Link to [[id:c7c0bf05-e15e-49f5-a5df-fd7a77623746][Java Script]]
+
+*** Description of Current Position:
+    
+
+** One Week focus on *Java*
+
+*** Link to [[id:c179a479-ba05-49c1-b709-4827359657ac][Java]]
+
+*** Description of Current Position:
+
+** One Week focus on *HTML/CSS*
+
+*** Link to [[id:c633afd6-da96-461c-bd35-f15a9df9baeb][HTML/CSS]]
+
+*** Description of Current Position:
+    
+
+** One Week focus on *React/Full Stack Development*
+  
+*** Link to [[id:d3146f27-bac4-4a06-913f-1838c5d7c511][React Development]]
+
+*** Description of Current Position:
+    
+    
+** One Week focus on *GitHub* 
+
+*** Link to [[id:3d7d920c-6a6f-4f3f-8575-7522b7873f95][Git and GitHub]]
+
+** One Week focus on *Programming Theory*
+   
+*** Reading book "Structure and Interpretation of Computer Programs"
+    Link to [[id:9daaa999-15db-4dcc-9316-bda00598827b][Notes from Structure and Interpret]]
+    
+** One Week focus on *Python*
+   Wathcing the MIT Course ware uses Pyhton and so I will be learning
+   that as I go through the lectures
+
+*** Link to [[id:aa914b1a-10c1-4c4e-9981-042d9ff20da8][Python]]
+
+* |###########################|    
+
+* |###########################|
+
+** Here is one of the main files that I started with all the info in it.
+   -[[id:b7e676a2-cbd5-4031-bf4d-ab7d1b073299][Outline Program1]]
+
+** Here is a TODO page that contains the current focuses
+   -[[id:cb677292-53fb-4d56-884b-8e9fff94a311][Programming TODO Aug 2021]]
+
+
+* |###########################|
+
+* The First Week 8/30
+
+** Try to migrate the info that you have on paper into Org-roam
+
+** Setup links to google docs aswell.   
+** I wrote some programs in Java that used the StdDraw Class. 
+*** This is working to progress in the [[id:5a6cc880-eafa-4282-97d7-a2f09beb99db][Algorithms Book]] 
+
+** 9/2/21 Overall progress is going good.
+   I think I should just keep doing what I am doing and kind of bounce back
+   and forth between things.
+   
+   I want to have something that keep a record of where I am in each subject
+   
+   I think if I am diligent enough about it I can keep updating the relative
+   articles to keep a record of my progress.
+
+*** Studying tables in [[id:7e5ac42e-1491-43d3-8d70-a00c036fdd58][Emacs Lisp]]
+*** Going to try and setup lsp-java so that I can have Eclipse functionality in emacs. 9/3/21
+*** [[id:a7263498-ab00-4cdb-86c3-dc8c9404aec6][Thoughts 9/3/21]]
+
+******* 9/3/21 Currently
+	Transfering all of the content of the Programming Study
+	Google Sheet to the Emacs Knowledgebase
+    
+** watched a video of a tour of spacex with Elon Musk
+   It was very informative
+   It is really interestinghow you can take some of the concepts of
+   rocket development and apply them to other things.
+
+   made a thing [[id:4e0b8219-6664-4ec6-a48b-2c46e896fa05][Elons Advice]] to capture some insights from Musk himself.
+
+** Current Focus
+*** 8/30/21
+    Over the weekend I was planning on watching more tutorials but then got
+    distracted with [[id:960f6bff-1cd9-46ee-beec-5e9c17d291f5][Org-Roam]] within [[id:ed949b81-475c-4ab6-824f-e3d019564e16][Org-mode]]
+
+    Watched a couple of tutorials, this one was the most helpful
+       -[[https://www.youtube.com/watch?v=AyhPmypHDEw&t=1s][Org-Roam Tutorial]]   add link with C-c C-l
+      
+**** Now I want to develop more of a plan to organize my notes and things.
+     This has the potential to replace google docs and be somehting that is forsure accessible locally
+
+     The development could happen as I go. Instead of tying to copy everything over at this point.
+     Nodes can be created as I need them and for now I would like to just expand this one file.
+
+
+* |###########################|
+
+* Second Week 9/6/21
+
+* |###########################|    
+  
+** Other things I am working on
+*** Node.js
+**** Go over the first part of the course again
+*** Organize Website Ideas [[id:8f4c5670-4e62-4dc0-b6e5-4a5b90e2d9a9][Website Stuff]]
+*** Work on TDD in Java [[id:d6b9c048-f1d4-4d01-b600-f552099d2bac][Test Driven Design]]
+    
+*** Get a better understanding of Workflow with Emacs and Org-mode
+    This may take time but I wanted to figure out where its real home
+    was in my workflow.
+    It's main goal right now is a repository of frequently needed information
+
+* [[id:71f96aed-6223-40aa-9f9b-1df673529a4f][Format Notes]]
+  
+* Organize Each of the Main Categories
+
+** [[id:c179a479-ba05-49c1-b709-4827359657ac][Java]]
+** [[id:c7c0bf05-e15e-49f5-a5df-fd7a77623746][Java Script]]
+** [[id:c633afd6-da96-461c-bd35-f15a9df9baeb][HTML/CSS]]
+** [[id:3d7d920c-6a6f-4f3f-8575-7522b7873f95][Git and GitHub]]
+** [[id:69b09ca2-b265-4191-b11f-1a1d8ebd79b5][Programming]]
+
+** 9/7/21
+
+*** DONE Pay Bills
+    CLOSED: [2021-09-11 Sat 19:57]
+*** DONE Deposit check in Bank
+    CLOSED: [2021-09-11 Sat 19:57]
+*** TODO Write up Bruce Responsibilities
+
+** Finacial Stuff
+*** Check to see how much the bank will charge to loan money
+
+** [[id:16219eff-1c92-4020-a228-21d8f3b6dac5][Four environments of memory]]
+
+* Further Organize Org-Roam Files 
+  Im begining to develop a nice layout that separates everything and makes things
+  more easy to find.
+   
+* How to think like a programmer
+  This is a video [[https://www.youtube.com/watch?v=azcrPFhaY9k&t=5s][How to be a programmer]]
+  by Andy Harris
+
+  The hard part about writing a computer program is not trying to be as smart as the
+  computer, its about how to be as mind-numbingly stupid as a computer.
+
+  This is being taught using Python
+
+  Most beginners have failed a lot.
+
+  Programming is not about languages.
+
+  Programming is really about solving problems, and explaining things to the idiot
+  computer.
+
+  Coding has only about eight main concepts
+  - Variables
+    When you are writing a program one of the things you can do is make a new
+    variable.
+    After you decide to make a new variable then you must answer the following
+    questions:
+    1. Name: What is the name of the variable going to be?
+    2. Type: What type of data is the variable going to contain?
+    3. InitVal: What is the inital value of the variable?
+
+  - Output
+    I can tell the user stuff.
+    What message do i want to send to the user?
+
+  - Input
+    Variable: where answer from the user is stored
+    Message: question being asked of the user
+
+    An input implies that a question was asked of the user.
+    I shouldnt ask someone to throw a ball until I put on my mit.
+    You must prepare to recieve input.
+
+ Now with just that knowledge you can write a program
+
+    create an integer variable for x
+    create an integer variable for y 
+    create an integer variable for sum
+    ask the user "X: " and put the answer in x
+    ask the user "Y: " and put the answer in y
+    put x + y in sum
+    tell user "answer is " sum
+
+ The next step is to convert it into comments and then write the code
+
+ Flesh out the comments by finding out how to write each comment in code
+ Depending on which language you are using
+ Type the code inbetween each line of comments
+
+ the code fails because it is concatenating the strings that are the default input
+
+ But failure is a good thing.
+ The essence of programming is problem solving.
+
+ 
+  - How to Debug
+    the best way to debug is to not have bugs
+    bad implementation can be googled
+    bad algorithms you cannot look up
+    what am I not understanding?
+    DO NOT start trying to solve a problem that you don't understand
+    You must first begin by understanding the problem
+
+    when you have a problem the solution might be learning a new tool that you
+    didnt know before
+
+    When rewriting your code you should rewrite the entire thing
+    Get rid of the old code completely
+
+  - While loop
+    Parts:
+    sentry: variable that will control loop
+    initialization: code the initializes sentry
+    condition: loop repeats if condition is true
+    change code: code to change sentry so condition can be triggered
+
+    while loops imply a lot but requiers little 
+
+    
+  - For loops
+    Parts:
+    Sentry - integer variable tha will contol loop
+    Start - integer value of sentry at beginning
+    finish - integer value of sentry at end
+    change - integer to add to sentry at each pass
+
+    
+
+    
+* Program Creation
+  75% of the process of writing a programm happens outside of the computer.
+  You begin by laying out on a piece of paper what you need the
+  program to do.
+  Here you can setup all the relationships between methods and classes,
+  You can define all the varaibles that you need, you can setup the
+  various loops and conditional statements that will be required.
+  basically you lay down the framework for your program before you even
+  open a text editor.
+
+  The syntax is always something that can be learned,
+  The how of the why is what is important. 
